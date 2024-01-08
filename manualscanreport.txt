@@ -1,0 +1,4600 @@
+
+----------- SCAN REPORT -----------
+TimeStamp: Mon, 10 Oct 2022 23:21:34 +0530
+(/usr/sbin/cxs --allusers --clamdsock /var/clamd --nodbreport --defapache nobody --doptions Mv --exploitscan --nofallback --filemax 10000 --noforce --html --ignore /etc/cxs/cxs.ignore --jumpfrom vatinfo1 --jumpto vilgst12 --mail supportdesk@mumbaihosting.com,samir@vilgst.com --options mMOLfuSGchexdnwZRrD --noprobability --qoptions Mv --report /var/log/cxsreports/cxs.scan --sizemax 1000000 --smtp --soptions a --ssl --summary --sversionscan --timemax 30 --nounofficial --virusscan --vmrssmax 2000000 --waitscan 0 --www --xtra /etc/cxs/cxs.xtra)
+
+
+(3) vatinfo1, Scanning /home/vatinfo1/public_html:
+
+'/home/vatinfo1/public_html/data'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andaman and Nicobar Islands/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/1957'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Andhra Pradesh/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Arunachal Pradesh'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Arunachal Pradesh/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Arunachal Pradesh/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Arunachal Pradesh/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Arunachal Pradesh/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Assam'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Assam/2001'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Assam/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Assam/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Assam/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Assam/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Assam/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Assam/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Assam/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Assam/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Assam/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Assam/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Assam/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/BUDGETS'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/BUDGETS/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/BUDGETS/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/BUDGETS/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/BUDGETS/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar/2001'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Bihar/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1937'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1962'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1963'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1967'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1968'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1969'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1970'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1972'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1974'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1975'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1978'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1979'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1983'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1984'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1985'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1986'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1987'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1988'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1989'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1990'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1991'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1992'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1993'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1994'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1995'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1996'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1997'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1998'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/1999'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2000'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2001'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2002'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2003'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2004'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CENTRAL EXCISE/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CGST'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CGST/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1962'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1963'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1971'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1975'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1976'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1977'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1978'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1979'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1984'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1985'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1988'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1989'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1990'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1992'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1993'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1994'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1995'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1996'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1997'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1998'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/1999'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2000'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2001'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2002'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2003'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2004'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/CUSTOMS/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Central'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Central/2002'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Central/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Central/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Central/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chandigarh'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chandigarh/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chandigarh/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chandigarh/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chandigarh/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chandigarh/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chandigarh/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chandigarh/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2003'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Chhattisgarh/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/DGFT'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/DGFT/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/DGFT/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Dadra and Nagar Haveli'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Dadra and Nagar Haveli/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Dadra and Nagar Haveli/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Dadra and Nagar Haveli/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Dadra and Nagar Haveli/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Dadra and Nagar Haveli/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Dadra and Nagar Haveli/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Dadra and Nagar Haveli/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Dadra and Nagar Haveli/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Daman and Diu'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Daman and Diu/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Daman and Diu/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Daman and Diu/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Daman and Diu/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Daman and Diu/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Daman and Diu/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Daman and Diu/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Daman and Diu/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Daman and Diu/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Delhi'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Delhi/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Delhi/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Delhi/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Delhi/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Delhi/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Delhi/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Delhi/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Delhi/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Delhi/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Delhi/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Delhi/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Delhi/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/GST'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/GST/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/GST/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/GST/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/GST/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/GST/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/GST/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/GST/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/GST/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Goa'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Goa/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Goa/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Goa/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Goa/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Goa/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Goa/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Goa/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Goa/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Goa/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Goa/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Goa/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Goa/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Gujarat'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Gujarat/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Gujarat/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Gujarat/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Gujarat/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Gujarat/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Gujarat/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Gujarat/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Gujarat/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Gujarat/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Gujarat/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Gujarat/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Gujarat/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Haryana'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Haryana/2003'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Haryana/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Haryana/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Haryana/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Haryana/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Haryana/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Haryana/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Haryana/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Haryana/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Haryana/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Haryana/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Haryana/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Himachal Pradesh'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Himachal Pradesh/1999'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Himachal Pradesh/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Himachal Pradesh/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Himachal Pradesh/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Himachal Pradesh/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Himachal Pradesh/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Himachal Pradesh/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Himachal Pradesh/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Himachal Pradesh/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Himachal Pradesh/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Himachal Pradesh/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Himachal Pradesh/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/IGST'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/IGST/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jammu and Kashmir'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jammu and Kashmir/2003'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jammu and Kashmir/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jammu and Kashmir/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jammu and Kashmir/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jammu and Kashmir/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jammu and Kashmir/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jammu and Kashmir/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jammu and Kashmir/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jammu and Kashmir/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jammu and Kashmir/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jammu and Kashmir/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jammu and Kashmir/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand/2001'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Jharkhand/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Karnataka'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Karnataka/2003'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Karnataka/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Karnataka/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Karnataka/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Karnataka/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Karnataka/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Karnataka/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Karnataka/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Karnataka/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Karnataka/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Karnataka/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Karnataka/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Kerala/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/0208'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/1997'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/2000'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Madhya Pradesh/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Maharashtra/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Manipur'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Manipur/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Manipur/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Manipur/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Meghalaya'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Meghalaya/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Meghalaya/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Meghalaya/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Meghalaya/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Meghalaya/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Meghalaya/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Meghalaya/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Meghalaya/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Mizoram'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Mizoram/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Mizoram/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Mizoram/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Mizoram/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Mizoram/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Nagaland'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Nagaland/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Nagaland/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Nagaland/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Nagaland/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Nagaland/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Nagaland/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Nagaland/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa/2004'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Orissa/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Puducherry'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Puducherry/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Puducherry/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Puducherry/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Puducherry/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Puducherry/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Puducherry/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Puducherry/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Puducherry/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Puducherry/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Puducherry/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Punjab'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Punjab/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Punjab/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Punjab/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Punjab/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Punjab/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Punjab/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Punjab/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Punjab/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Punjab/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Punjab/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Rajasthan'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Rajasthan/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Rajasthan/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Rajasthan/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Rajasthan/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Rajasthan/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Rajasthan/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Rajasthan/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Rajasthan/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Rajasthan/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Rajasthan/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Rajasthan/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Rajasthan/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/1994'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/1996'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/1997'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/1999'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2000'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2001'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2002'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2003'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2004'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SERVICE TAX/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SGST'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/SGST/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Sikkim'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Sikkim/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Sikkim/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Sikkim/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Sikkim/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Sikkim/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Sikkim/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Sikkim/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tamil Nadu'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tamil Nadu/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tamil Nadu/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tamil Nadu/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tamil Nadu/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tamil Nadu/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tamil Nadu/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tamil Nadu/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tamil Nadu/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tamil Nadu/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tamil Nadu/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tamil Nadu/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tamil Nadu/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Telangana'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Telangana/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Telangana/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Telangana/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Telangana/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tripura'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tripura/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tripura/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tripura/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tripura/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tripura/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tripura/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tripura/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Tripura/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/UTGST'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/UTGST/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttar Pradesh'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttar Pradesh/1981'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttar Pradesh/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttar Pradesh/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttar Pradesh/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttar Pradesh/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttar Pradesh/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttar Pradesh/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttar Pradesh/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttar Pradesh/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttar Pradesh/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttarakhand'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttarakhand/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttarakhand/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttarakhand/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttarakhand/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttarakhand/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttarakhand/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttarakhand/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttarakhand/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttarakhand/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/Uttarakhand/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1945'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1946'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1951'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1953'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1954'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1955'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1957'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1958'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1960'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1961'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1962'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1963'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1964'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1965'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1966'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1967'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1968'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1969'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1970'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1971'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1972'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1973'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1974'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1975'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1976'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1977'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1978'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1979'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1980'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1981'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1982'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1983'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1984'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1985'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1986'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1987'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1988'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1989'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1990'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1991'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1992'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1993'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1994'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1995'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1996'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1997'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1998'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/1999'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2000'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2001'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2002'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2003'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2004'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2007'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/VAT/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/West Bengal'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/West Bengal/2005'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/West Bengal/2006'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/West Bengal/2008'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/West Bengal/2009'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/West Bengal/2010'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/West Bengal/2011'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/West Bengal/2012'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/West Bengal/2013'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/West Bengal/2014'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/West Bengal/2015'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/West Bengal/2016'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/West Bengal/2017'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/articles'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/features'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/highlights'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/images'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/libary'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/news'
+# World writeable directory
+
+'/home/vatinfo1/public_html/data/schedules'
+# World writeable directory
+
+'/home/vatinfo1/public_html/media'
+# World writeable directory
+
+'/home/vatinfo1/public_html/recent'
+# World writeable directory
+
+'/home/vatinfo1/public_html/shared'
+# World writeable directory
+
+'/home/vatinfo1/public_html/uploads'
+# World writeable directory
+
+----------- SCAN SUMMARY -----------
+Resource: /home/vatinfo1/public_html
+Scanned directories: 1649
+Scanned files: 39731
+Ignored items: 107
+Suspicious matches: 612
+Viruses found: 0
+Fingerprint matches: 0
+Data scanned: 2639.54 MB
+Scan peak memory: 161636 kB
+Scan time/item: 0.037 sec
+Scan time: 1512.815 sec
+
+
+(2) vildirect, Scanning /home/vildirect/public_html:
+
+'/home/vildirect/public_html/index.php'
+# Known exploit = [Fingerprint Match (fp)] [PHP Exploit [P1974]]
+
+'/home/vildirect/public_html/loggertrait.php'
+# Known exploit = [Fingerprint Match (fp)] [PHP Exploit [P1974]]
+
+'/home/vildirect/public_html/data/Caselaws/High Court'
+# Skipped - too many resources: 26734 ( > filemax=10000)
+
+'/home/vildirect/public_html/data/Caselaws/ITAT'
+# Skipped - too many resources: 16721 ( > filemax=10000)
+# Scan Timeout (30 secs) while processing:
+'/home/vildirect/public_html/data-to-parse/datafiles/2010.zip'
+# Scan Timeout (30 secs) while processing:
+'/home/vildirect/public_html/data-to-parse/datafiles/2011.zip'
+# Scan Timeout (30 secs) while processing:
+'/home/vildirect/public_html/data-to-parse/datafiles/2012.zip'
+# Scan Timeout (30 secs) while processing:
+'/home/vildirect/public_html/data-to-parse/datafiles/2013.zip'
+# Scan Timeout (30 secs) while processing:
+'/home/vildirect/public_html/data-to-parse/datafiles/2014.zip'
+# Scan Timeout (30 secs) while processing:
+'/home/vildirect/public_html/data-to-parse/datafiles/2015.zip'
+# Scan Timeout (30 secs) while processing:
+'/home/vildirect/public_html/data-to-parse/datafiles/2016.zip'
+# Scan Timeout (30 secs) while processing:
+'/home/vildirect/public_html/data-to-parse/datafiles/2017.zip'
+# Scan Timeout (30 secs) while processing:
+'/home/vildirect/public_html/data-to-parse/datafiles/2018.zip'
+# Scan Timeout (30 secs) while processing:
+'/home/vildirect/public_html/data-to-parse/datafiles/2020.zip'
+
+'/home/vildirect/public_html/js/app.php'
+# Known exploit = [Fingerprint Match (md5)] [PHP Exploit]
+
+'/home/vildirect/public_html/media/02/atomlib.php'
+# Known exploit = [Fingerprint Match (fp)] [PHP Exploit [P1822]]
+
+'/home/vildirect/public_html/node_modules/node-notifier/vendor/notifu/notifu.exe'
+# MS Windows Binary/Executable [application/x-winexec]
+
+'/home/vildirect/public_html/node_modules/node-notifier/vendor/notifu/notifu64.exe'
+# MS Windows Binary/Executable [application/x-winexec]
+
+'/home/vildirect/public_html/node_modules/node-notifier/vendor/snoreToast/snoretoast-x64.exe'
+# MS Windows Binary/Executable [application/x-winexec]
+
+'/home/vildirect/public_html/node_modules/node-notifier/vendor/snoreToast/snoretoast-x86.exe'
+# MS Windows Binary/Executable [application/x-winexec]
+
+'/home/vildirect/public_html/storage/app/atomlib.php'
+# Known exploit = [Fingerprint Match (fp)] [PHP Exploit [P1822]]
+
+'/home/vildirect/public_html/vendor/swiftmailer/swiftmailer/lib/classes/app.php'
+# Universal decode regex match = [universal decoder]
+# (decoded file [advanced decoder: 14 (depth: 1)]) Known exploit = [Fingerprint Match (fp)] [PHP Exploit [P1900]]
+
+'/home/vildirect/public_html/vendor/swiftmailer/swiftmailer/lib/classes/atomlib.php'
+# Known exploit = [Fingerprint Match (fp)] [PHP Exploit [P1822]]
+
+'/home/vildirect/public_html/vendor/swiftmailer/swiftmailer/lib/classes/style.php'
+# Known exploit = [Fingerprint Match (fp)] [PHP Shell Exploit [P1918]]
+
+'/home/vildirect/public_html/vendor/swiftmailer/swiftmailer/lib/classes/wp-22.php'
+# Known exploit = [Fingerprint Match (sha256)] [PHP Exploit]
+
+'/home/vildirect/public_html/vendor/symfony/console/Resources/bin/hiddeninput.exe'
+# MS Windows Binary/Executable [application/x-winexec]
+
+----------- SCAN SUMMARY -----------
+Resource: /home/vildirect/public_html
+Scanned directories: 4322
+Scanned files: 86752
+Ignored items: 52
+Suspicious matches: 17
+Viruses found: 0
+Fingerprint matches: 9
+Data scanned: 6208.96 MB
+Scan peak memory: 169876 kB
+Scan time/item: 0.016 sec
+Scan time: 1445.746 sec
+
+
+(1) vilgst12, Scanning /home/vilgst12/public_html:
+
+'/home/vilgst12/public_html/index.php-virus'
+# Known exploit = [Fingerprint Match (fp)] [PHP Exploit [P1974]]
+# Scan Timeout (30 secs) while processing:
+'/home/vilgst12/public_html/adaitnvelnniifom/parser/data-to-parse/datafiles/SERVICE TAX/processed files.zip'
+
+'/home/vilgst12/public_html/data'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andaman and Nicobar Islands'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andaman and Nicobar Islands/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/1957'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Andhra Pradesh/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Arunachal Pradesh'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Arunachal Pradesh/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Arunachal Pradesh/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Arunachal Pradesh/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Arunachal Pradesh/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Arunachal Pradesh/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Arunachal Pradesh/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2001'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Assam/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/BUDGETS'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/BUDGETS/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/BUDGETS/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/BUDGETS/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/BUDGETS/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/BUDGETS/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/BUDGETS/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/BUDGETS/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/BUDGETS/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/BUDGETS/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2001'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Bihar/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1937'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1944'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1961'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1962'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1963'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1964'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1967'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1968'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1969'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1970'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1971'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1972'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1973'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1974'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1975'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1978'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1979'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1980'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1981'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1983'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1984'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1985'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1986'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1987'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1988'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1989'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1990'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1991'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1992'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1993'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1994'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1995'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1996'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1997'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1998'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/1999'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2000'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2001'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2002'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2003'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2004'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/CEA No. 117 of 2004'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CENTRAL EXCISE/CTM TECHNICAL TEXTILES LTD'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CGST'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CGST/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CGST/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CGST/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CGST/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CGST/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CGST/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CGST/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/COI'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1957'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1958'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1961'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1962'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1963'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1965'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1967'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1970'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1971'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1972'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1974'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1975'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1976'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1977'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1978'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1979'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1983'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1984'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1985'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1986'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1987'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1988'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1989'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1990'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1991'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1992'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1993'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1994'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1995'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1996'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1997'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1998'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/1999'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2000'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2001'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2002'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2003'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2004'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/CUSTOMS/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/1956'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2002'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Central/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chandigarh'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chandigarh/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chandigarh/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chandigarh/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chandigarh/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chandigarh/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chandigarh/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chandigarh/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chandigarh/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chandigarh/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chandigarh/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chandigarh/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/1976'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2003'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Chhattisgarh/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/DGFT'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/DGFT/1970'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/DGFT/1992'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/DGFT/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/DGFT/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/DGFT/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/DGFT/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/DGFT/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/DGFT/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/DGFT/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/DGFT/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/DGFT/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Dadra and Nagar Haveli'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Dadra and Nagar Haveli/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Dadra and Nagar Haveli/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Dadra and Nagar Haveli/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Dadra and Nagar Haveli/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Dadra and Nagar Haveli/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Dadra and Nagar Haveli/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Dadra and Nagar Haveli/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Dadra and Nagar Haveli/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Dadra and Nagar Haveli/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Dadra and Nagar Haveli/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Dadra and Nagar Haveli/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Daman and Diu/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Delhi/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/GST/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Goa/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Gujarat/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2003'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Haryana/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/1999'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Himachal Pradesh/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/IGST'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/IGST/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/IGST/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/IGST/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/IGST/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/IGST/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/IGST/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2003'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jammu and Kashmir/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2001'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Jharkhand/S.O. 80'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2003'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Karnataka/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Kerala/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Lakshadweep'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Lakshadweep/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Lakshadweep/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Lakshadweep/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Lakshadweep/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/0208'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/1997'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2000'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Madhya Pradesh/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Maharashtra/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Manipur'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Manipur/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Manipur/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Manipur/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Manipur/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Manipur/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Meghalaya/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Mizoram'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Mizoram/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Mizoram/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Mizoram/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Mizoram/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Mizoram/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Mizoram/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Mizoram/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Nagaland'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Nagaland/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Nagaland/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Nagaland/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Nagaland/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Nagaland/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Nagaland/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Nagaland/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Nagaland/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Nagaland/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Nagaland/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Nagaland/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Nagaland/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2004'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Orissa/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Puducherry/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Punjab/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Rajasthan/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/1994'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/1996'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/1997'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/1999'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2000'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2001'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2002'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2003'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2004'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SERVICE TAX/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SGST'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SGST/20121'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SGST/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SGST/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SGST/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SGST/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SGST/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/SGST/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Section'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Sikkim'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Sikkim/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Sikkim/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Sikkim/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Sikkim/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Sikkim/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Sikkim/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Sikkim/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Sikkim/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Sikkim/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Sikkim/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Sikkim/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tamil Nadu/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Telangana'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Telangana/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Telangana/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Telangana/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Telangana/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Telangana/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Telangana/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Telangana/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Telangana/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Telangana/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Tripura/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/UTGST'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/UTGST/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/UTGST/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/1981'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttar Pradesh/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/Uttarakhand/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1942'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1945'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1946'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1951'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1953'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1954'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1955'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1956'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1957'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1958'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1959'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1960'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1961'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1962'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1963'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1964'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1965'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1966'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1967'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1968'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1969'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1970'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1971'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1972'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1973'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1974'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1975'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1976'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1977'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1978'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1979'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1980'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1981'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1982'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1983'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1984'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1985'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1986'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1987'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1988'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1989'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1990'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1991'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1992'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1993'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1994'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1995'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1996'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1997'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1998'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/1999'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2000'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2001'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2002'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2003'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2004'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2007'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/VAT/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/1986'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2005'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2006'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2008'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2009'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2010'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2011'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2012'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2013'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2014'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2015'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2016'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2017'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2018'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2019'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2020'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2021'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/West Bengal/2022'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/articles'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/features'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/file_images'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/highlights'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/images'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/libary'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/news'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/schedules'
+# World writeable directory
+
+'/home/vilgst12/public_html/data/taxvista'
+# World writeable directory
+
+'/home/vilgst12/public_html/invoice/uploads'
+# World writeable directory
+
+'/home/vilgst12/public_html/media'
+# World writeable directory
+
+'/home/vilgst12/public_html/recent'
+# World writeable directory
+
+'/home/vilgst12/public_html/shared'
+# World writeable directory
+
+'/home/vilgst12/public_html/uploads'
+# World writeable directory
+
+----------- SCAN SUMMARY -----------
+Resource: /home/vilgst12/public_html
+Scanned directories: 1269
+Scanned files: 120506
+Ignored items: 127
+Suspicious matches: 880
+Viruses found: 0
+Fingerprint matches: 1
+Data scanned: 18402.37 MB
+Scan peak memory: 169876 kB
+Scan time/item: 0.045 sec
+Scan time: 5458.122 sec
+

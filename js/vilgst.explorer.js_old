@@ -1,0 +1,83 @@
+$().ready(function() {
+
+    $('.explorer-hide').click(function() {
+        $('#GSTExplorerDiv').hide('fast');
+        $('#ExplorerPinDiv').show('slow');
+    });
+    $('#ExplorerPinDiv').click(function() {
+        $('#GSTExplorerDiv').show('slow');
+        $('#ExplorerPinDiv').hide('fast');
+    });
+
+    $('.explorer-expanding-blocks').click(function(){
+       
+       if ($(this).find('.expand').html() == '+') {
+            $('.expand').html('+');
+            $('.listing-blocks').hide();
+            var data_block = $(this).attr('data-block');
+            $('#explorer-listing-' + data_block).show();
+            $(this).find('.expand').html('-');
+        } else {
+            $('.expand').html('+');
+            $('.listing-blocks').hide();
+        }
+       
+    });
+
+
+    //on change of dropdown build the gst explorer data and show to user.
+    $('.explorer-expanding-blocks-header').change(function() {
+        var prod_selected = $(this).val();
+        var csrf_token_explorer = $('#csrf-token_explorer').html();
+        var postdata = {'gst_prod_name': prod_selected, 'csrf-token_explorer': csrf_token_explorer};
+        $.ajax({
+            type: "POST",
+            url: "explorer_ajax.php",
+            data: postdata,
+//            cache: true,
+            dataType:'json',
+            success: function(res) {
+                // alert(res.success);
+                if (res.success == true) {
+                    resdata = res.data;
+                    updateExplorerDataPan1(resdata);
+                }
+            }
+        });
+    });
+    
+     $('.explorer-expanding-blocks-header').trigger('change');
+    
+});
+
+function updateExplorerDataPan1(responseData) {
+    var sections = responseData.sections;
+    var rules = responseData.rules;
+    var notifications = responseData.notifications;
+    var circulars = responseData.circulars;
+    var emptyListItem = "<li>No Records Found</li>";
+     $('#explorer-listing-sections').html('');
+    $.each(sections, function(k, v) {
+        var listItem = "<li data-item =" + v.data_id + " >" + v.display + "</li>";
+        $('#explorer-listing-sections').append(listItem);
+    });
+    
+    $('#explorer-listing-rules').html('');
+    $.each(rules, function(k, v) {
+        var listItem = "<li data-item =" + v.data_id + " >" + v.display + "</li>";
+        $('#explorer-listing-rules').append(listItem);
+    });
+    
+    $('#explorer-listing-notifications').html('');
+    $.each(notifications, function(k, v) {
+        var listItem = "<li data-item =" + v.data_id + " >" + v.display + "</li>";
+        $('#explorer-listing-notifications').append(listItem);
+    });
+    
+    $('#explorer-listing-circulars').html('');
+    $.each(circulars, function(k, v) {
+        var listItem = "<li data-item =" + v.data_id + " >" + v.display + "</li>";
+        $('#explorer-listing-circulars').append(listItem);
+    });
+
+}

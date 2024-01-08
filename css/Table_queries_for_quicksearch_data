@@ -1,0 +1,14 @@
+-- SELECT * FROM vilgstnewmay_vilgstprod.casedata_utgst;
+-- SELECT * FROM vilgstnewmay_vilgstprod.casedata_st;
+-- SELECT * FROM vilgstnewmay_vilgstprod.casedata_vat;
+-- SELECT * FROM vilgstnewmay_vilgstprod.casedata_sgst;
+-- SELECT * FROM vilgstnewmay_vilgstprod.casedata_igst;
+-- SELECT * FROM vilgstnewmay_vilgstprod.casedata_gst;
+-- SELECT * FROM vilgstnewmay_vilgstprod.casedata_dgft;
+-- SELECT * FROM vilgstnewmay_vilgstprod.casedata_cu;
+-- SELECT * FROM vilgstnewmay_vilgstprod.casedata_cgst;
+-- SELECT * FROM vilgstnewmay_vilgstprod.casedata_ce;
+
+
+-- SELECT * FROM vilgstnewmay_vilgstprod.product;
+-- SELECT * FROM vilgstnewmay_vilgstprod.sub_product;

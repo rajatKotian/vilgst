@@ -1,0 +1,23 @@
+<?php
+    $query="SELECT ce.*,p.prod_name,sp.sub_prod_name,sm.state_name FROM casedata_ce as ce LEFT JOIN product as p ON ce.prod_id=p.prod_id LEFT JOIN sub_product as sp ON ce.sub_prod_id=sp.sub_prod_id LEFT JOIN state_master as sm ON ce.state_id=sm.state_id WHERE ce.circular_no LIKE '%".$text."%' OR ce.cir_subject LIKE '%".$text."%' OR ce.file_data LIKE '%".$text."%' OR ce.party_name LIKE '%".$text."%'
+           UNION
+           SELECT cgst.*,p.prod_name,sp.sub_prod_name,sm.state_name FROM casedata_cgst as cgst LEFT JOIN product as p ON cgst.prod_id=p.prod_id LEFT JOIN sub_product as sp ON cgst.sub_prod_id=sp.sub_prod_id LEFT JOIN state_master as sm ON cgst.state_id=sm.state_id WHERE cgst.circular_no LIKE '%".$text."%' OR cgst.cir_subject LIKE '%".$text."%' OR cgst.file_data LIKE '%".$text."%' OR cgst.party_name LIKE '%".$text."%'  
+           UNION
+           SELECT dgft.*,p.prod_name,sp.sub_prod_name,sm.state_name FROM casedata_dgft as dgft LEFT JOIN product as p ON dgft.prod_id=p.prod_id LEFT JOIN sub_product as sp ON dgft.sub_prod_id=sp.sub_prod_id LEFT JOIN state_master as sm ON dgft.state_id=sm.state_id WHERE dgft.circular_no LIKE '%".$text."%' OR dgft.cir_subject LIKE '%".$text."%' OR dgft.file_data LIKE '%".$text."%' OR dgft.party_name LIKE '%".$text."%'
+           UNION
+           SELECT gst.*,p.prod_name,sp.sub_prod_name,sm.state_name FROM casedata_gst as gst LEFT JOIN product as p ON gst.prod_id=p.prod_id LEFT JOIN sub_product as sp ON gst.sub_prod_id=sp.sub_prod_id LEFT JOIN state_master as sm ON gst.state_id=sm.state_id WHERE gst.circular_no LIKE '%".$text."%' OR gst.cir_subject LIKE '%".$text."%' OR gst.file_data LIKE '%".$text."%' OR gst.party_name LIKE '%".$text."%'
+           UNION
+           SELECT igst.*,p.prod_name,sp.sub_prod_name,sm.state_name FROM casedata_igst as igst LEFT JOIN product as p ON igst.prod_id=p.prod_id LEFT JOIN sub_product as sp ON igst.sub_prod_id=sp.sub_prod_id LEFT JOIN state_master as sm ON igst.state_id=sm.state_id WHERE igst.circular_no LIKE '%".$text."%' OR igst.cir_subject LIKE '%".$text."%' OR igst.file_data LIKE '%".$text."%' OR igst.party_name LIKE '%".$text."%'
+           UNION
+           SELECT sgst.*,p.prod_name,sp.sub_prod_name,sm.state_name FROM casedata_sgst as sgst LEFT JOIN product as p ON sgst.prod_id=p.prod_id LEFT JOIN sub_product as sp ON sgst.sub_prod_id=sp.sub_prod_id LEFT JOIN state_master as sm ON sgst.state_id=sm.state_id WHERE sgst.circular_no LIKE '%".$text."%' OR sgst.cir_subject LIKE '%".$text."%' OR sgst.file_data LIKE '%".$text."%' OR sgst.party_name LIKE '%".$text."%'
+           UNION
+           SELECT st.*,p.prod_name,sp.sub_prod_name,sm.state_name FROM casedata_st as st LEFT JOIN product as p ON st.prod_id=p.prod_id LEFT JOIN sub_product as sp ON st.sub_prod_id=sp.sub_prod_id LEFT JOIN state_master as sm ON st.state_id=sm.state_id WHERE st.circular_no LIKE '%".$text."%' OR st.cir_subject LIKE '%".$text."%' OR st.file_data LIKE '%".$text."%' OR st.party_name LIKE '%".$text."%'
+           UNION
+           SELECT utgst.*,p.prod_name,sp.sub_prod_name,sm.state_name FROM casedata_utgst as utgst LEFT JOIN product as p ON utgst.prod_id=p.prod_id LEFT JOIN sub_product as sp ON utgst.sub_prod_id=sp.sub_prod_id LEFT JOIN state_master as sm ON utgst.state_id=sm.state_id WHERE utgst.circular_no LIKE '%".$text."%' OR utgst.cir_subject LIKE '%".$text."%' OR utgst.file_data LIKE '%".$text."%' OR utgst.party_name LIKE '%".$text."%'
+           UNION
+           SELECT cu.*,p.prod_name,sp.sub_prod_name,sm.state_name FROM casedata_cu as cu LEFT JOIN product as p ON cu.prod_id=p.prod_id LEFT JOIN sub_product as sp ON cu.sub_prod_id=sp.sub_prod_id LEFT JOIN state_master as sm ON cu.state_id=sm.state_id WHERE cu.circular_no LIKE '%".$text."%' OR cu.cir_subject LIKE '%".$text."%' OR cu.file_data LIKE '%".$text."%' OR cu.party_name LIKE '%".$text."%'
+           UNION
+           SELECT vat.*,p.prod_name,sp.sub_prod_name,sm.state_name FROM casedata_vat as vat LEFT JOIN product as p ON vat.prod_id=p.prod_id LEFT JOIN sub_product as sp ON vat.sub_prod_id=sp.sub_prod_id LEFT JOIN state_master as sm ON vat.state_id=sm.state_id WHERE vat.circular_no LIKE '%".$text."%' OR vat.cir_subject LIKE '%".$text."%' OR vat.file_data LIKE '%".$text."%' OR vat.party_name LIKE '%".$text."%'";
+
+// $query="SELECT vat.*,p.prod_name,sp.sub_prod_name,sm.state_name FROM casedata_vat as vat LEFT JOIN product as p ON vat.prod_id=p.prod_id LEFT JOIN sub_product as sp ON vat.sub_prod_id=sp.sub_prod_id LEFT JOIN state_master as sm ON vat.state_id=sm.state_id WHERE vat.circular_no LIKE '%".$text."%' OR vat.cir_subject LIKE '%".$text."%' OR vat.file_data LIKE '%".$text."%' OR vat.party_name LIKE '%".$text."%'";
+?>

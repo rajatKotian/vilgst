@@ -1,0 +1,130 @@
+		* {
+
+		    line-height: 1.5;
+		    font-size: 11.5pt;
+		}
+
+		ar a:link,
+		span.MsoHyperl {
+		    color: blue;
+		    text-decoration: underline;
+		}
+
+		a:visited,
+		span.MsoHyperlinkFollowed {
+		    color: purple;
+		    text-decoration: underline;
+		}
+
+
+
+		p {
+		    margin-right: 0cm;
+		    margin-left: 0cm;
+		    font-family: "Verdana", sans-serif;
+		    color: black;
+		    font-size: 11.5pt;
+		    line-height: 1.5;
+		    /*margin-bottom:5px;*/
+		    /*margin-top:5px;*/
+		}
+
+
+
+		p.MsoNoSpacing,
+		li.MsoNoSpacing,
+		div.MsoNoSpacing {
+		    mso-style-name: "No Spacing\,V I L";
+		    mso-style-link: "No Spacing Char\,V I L Char";
+		    margin: 0cm;
+		    margin-bottom: .0001pt;
+		}
+
+
+		@page WordSection1 {
+		    size: 595.45pt 841.7pt;
+		    margin: 63.0pt 55.45pt 58.5pt 57.6pt;
+		}
+
+		div.WordSection1 {
+		    page: WordSection1;
+		}
+
+		ol {
+		    margin-bottom: 0cm;
+		}
+
+		ul {
+		    margin-bottom: 0cm;
+		}
+
+		.court-name {
+		    text-align: center;
+		    text-transform: uppercase;
+		    margin-bottom: 25px;
+		}
+
+		.case-no {
+		    text-align: center;
+		}
+
+		.disclaimer *{
+		    margin-bottom: 50px;
+		    font-size: 8.5pt;
+		}
+
+        .circular_no{
+            margin-bottom:5px;
+        }
+
+		.other-citation {
+		    text-align: center;
+		    font-weight: normal;
+		    margin-bottom: 25px;
+		    margin-top:5px;
+		}
+
+		.center-text {
+		    text-align: center;
+		}
+
+
+        .data-table{
+            width:95%;
+            border:1px solid #000000;
+        }
+        
+        .quote-class{
+            border-left:3px solid lightgray;
+            padding-left:20px;
+            margin-bottom:0px;
+            padding-bottom:5px;
+        }
+        
+        .quote-sub-class{
+            margin-top:0px;padding-top:5px;
+        }
+        
+        .circular_party1 {
+            margin-bottom: 20px;
+        }
+        
+        .circular_party2 {
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .benchtitle {
+            margin-bottom: 0;
+        }
+        
+        .benchdata {
+            margin-top: 0px;
+        }
+        
+         .circular-summary{
+                font-size: 11.5pt;
+                line-height: 200%;
+                color: #002060;
+        }
+        
