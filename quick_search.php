@@ -3,8 +3,8 @@
 	$page = '';
 	date_default_timezone_set("Asia/Calcutta");
 	include('header.php');  
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 	//echo $_SERVER['REQUEST_URI'];
 	//print_r($_SESSION);
@@ -289,22 +289,22 @@ error_reporting(E_ALL);
 			if($_REQUEST['pagename']=='Notification')
 		    {
 		    	// print_r($_REQUEST); die();
-				// $row_count = $_SESSION['row'];
-				// $text=mysqli_real_escape_string($GLOBALS['con'],$_REQUEST['notification_keyword']);
-                // $user_id = $_SESSION["id"];
-                // $user_name = $_SESSION["user"];
-                // $page_name = "Notification";
-                // $search_in = "Quick Search";
-                // $search_form_data = array(
-                //     'user_id' => $user_id,
-                //     'user_name' => $user_name,
-                //     'keyword' => $text,
-                //     'pagename' => $page_name,
-                //     'search_in' => $search_in,
-                //     'row_count' => $row_count,
-                //     'updated_dt' => date('Y-m-d H:i:s')
-                // );
-                // dbRowInsert('search_history', $search_form_data);
+				$row_count = $_SESSION['row'];
+				$text=mysqli_real_escape_string($GLOBALS['con'],$_REQUEST['notification_keyword']);
+                $user_id = $_SESSION["id"];
+                $user_name = $_SESSION["user"];
+                $page_name = "Notification";
+                $search_in = "Quick Search";
+                $search_form_data = array(
+                    'user_id' => $user_id,
+                    'user_name' => $user_name,
+                    'keyword' => $text,
+                    'pagename' => $page_name,
+                    'search_in' => $search_in,
+                    'row_count' => $row_count,
+                    'updated_dt' => date('Y-m-d H:i:s')
+                );
+                dbRowInsert('search_history', $search_form_data);
 		      	function notification(){
 		      	    $orderby = " ORDER BY circular_date DESC";
 					$conditions = array();
@@ -384,24 +384,24 @@ error_reporting(E_ALL);
 			if($_REQUEST['pagename']=='Case Laws')
 			{
 				
-				// $row_count = $_SESSION['row'];
-				// $text=mysqli_real_escape_string($GLOBALS['con'],$_REQUEST['case_keyword']);
-                // $user_id = $_SESSION["id"];
-                // $user_name = $_SESSION["user"];
-                // $page_name = "Case Laws";
-                // $search_in = "Quick Search";
-                // $party_name = mysqli_real_escape_string($GLOBALS['con'],$_REQUEST['party_name']);
-                // $search_form_data = array(
-                //     'user_id' => $user_id,
-                //     'user_name' => $user_name,
-                //     'keyword' => $text,
-                //     'party_name' => $party_name,
-                //     'pagename' => $page_name,
-                //     'search_in' => $search_in,
-                //     'row_count' => $row_count,
-                //     'updated_dt' => date('Y-m-d H:i:s')
-                // );
-                // dbRowInsert('search_history', $search_form_data);
+				$row_count = $_SESSION['row'];
+				$text=mysqli_real_escape_string($GLOBALS['con'],$_REQUEST['case_keyword']);
+                $user_id = $_SESSION["id"];
+                $user_name = $_SESSION["user"];
+                $page_name = "Case Laws";
+                $search_in = "Quick Search";
+                $party_name = mysqli_real_escape_string($GLOBALS['con'],$_REQUEST['party_name']);
+                $search_form_data = array(
+                    'user_id' => $user_id,
+                    'user_name' => $user_name,
+                    'keyword' => $text,
+                    'party_name' => $party_name,
+                    'pagename' => $page_name,
+                    'search_in' => $search_in,
+                    'row_count' => $row_count,
+                    'updated_dt' => date('Y-m-d H:i:s')
+                );
+                dbRowInsert('search_history', $search_form_data);
 				function case_data()
 				{
 					global $con;
@@ -432,25 +432,18 @@ error_reporting(E_ALL);
 
 						$conditions[] ="(a.party_name LIKE '%".$string."%' OR a.party_name LIKE '%".$rep_data[0]."%')";
 					}
-
-					// print_r($_REQUEST['yearFrom']);
-					// print_r($_REQUEST['yearTo']);
-					
-					
 					// For year filter
 					if (
 						isset($_REQUEST['yearFrom']) 
-						&& isset($_REQUEST['yearTo'])
-					) {
+						&& isset($_REQUEST['yearTo']) 
+						&& !empty($_REQUEST['yearFrom']) 
+						&& !empty($_REQUEST['yearTo'])) {
 						
 						$yearFrom = $_REQUEST['yearFrom'];
 						$yearTo = $_REQUEST['yearTo'];
-						print_r($yearFrom);
-						print_r($yearTo);
-
-						$conditions[] = "(a.circular_date BETWEEN '".$_REQUEST['yearFrom']."' AND '".$_REQUEST['yearTo']."')";
+						
+						$conditions[] = "(a.circular_date BETWEEN '".$yearFrom."' AND '".$yearTo."')";
 					}
-					// die();
 					// for sub product id
 					if (
 						isset($_REQUEST['sub_prod_id']) 
@@ -551,14 +544,12 @@ error_reporting(E_ALL);
 						$sql=implode(" UNION ",(tableUnion($conditions,$table,$id,$sub_prod_name)))." ".$orderby;
 
 					}
-					print_r($query);die(); 
 					return $sql;
 				}
 					
 			}
 
 			$query=$_REQUEST['function_name']($_REQUEST);
-			// print_r($query);die(); 
 		}
 
 		$showRecordPerPage =20;
@@ -1030,7 +1021,7 @@ error_reporting(E_ALL);
             }
 
 
-			// if(isLogeedIn()) {
+			if(isLogeedIn()) {
 				if($_SESSION["userStatus"]=="expired") {
 					include('expiredUserError.php'); 
 				} else {
@@ -1297,11 +1288,11 @@ error_reporting(E_ALL);
               		    include('tempUsererror.php');
             	    }
 				}
-			// } 
-			// else 
-			// {
-	  		// 	include('loggedInError.php');
-	  		// }
+			} 
+			else 
+			{
+	  			include('loggedInError.php');
+	  		}
 	?>
 		<?php 
         $isPDFLink = "isPdf=0";
