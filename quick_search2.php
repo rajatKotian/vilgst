@@ -813,7 +813,7 @@ error_reporting(E_ALL);
 						</button>
 				 	</div>
 					<div class="form-group text-center">
-						<input type="submit" name="searchButton" id="search_case_btn" value="Search" class="btn" style="background: linear-gradient(to bottom, #00789e 0%,#00548a 100%);color:#fff;font-weight: normal;font-size: 12px;text-transform: uppercase;border:none"/>
+						<input type="button" name="searchButton" id="search_case_btn" value="Search" class="btn" style="background: linear-gradient(to bottom, #00789e 0%,#00548a 100%);color:#fff;font-weight: normal;font-size: 12px;text-transform: uppercase;border:none"/>
 					</div>
 					<script>
 						function resetYearField() {
@@ -960,7 +960,7 @@ error_reporting(E_ALL);
 					</div>
 
 					<div class="form-group text-center">
-						<input type="submit" name="searchButton" id="search_case_btn" value="Search" class="btn" style="background: linear-gradient(to bottom, #00789e 0%,#00548a 100%);color:#fff;font-weight: normal;font-size: 12px;text-transform: uppercase;border:none;"/>
+						<input type="button" name="searchButton" id="search_case_btn" value="Search" class="btn" style="background: linear-gradient(to bottom, #00789e 0%,#00548a 100%);color:#fff;font-weight: normal;font-size: 12px;text-transform: uppercase;border:none;"/>
 					</div>
 					<script>
 						function resetYearFields() {
