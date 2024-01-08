@@ -924,7 +924,7 @@ function getCategory($table, $value) {
                                     <input type="text" class="form-control" id="noti_no" placeholder="Notification No." name="noti_no" value="<?php if (isset($_REQUEST['noti_no']) && (!empty($_REQUEST['noti_no']))) {echo $_REQUEST['noti_no']; } ?>" />
                                 </div>
                                 
-                                <div style="display: flex;justify-content: space-evenly; font-size: 13px;">
+                                <div style="display: flex; font-size: 13px;padding: 7px 10px;gap: 10em;">
                                     <div style="margin-bottom: 10px;display: inline-flex;align-items: center;">
                                         <label style="margin-right: 2vw;width: 100%;">Notification Date:</label>
                                         <input style="border: 1px solid #ccc; padding: 5px; font-size: 13px;"  placeholder="Notification Date" type="date" id="date" name="date" value="<?php if (isset($_REQUEST['date']) && (!empty($_REQUEST['date']))) { echo $_REQUEST['date']; } ?>" />
