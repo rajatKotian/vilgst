@@ -128,12 +128,12 @@ function getCategory($table, $value) {
         width: 100%; 
     }
     .display { display: none; }
-    .input-group .form-control { position: relative; z-index: 2; float: none; width: 100%; margin-bottom: 0; }
     .input--style-1 { font-size: 15px; padding: 8px 0; color: #666; font-family: inherit;border: 1px solid #ccc;}
     .tab-list__link { display: block; text-transform: uppercase; font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
         font-weight: 400; font-size: 19px; color: rgba(128, 128, 128, 0.6); padding: 0 5px; }
-    .wrapper--w900 { max-width: 1140px;  margin-left: 0px; }
-    .tab-list { list-style: none; padding: 0 25px; padding-top: 40px; }
+        .wrapper--w900 { max-width: 1140px;  margin-left: 0px; }
+        .tab-list { list-style: none; padding: 0 25px; padding-top: 40px; }
+    .input-group .form-control { position: relative; z-index: 2; float: none; width: 100%; margin-bottom: 0; }
     .wrapper .search-party { position: relative; background: #fff; width: 100%; border-radius: 5px; box-shadow: 0px 1px 5px 3px rgb(0 0 0 / 12%); margin-bottom: 10px; }
     .search-party input { height: 55px; width: 100%; outline: none; border: none; border-radius: 5px; padding: 0 60px 0 20px;
         font-size: 18px; box-shadow: 0px 1px 5px rgb(0 0 0 / 10%); }
@@ -270,7 +270,7 @@ function getCategory($table, $value) {
 
 </style>
 <?php 
-if (isLogeedIn()) { 
+// if (isLogeedIn()) { 
     ?>
     <div class="page-wrapper col-md-16">
         <div class="wrapper--w900">
@@ -353,8 +353,8 @@ if (isLogeedIn()) {
                                 <div class="input-group input-group-big">
                                     <div class="label"><label>Party Name:</label></div>
                                     
-                                    <div class="search-party">
-                                        <input type="text" style="text-transform:uppercase;" onkeyup="javascript:load_data(this.value)" onfocus="javascript:load_search_history()" onblur="javascript:lose_focus()" id="party_name" placeholder="Type to Search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="party_name" value="<?php if (isset($_REQUEST['party_name']) && (!empty($_REQUEST['party_name']))) { echo $_REQUEST['party_name']; } ?>" />
+                                    <div class="form-control" style>
+                                        <input type="text"  style="text-transform:uppercase;" onkeyup="javascript:load_data(this.value)" onfocus="javascript:load_search_history()" onblur="javascript:lose_focus()" id="party_name" placeholder="Type to Search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="party_name" value="<?php if (isset($_REQUEST['party_name']) && (!empty($_REQUEST['party_name']))) { echo $_REQUEST['party_name']; } ?>" />
                                         <div id="search_result"></div>
                                     </div>                                    
                                 </div>
@@ -1132,9 +1132,9 @@ if (isLogeedIn()) {
             </div>
         </div>
     </div><?php
-} else {
-    include('loggedInError.php');
-}
+// } else {
+//     include('loggedInError.php');
+// }
 
 include('footer.php');
 ?>
