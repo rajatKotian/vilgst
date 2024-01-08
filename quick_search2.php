@@ -1443,7 +1443,10 @@ error_reporting(E_ALL);
 				$("#party").val("");
 			}
 		}
-
+		$("form").submit(function(e) {
+			e.preventDefault();
+		});
+		
 		$("#prod_id").change(function(){
 			var productId = $(this).val();
 			if(productId){
