@@ -361,13 +361,16 @@ error_reporting(E_ALL);
 						$query="SELECT a.*,DATE_FORMAT(circular_date,GET_FORMAT(DATE,'EUR'))'Date',p.prod_name,p.dbsuffix,sp.sub_prod_name,sm.state_name FROM casedata_".$data_db." as a LEFT JOIN product as p ON a.prod_id=p.prod_id LEFT JOIN sub_product as sp ON a.sub_prod_id=sp.sub_prod_id LEFT JOIN state_master as sm ON a.state_id=sm.state_id ";
 						if(count($conditions)>0)
 						{
-							return $sql=$query."WHERE (".implode(' OR ', $sub_prod).") AND ".implode(' AND ', $conditions)." ".$orderby;
+							// $sql=$query."WHERE (".implode(' OR ', $sub_prod).") AND ".implode(' AND ', $conditions)." ".$orderby;
+							$sql=$query."WHERE (".implode(' AND ', $conditions).")"." ".$orderby;
+
+							return $sql;
 						}
-						else
-						{
-							return $sql=$query."WHERE ".implode(' OR ', $sub_prod)." ".$orderby;
-						}
-						
+						// else
+						// {	$sql=$query."WHERE ".implode(' OR ', $sub_prod)." ".$orderby;
+						// 	return $sql;
+						// }
+					
 					}
 					else
 					{
