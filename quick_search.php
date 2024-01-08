@@ -3,8 +3,8 @@
 	$page = '';
 	date_default_timezone_set("Asia/Calcutta");
 	include('header.php');  
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 	//echo $_SERVER['REQUEST_URI'];
 	//print_r($_SESSION);
@@ -361,13 +361,16 @@ error_reporting(E_ALL);
 						$query="SELECT a.*,DATE_FORMAT(circular_date,GET_FORMAT(DATE,'EUR'))'Date',p.prod_name,p.dbsuffix,sp.sub_prod_name,sm.state_name FROM casedata_".$data_db." as a LEFT JOIN product as p ON a.prod_id=p.prod_id LEFT JOIN sub_product as sp ON a.sub_prod_id=sp.sub_prod_id LEFT JOIN state_master as sm ON a.state_id=sm.state_id ";
 						if(count($conditions)>0)
 						{
-							return $sql=$query."WHERE (".implode(' OR ', $sub_prod).") AND ".implode(' AND ', $conditions)." ".$orderby;
+							// $sql=$query."WHERE (".implode(' OR ', $sub_prod).") AND ".implode(' AND ', $conditions)." ".$orderby;
+							$sql=$query."WHERE (".implode(' AND ', $conditions).")"." ".$orderby;
+
+							return $sql;
 						}
-						else
-						{
-							return $sql=$query."WHERE ".implode(' OR ', $sub_prod)." ".$orderby;
-						}
-						
+						// else
+						// {	$sql=$query."WHERE ".implode(' OR ', $sub_prod)." ".$orderby;
+						// 	return $sql;
+						// }
+					
 					}
 					else
 					{
@@ -479,25 +482,23 @@ error_reporting(E_ALL);
 
 					
 					if (isset($_REQUEST['court'])) {
- 						$courts = isset($_REQUEST['court']) ? $_REQUEST['court'] : [];
+						$courts = isset($_REQUEST['court']) ? $_REQUEST['court'] : [];
 						foreach ($courts as $court) {
 							if ($court == "HC") {
-								$courtQuery[] = "(sp.sub_prod_name LIKE 'High Court Cases')";
+								$courtConditions[] = "(sp.sub_prod_name LIKE 'High Court Cases')";
 							} else if ($court == "SC") {
-								$courtQuery[] = "(sp.sub_prod_name LIKE 'Supreme Court Cases')";
+								$courtConditions[] = "(sp.sub_prod_name LIKE 'Supreme Court Cases')";
 							} else if ($court == "TRI") {
-								$courtQuery[] = "(sp.sub_prod_name LIKE 'CESTAT Cases')";
+								$courtConditions[] = "(sp.sub_prod_name LIKE 'CESTAT Cases')";
 							} else if ($court == "AAR") {
-								$courtQuery[] = "(sp.sub_prod_name LIKE 'Advance Ruling Authority')";
+								$courtConditions[] = "(sp.sub_prod_name LIKE 'Advance Ruling Authority')";
 							} else if ($court == "AAAR") {
-								$courtQuery[] = "(sp.sub_prod_name LIKE 'AAAR')";
+								$courtConditions[] = "(sp.sub_prod_name LIKE 'AAAR')";
 							} else if ($court == "NAA") {
-								$courtQuery[] = "(sp.sub_prod_name LIKE 'National Anti-Profiteering Authority')";
+								$courtConditions[] = "(sp.sub_prod_name LIKE 'National Anti-Profiteering Authority')";
 							}
 						}
-						
-						$conditions[]=implode(' OR ', $courtQuery);
-						
+						$conditions[] = implode(' OR ',$courtConditions);
 					}
 					// } 
 				    //<--------End of  Citation number--------->
@@ -550,6 +551,7 @@ error_reporting(E_ALL);
 			}
 
 			$query=$_REQUEST['function_name']($_REQUEST);
+			// print_r($query);die(); 
 		}
 
 		$showRecordPerPage =20;
@@ -688,37 +690,37 @@ error_reporting(E_ALL);
 						</div> -->
 						
 					<div class="form-group">
-						<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
-						<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css"> 
-						<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-						<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-						<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
-						
-						<label>Select Forum </label>
-						<style>
-							.dropdown-menu span{
-								color: black;
-							}
-							.btn {
-								background:#fff;
-								color: black;
-								border: 1px solid lightgrey;
-								text-transform: capitalize;
-								
-							}
-							.btn span{
-								font-size: 14px;
-							}
-							.btn-group{
-								width: 53% !important;
-							}
-							.btn:hover{
-								background:#fff;
-								color: black;
-								border: 1px solid lightgrey;
-							}
+					<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
+					<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css"> 
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+					<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
+					
+					<label>Select Forum </label>
+					<style>
+						.dropdown-menu span{
+							color: black;
+						}
+						.btn {
+							background:#fff;
+							color: black;
+							border: 1px solid lightgrey;
+							text-transform: capitalize;
 							
-							</style>
+						}
+						.btn span{
+							font-size: 14px;
+						}
+						.btn-group{
+							width: 53% !important;
+						}
+						.btn:hover{
+							background:#fff;
+							color: black;
+							border: 1px solid lightgrey;
+						}
+						
+					</style>
 							<div class="form-group">
 								<select name="court[]" id="forum" data-style="btn-default"  class="selectpicker form-control" multiple title="Select" >
 								<option value="SC" <?php if (isset($_REQUEST['court']) && in_array("SC", (array)$_REQUEST['court'])) { echo "selected=selected"; } ?> data-dbsuffix="0">Supreme Court</option>
@@ -729,6 +731,7 @@ error_reporting(E_ALL);
 									<option value="AAAR" <?php if (isset($_REQUEST['court']) && in_array("AAAR", (array)$_REQUEST['court'])) { echo "selected=selected"; } ?> data-dbsuffix="0">AAAR</option>
 								</select>
 							</div>
+						
 						</div>
 
 					<div class="form-group">
@@ -813,7 +816,7 @@ error_reporting(E_ALL);
 						</button>
 				 	</div>
 					<div class="form-group text-center">
-						<input type="submit" name="searchButton" id="search_case_btn" value="Search" class="btn" style="background: linear-gradient(to bottom, #00789e 0%,#00548a 100%);color:#fff;font-weight: normal;font-size: 12px;text-transform: uppercase;border:none"/>
+						<input type="button" name="searchButton" id="search_case_btn" value="Search" class="btn" style="background: linear-gradient(to bottom, #00789e 0%,#00548a 100%);color:#fff;font-weight: normal;font-size: 12px;text-transform: uppercase;border:none"/>
 					</div>
 					<script>
 						function resetYearField() {
@@ -893,7 +896,7 @@ error_reporting(E_ALL);
 							}
 						</style>
 						<div class="form-group">
-							<select name="court[]" id="case_forum" data-style="btn-default" class="selectpicker form-control" multiple
+							<select name="court[]" id="forum" data-style="btn-default" class="selectpicker form-control" multiple
 								title="Select">
 								<option value="SC" <?php if (isset($_REQUEST['court']) && in_array("SC", (array)$_REQUEST['court'])) {
 									echo "selected=selected" ; } ?> data-dbsuffix="0">Supreme Court</option>
@@ -951,7 +954,7 @@ error_reporting(E_ALL);
 						</div>
 					</div>
 					<div class="form-group" id="noti_year_range" style="display: block;">
-						<label id="searchTypeLabel">Year Range</label> 
+						<label id="searchTypeLabel">Date Range</label> 
 						<input style ='border: 1px solid #ccc;' type="date" id="noti_yearFrom" placeholder="Notification Date" name="yearFrom" value="<?php if (isset($_REQUEST['yearFrom']) && (!empty($_REQUEST['yearFrom']))) { echo $_REQUEST['yearFrom']; } ?>" />
 						<input style ='border: 1px solid #ccc;' type="date" id="noti_yearTo" placeholder="" name="yearTo" value="<?php if (isset($_REQUEST['yearTo']) && (!empty($_REQUEST['yearTo']))) { echo $_REQUEST['yearTo']; } ?>" />
 						<button type="button" name="resetDates" onclick="resetYearField()" class="btn" style="background: linear-gradient(to bottom, #00789e 0%, #00548a 100%); color: #fff; font-weight: normal; font-size: 12px; text-transform: uppercase; border: none;max-width: 4em;max-height: 35px;">
@@ -960,7 +963,7 @@ error_reporting(E_ALL);
 					</div>
 
 					<div class="form-group text-center">
-						<input type="submit" name="searchButton" id="search_case_btn" value="Search" class="btn" style="background: linear-gradient(to bottom, #00789e 0%,#00548a 100%);color:#fff;font-weight: normal;font-size: 12px;text-transform: uppercase;border:none;"/>
+						<input type="button" name="searchButton" id="search_case_btn" value="Search" class="btn" style="background: linear-gradient(to bottom, #00789e 0%,#00548a 100%);color:#fff;font-weight: normal;font-size: 12px;text-transform: uppercase;border:none;"/>
 					</div>
 					<script>
 						function resetYearFields() {
@@ -1288,6 +1291,8 @@ error_reporting(E_ALL);
               		    include('tempUsererror.php');
             	    }
 				}
+
+					
 			} 
 			else 
 			{
@@ -1441,7 +1446,10 @@ error_reporting(E_ALL);
 				$("#party").val("");
 			}
 		}
-
+		$("form").submit(function(e) {
+			e.preventDefault();
+		});
+		
 		$("#prod_id").change(function(){
 			var productId = $(this).val();
 			if(productId){
