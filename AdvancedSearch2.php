@@ -4,7 +4,7 @@
     $seoTitle = 'Advanced Search';
     $seoKeywords = 'Advanced Search';
     $seoDesc = 'Advanced Search';
-    ini_set('display_errors',0);
+    // ini_set('display_errors',0);
 ?>
 <?php
 
@@ -270,7 +270,7 @@ function getCategory($table, $value) {
 
 </style>
 <?php 
-// if (isLogeedIn()) { 
+if (isLogeedIn()) { 
     ?>
     <div class="page-wrapper col-md-16">
         <div class="wrapper--w900">
@@ -353,8 +353,15 @@ function getCategory($table, $value) {
                                 <div class="input-group input-group-big">
                                     <div class="label"><label>Party Name:</label></div>
                                     
-                                    <div class="form-control" style>
-                                        <input type="text"  style="text-transform:uppercase;" onkeyup="javascript:load_data(this.value)" onfocus="javascript:load_search_history()" onblur="javascript:lose_focus()" id="party_name" placeholder="Type to Search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="party_name" value="<?php if (isset($_REQUEST['party_name']) && (!empty($_REQUEST['party_name']))) { echo $_REQUEST['party_name']; } ?>" />
+                                    <div class="form-control" style="z-index: 10;">
+                                        <input type="text"  
+                                        style="text-transform:uppercase;" 
+                                        onkeyup="javascript:load_data(this.value)"
+                                        onfocus="javascript:load_search_history()"
+                                        onblur="javascript:lose_focus()"
+                                        id="party_name"
+                                        placeholder="Type to Search" 
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="party_name" value="<?php if (isset($_REQUEST['party_name']) && (!empty($_REQUEST['party_name']))) { echo $_REQUEST['party_name']; } ?>" />
                                         <div id="search_result"></div>
                                     </div>                                    
                                 </div>
@@ -659,7 +666,7 @@ function getCategory($table, $value) {
                                     </div>
 
                                 </div>                            
-                                <input type="submit" name="searchButton" id="searchButton" value="Search" class="btn-submit m-t-35"/>
+                                <input type="submit" name="searchButton" id="searchButton" value="Search&" class="btn-submit m-t-35"/>
                             </form>
                         </div>
                         <div class="tab-pane" id="tab2">
@@ -1132,9 +1139,9 @@ function getCategory($table, $value) {
             </div>
         </div>
     </div><?php
-// } else {
-//     include('loggedInError.php');
-// }
+} else {
+    include('loggedInError.php');
+}
 
 include('footer.php');
 ?>
@@ -1214,11 +1221,12 @@ include('footer.php');
         }
     }
 
+    var getTextTriggered = false;
 
     function get_text(event) {
 
         var string = event.textContent;
-
+        getTextTriggered=true
         //fetch api
 
         //document.getElementsByName('party_name')[0].value = string;
@@ -1247,7 +1255,6 @@ include('footer.php');
             document.getElementsByName('party_name')[0].value = string;
         
             document.getElementById('search_result').innerHTML = '';
-
         });
 
     }
@@ -1298,8 +1305,10 @@ include('footer.php');
         }
     }
     function lose_focus() {
-
-        document.getElementById('search_result').innerHTML = '';
+        if(getTextTriggered){
+            document.getElementById('search_result').innerHTML = '';
+            getTextTriggered=false
+        }
     }
     
 </script>
