@@ -482,20 +482,20 @@ error_reporting(E_ALL);
 						$courts = isset($_REQUEST['court']) ? $_REQUEST['court'] : [];
 						foreach ($courts as $court) {
 							if ($court == "HC") {
-								$conditions[] = "(sp.sub_prod_name LIKE 'High Court Cases')";
+								$courtConditions[] = "(sp.sub_prod_name LIKE 'High Court Cases')";
 							} else if ($court == "SC") {
-								$conditions[] = "(sp.sub_prod_name LIKE 'Supreme Court Cases')";
+								$courtConditions[] = "(sp.sub_prod_name LIKE 'Supreme Court Cases')";
 							} else if ($court == "TRI") {
-								$conditions[] = "(sp.sub_prod_name LIKE 'CESTAT Cases')";
+								$courtConditions[] = "(sp.sub_prod_name LIKE 'CESTAT Cases')";
 							} else if ($court == "AAR") {
-								$conditions[] = "(sp.sub_prod_name LIKE 'Advance Ruling Authority')";
+								$courtConditions[] = "(sp.sub_prod_name LIKE 'Advance Ruling Authority')";
 							} else if ($court == "AAAR") {
-								$conditions[] = "(sp.sub_prod_name LIKE 'AAAR')";
+								$courtConditions[] = "(sp.sub_prod_name LIKE 'AAAR')";
 							} else if ($court == "NAA") {
-								$conditions[] = "(sp.sub_prod_name LIKE 'National Anti-Profiteering Authority')";
+								$courtConditions[] = "(sp.sub_prod_name LIKE 'National Anti-Profiteering Authority')";
 							}
 						}
-						
+						$conditions[] = implode(' OR ',$courtConditions);
 					}
 					// } 
 				    //<--------End of  Citation number--------->
@@ -864,7 +864,7 @@ error_reporting(E_ALL);
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label>Select Forum </label>
 						<style>
 							.dropdown-menu span {
@@ -910,7 +910,7 @@ error_reporting(E_ALL);
 							</select>
 						</div>
 
-					</div>
+					</div> -->
 
 					<div class="form-group" id="state" style="display: none;">
 						<label>state</label>
