@@ -22,11 +22,25 @@
 	  return $prodSelect;
 	}
 	
+	function getSubProdDropdownVal($prod_id) {
+		$subProdSelect = '<select id="cat" name="cat" class="form-control required" >';
+		$result = mysqli_query($GLOBALS['con'],"SELECT sub_prod_name, sub_prod_id FROM sub_product");
+		while($row = mysqli_fetch_array($result)) {
+			$subProdSelect .= "<option selected='selected' value='".$row['sub_prod_id']."'>".$row['sub_prod_name']."</option>";
+		} 
+	  	mysqli_free_result($result);
+
+	   	$subProdSelect .= '</select>';
+	  	return $subProdSelect;
+	}
+	
 	function getStatDropdown($state_id, $selectValue) {
  
 	  	$stateSelect = '<select id="state_id" name="state_id" class="form-control required" >
 	                    <option value="0">Select State</option>';
 	  	$state=$state_id; 
+		error_log('LOGG:::');
+		error_log("SELECT state_id, state_name FROM state_master");
 	  	$result = mysqli_query($GLOBALS['con'],"SELECT state_id, state_name FROM state_master");
 	 	while($row = mysqli_fetch_array($result)) {
 		    if($selectValue == 'statenames') {
@@ -115,7 +129,7 @@
     </h1>
     <div class="col-md-16">
 	<?php 
-		// if(isLogeedIn()) {
+		if(isLogeedIn()) {
 	?>
 				<!---------- Advance search options ------------------>	
             <div class="col-md-8 searchbody" >
@@ -139,8 +153,8 @@
 							<label>Select Category </label>
 							<div class="form-group">
 								<select name="case_prod_id" id="prod_id" class="form-control">
-			                		<option value="0" <?php if(isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "0")){ echo "selected=selected";}?> data-dbsuffix="0">Select</option>
-			                   		<option value="7" <?php if(isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "7")){ echo "selected=selected";}?> data-dbsuffix="0">GST</option>
+			                		<option value="0" <?php if(isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "0")){ echo "selected=selected";}?> data-dbsuffix="0" >Select</option>
+			                   		<option value="7" <?php if(isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "7")){ echo "selected=selected";}?> data-dbsuffix="0" >GST</option>
 			                   		<option value="1" <?php if(isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "1")){ echo "selected=selected";}?> data-dbsuffix="0">VAT/Sales Tax</option>
 			                   		<option value="4" <?php if(isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "4")){ echo "selected=selected";}?> data-dbsuffix="0">Central Excise</option>
 			                   		<option value="2" <?php if(isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "2")){ echo "selected=selected";}?> data-dbsuffix="0">Service Tax</option>
@@ -148,6 +162,7 @@
 			                	</select>
 							</div>
 						</div>
+
 
 						<div class="form-group">
 							<label>Select Type</label>
@@ -157,7 +172,6 @@
 									<option value="0" <?php if(isset($_REQUEST['searchType']) && ($_REQUEST['searchType'] == "0")){ echo "selected=selected";}?>>Keyword</option>   
 
 						            <option value="2" <?php if(isset($_REQUEST['searchType']) && ($_REQUEST['searchType'] == "2")){ echo "selected=selected";}?>>VIL Citation No.</option> 	                    
-						            <option value="3" <?php if(isset($_REQUEST['searchType']) && ($_REQUEST['searchType'] == "3")){ echo "selected=selected";}?>>Year</option> 	                    
 							    </select>			
 							</div>
 						</div>
@@ -174,41 +188,7 @@
 							<div class="form-group">
 				 				<input type="text" id="party" value="<?php if(isset($_REQUEST['party_name']) && (!empty($_REQUEST['party_name']))){ echo $_REQUEST['party_name'];}?>" placeholder="Party Name" name="party_name" class="form-control" >
 				 			</div>
-				</div>
-						<div class="form-group" id="year_range" style="display: none;">
-							<label id="searchTypeLabel">Year Range</label> 
-							<div class="form-group">
-							<div class="col-md-6  col-xs-6">
-								<div class="form-group">
-									<select class="form-control" id="yearFrom" name="yearFrom" style="width: 80%;margin-left:36%;">
-				      					<option value=''>From</option>	
-				      					<?php 	
-										   	for($i = 1945 ; $i <= date('Y'); $i++){
-										?>   		
-										      	<option <?php if(isset($_REQUEST['yearFrom']) && ($_REQUEST['yearFrom'] == $i)){ echo "selected=selected";}?>><?php echo $i; ?></option>
-										<?php      	
-										   	}
-										?>
-				      				</select>
-				            	</div>
-				          	</div>
-							<div class="col-md-6  col-xs-6">
-				             	<div class="form-group">
-				                	<select class="form-control" id="yearTo" name="yearTo" style="width: 80%;margin-left:36%;">
-				      					<option value=''>To</option>	
-				      					<?php 	
-										   	for($i = 1945 ; $i <= date('Y'); $i++){
-										?>   		
-										      	<option <?php if(isset($_REQUEST['yearTo']) && ($_REQUEST['yearTo'] == $i)){ echo "selected=selected";}?>><?php echo $i; ?></option>
-										<?php      	
-										   	}
-										?>
-				      				</select>
-				            	</div>
-				          	</div>
-				 			</div>
-				 		</div>
-
+					</div>
 						<div class="form-group" id="citation" style="display: none;">
 						    <label id="searchTypeLabel">VIL Citation</label>
 				          	<div class="col-md-3  col-xs-4">
@@ -242,6 +222,13 @@
 				             	</div>
 				          	</div>
 					    </div>
+						<!-- <div class="form-group" id="year_range" style="display: block;">
+							<label id="searchTypeLabel">Year Range</label> 
+							<input style ='border: 1px solid #ccc;' type="date" id="yearFrom" placeholder="Notification Date" name="yearFrom" value="<?php if (isset($_REQUEST['yearFrom']) && (!empty($_REQUEST['yearFrom']))) { echo $_REQUEST['yearFrom']; } ?>" />
+							<input style ='border: 1px solid #ccc;' type="date" id="yearTo" placeholder="" name="yearTo" value="<?php if (isset($_REQUEST['yearTo']) && (!empty($_REQUEST['yearTo']))) { echo $_REQUEST['yearTo']; } ?>" />
+
+				 		</div> -->
+
 					    <div class="form-group text-center" >
 							<input type="submit" name="searchButton" id="search_case_btn" value="Search" class="btn"/>
 				    	</div>
@@ -272,20 +259,12 @@
 							</div>
 						</div>
 						
-						<div class="form-group" id="state" style="display: none;">
-							<label>state</label>
-							<div class="form-group">
-								<?php if(isset($_REQUEST['state_id'])){echo getStatDropdown($_REQUEST['state_id'],'state_id');}else{echo getStatDropdown('','state_id');}?>			
-							</div>
-						</div>
-
 						<div class="form-group">
 							<label>Select Type</label>
 							<div class="form-group">
 								<select name="notification_searchType"  id="searchType1" class="form-control">
 						        	<option value="0">Keyword</option>
 						            <option value="1">Notification/Circular No.</option>                     
-						            <option value="2">Year</option>                     
 							    </select>			
 							</div>
 						</div>
@@ -303,39 +282,11 @@
 				 				<input type="text" id="noti_cir" placeholder="Notification/Circular No."  name="noti_cir" value="<?php if(isset($_REQUEST['noti_cir']) && (!empty($_REQUEST['noti_cir']))){ echo $_REQUEST['noti_cir'];}?>" class="form-control" >
 				 			</div>
 				 		</div>
-						 <div class="form-group" id="noti_year_range" style="display: none;">
+						 <!-- <div class="form-group" id="noti_year_range" style="display: block;">
 							<label id="searchTypeLabel">Year Range</label> 
-							<div class="form-group">
-							<div class="col-md-6  col-xs-6">
-								<div class="form-group">
-									<select class="form-control" id="yearFrom" name="yearFrom" style="width: 80%;margin-left:36%;">
-				      					<option value=''>From</option>	
-				      					<?php 	
-										   	for($i = 1945 ; $i <= date('Y'); $i++){
-										?>   		
-										      	<option <?php if(isset($_REQUEST['yearFrom']) && ($_REQUEST['yearFrom'] == $i)){ echo "selected=selected";}?>><?php echo $i; ?></option>
-										<?php      	
-										   	}
-										?>
-				      				</select>
-				            	</div>
-				          	</div>
-							<div class="col-md-6  col-xs-6">
-				             	<div class="form-group">
-				                	<select class="form-control" id="yearTo" name="yearTo" style="width: 80%;margin-left:36%;">
-				      					<option value=''>To</option>	
-				      					<?php 	
-										   	for($i = 1945 ; $i <= date('Y'); $i++){
-										?>   		
-										      	<option <?php if(isset($_REQUEST['yearTo']) && ($_REQUEST['yearTo'] == $i)){ echo "selected=selected";}?>><?php echo $i; ?></option>
-										<?php      	
-										   	}
-										?>
-				      				</select>
-				            	</div>
-				          	</div>
-				 			</div>
-				 		</div>
+							<input style ='border: 1px solid #ccc;' type="date" id="yearFrom" placeholder="Notification Date" name="yearFrom" value="<?php if (isset($_REQUEST['yearFrom']) && (!empty($_REQUEST['yearFrom']))) { echo $_REQUEST['yearFrom']; } ?>" />
+							<input style ='border: 1px solid #ccc;' type="date" id="yearTo" placeholder="" name="yearTo" value="<?php if (isset($_REQUEST['yearTo']) && (!empty($_REQUEST['yearTo']))) { echo $_REQUEST['yearTo']; } ?>" />
+				 		</div> -->
 
 				 		<div class="form-group text-center">
 							<input type="submit" name="searchButton" id="search_case_btn" value="Search" class="btn"/>
@@ -347,9 +298,9 @@
 			</div>
 
 	<?php
-		// } else {
-		// 	include('loggedInError.php');
-		// }
+		} else {
+			include('loggedInError.php');
+		}
   	?>		   
     </div> 
 </div>
@@ -368,7 +319,7 @@
 		});
 
 		$("#q_cir").click(function(){
-			////debugger;
+			//debugger;;
 			$("#q_case_law").removeClass("q_active");
 			$("#q_cir").addClass("q_active");
 			$("#case_law_section").css('display','none');
@@ -379,14 +330,14 @@
 
 		// for case law
 		$("#searchType").change(function(){
-			////debugger;
+			//debugger;;
 			var value=$(this).val();
 			
 			if(value=="0"){ //for keyword
 				$("#keyword").css("display","block");
 				$("#citation").css("display","none");
 				$("#party_name").css("display","none");
-				$("#year_range").css("display","none");
+				
 
 				$("#party").val("");
 				$("#year").find('option').prop("selected", false);
@@ -397,7 +348,7 @@
 				$("#keyword").css("display","none");
 				$("#citation").css("display","none");
 				$("#party_name").css("display","block");
-				$("#year_range").css("display","none");
+				
 
 				$("#key").val("");
 				$("#vol").val("");
@@ -411,25 +362,45 @@
 
 				$("#yearFrom").val("");
 				$("#yearto").val("");
-				$("#yearFrom").find('option').prop("selected", false);
-				$("#year2").find('option').prop("selected", false);
 				$("#vol").val("");
 				$("#Cit_text").val("");
 			}else{
 				$("#keyword").css("display","none");
 				$("#citation").css("display","block");
 				$("#party_name").css("display","none");
-				$("#year_range").css("display","none");
+				
 
 				$("#key").val("");
 				$("#party").val("");
+			}
+		});
+		
+		$("#prod_id").change(function(){
+			var productId = $(this).val();
+			if(productId){ 
+			    $.ajax({
+                type: 'POST',
+                url: 'get_select_options.php',
+                data: {prod_id: productId, options_type: 'product_forum_fetch'},
+                dataType: 'json',
+                success: function (data) {
+                    var optionsHtml = '<option value="0" data-dbsuffix="0" >Select</option>';
+                    $.each(data, function (key, value) {
+                        optionsHtml += '<option value="' + value.sub_prod_id + '">' + value.sub_prod_name + '</option>';
+                    });
+                    $('#sub_prod_id').html(optionsHtml);
+                }
+            });
+				$("#sub_prod_id").css("display","block");
+			} else {
+			    $("#sub_prod_id").css("display","none");
 			}
 		});
 
 
 		// for notification/circular
 		$("#searchType1").change(function(){
-			////debugger;
+			//debugger;;
 			var value=$(this).val();
 			if(value=="0"){ //for keyword
 				$("#noti_keyword").css("display","block");
@@ -455,7 +426,7 @@
 		});
 		
 		$("#not_prod_id").change(function(){
-			////debugger;
+			//debugger;;
 			var val=$(this).val();
 			
 			if(val=='7'){

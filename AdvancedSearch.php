@@ -4,7 +4,7 @@
     $seoTitle = 'Advanced Search';
     $seoKeywords = 'Advanced Search';
     $seoDesc = 'Advanced Search';
-    ini_set('display_errors',0);
+    // ini_set('display_errors',0);
 ?>
 <?php
 function getCatDropdown($value, $data) {
@@ -106,15 +106,15 @@ function getCategory($table, $value) {
 }
 ?>
 <!-- Icons font CSS-->
-<link href="https://vilgst.com/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-<link href="https://vilgst.com/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+<link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+<link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
 <!-- Font special for pages-->
 <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
 <!-- Vendor CSS-->
-<link href="https://vilgst.com/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-<link href="https://vilgst.com/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+<link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+<link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
 <!-- Main CSS-->
 <link href="css/main.css" rel="stylesheet" media="all">
@@ -189,12 +189,26 @@ function getCategory($table, $value) {
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane" id="tab1">
+                        <div class="tab-pane active" id="tab1">
                             <form name="form2" id="form2" action="Advance_Search.php" method="GET" class="form padding-b-15">
                                 <input type="hidden" name="pagename" value="CaseLaws">
                                 <input type="hidden" name="function_name" value="case_data">
                                 <input type="hidden" id="dbsuffix" name="dbsuffix" value="0">
-                                
+                                <!-- <div class="wrapper" style="margin-bottom: 10px;">
+                                    <div class="search-input">
+                                        <input type="text" id="keyword" name="keyword" value="<?php //if (isset($_REQUEST['keyword']) && !empty($_REQUEST['keyword'])) { echo $_REQUEST['keyword']; }?>" placeholder="Type To Search in Keyword....">
+                                        <div class="autocom-box">
+                                            <li>Login Form In Html & Css</li>
+                                            <li>Login Form In Html & Css</li>
+                                            <li>Login Form In Html & Css</li>
+                                            <li>Login Form In Html & Css</li>
+                                            <li>Login Form In Html & Css</li>
+                                        </div>
+                                        <!-- <div class="icon">
+                                            <i class="fa fa-search"></i>
+                                        </div> -->
+                                    <!-- </div>
+                                </div> -->
                                 <div class="input-group input-group-big">
                                     <label class="label">Keyword:</label>
                                     <input type="text" class="form-control" id="keyword" name="keyword" value="<?php if (isset($_REQUEST['keyword']) && !empty($_REQUEST['keyword'])) { echo $_REQUEST['keyword']; }?>" placeholder="Keyword"/>
@@ -532,7 +546,7 @@ function getCategory($table, $value) {
                                 <input type="submit" name="searchButton" id="searchButton" value="Search" class="btn-submit m-t-35"/>
                             </form>
                         </div>
-                        <div class="tab-pane active" id="tab2">
+                        <div class="tab-pane" id="tab2">
                             <form name="form2" id="form2" action="Advance_Search.php" method="GET" class="form padding-b-15">
                                 <input type="hidden" name="pagename" value="Acts and Rules">
                                 <input type="hidden" name="function_name" value="act">
@@ -918,14 +932,14 @@ include('footer.php');
 <script src="js/script.js"></script>
 <script src="js/suggestions.js"></script>
 <!-- Jquery JS-->
-<!-- <script src="https://vilgst.com/vendor/jquery/jquery.min.js"></script> -->
+<!-- <script src="vendor/jquery/jquery.min.js"></script> -->
 <!-- Vendor JS-->
-<!-- <script src="https://vilgst.com/vendor/select2/select2.min.js"></script>
-<script src="https://vilgst.com/vendor/jquery-validate/jquery.validate.min.js"></script>
-<script src="https://vilgst.com/vendor/bootstrap-wizard/bootstrap.min.js"></script>
-<script src="https://vilgst.com/vendor/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-<script src="https://vilgst.com/vendor/datepicker/moment.min.js"></script>
-<script src="https://vilgst.com/vendor/datepicker/daterangepicker.js"></script> -->
+<!-- <script src="vendor/select2/select2.min.js"></script>
+<script src="vendor/jquery-validate/jquery.validate.min.js"></script>
+<script src="vendor/bootstrap-wizard/bootstrap.min.js"></script>
+<script src="vendor/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+<script src="vendor/datepicker/moment.min.js"></script>
+<script src="vendor/datepicker/daterangepicker.js"></script> -->
 
 <!-- Main JS-->
 <!-- <script src="js/global.js"></script> -->

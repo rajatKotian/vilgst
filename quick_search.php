@@ -485,20 +485,20 @@ error_reporting(E_ALL);
 						$courts = isset($_REQUEST['court']) ? $_REQUEST['court'] : [];
 						foreach ($courts as $court) {
 							if ($court == "HC") {
-								$courtConditions[] = "(sp.sub_prod_name LIKE 'High Court Cases')";
+								$courtConditions[] = "sp.sub_prod_name = 'High Court Cases'";
 							} else if ($court == "SC") {
-								$courtConditions[] = "(sp.sub_prod_name LIKE 'Supreme Court Cases')";
+								$courtConditions[] = "sp.sub_prod_name = 'Supreme Court Cases'";
 							} else if ($court == "TRI") {
-								$courtConditions[] = "(sp.sub_prod_name LIKE 'CESTAT Cases')";
+								$courtConditions[] = "sp.sub_prod_name = 'CESTAT Cases'";
 							} else if ($court == "AAR") {
-								$courtConditions[] = "(sp.sub_prod_name LIKE 'Advance Ruling Authority')";
+								$courtConditions[] = "sp.sub_prod_name = 'Advance Ruling Authority'";
 							} else if ($court == "AAAR") {
-								$courtConditions[] = "(sp.sub_prod_name LIKE 'AAAR')";
+								$courtConditions[] = "sp.sub_prod_name = 'AAAR'";
 							} else if ($court == "NAA") {
-								$courtConditions[] = "(sp.sub_prod_name LIKE 'National Anti-Profiteering Authority')";
+								$courtConditions[] = "sp.sub_prod_name = 'National Anti-Profiteering Authority'";
 							}
 						}
-						$conditions[] = implode(' OR ',$courtConditions);
+						$conditions[] = "( ".implode(' OR ',$courtConditions)." )";
 					}
 					// } 
 				    //<--------End of  Citation number--------->
