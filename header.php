@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-    <style>
+  <script src="https://cdn.ckeditor.com/4.7.0/standard/ckeditor.js"></script> 
+<style>
     .q-search
     {
         position: absolute;
