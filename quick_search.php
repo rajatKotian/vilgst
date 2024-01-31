@@ -482,7 +482,7 @@ error_reporting(E_ALL);
 
 					
 					if (isset($_REQUEST['court'])) {
-						$courts = isset($_REQUEST['court']) ? $_REQUEST['court'] : [];
+						$courts = (isset($_REQUEST['court']) && is_array($_REQUEST['court'])) ? $_REQUEST['court'] : [];
 						foreach ($courts as $court) {
 							if ($court == "HC") {
 								$courtConditions[] = "sp.sub_prod_name = 'High Court Cases'";
@@ -498,7 +498,9 @@ error_reporting(E_ALL);
 								$courtConditions[] = "sp.sub_prod_name = 'National Anti-Profiteering Authority'";
 							}
 						}
-						$conditions[] = "( ".implode(' OR ',$courtConditions)." )";
+						if (!empty($courtConditions)) {
+    						$conditions[] = "( ".implode(' OR ',$courtConditions)." )";
+						}
 					}
 					// } 
 				    //<--------End of  Citation number--------->
@@ -1004,7 +1006,10 @@ error_reporting(E_ALL);
                 //     print_r($queries);die;
                 // }
                 
-                parse_str($urlPrased['query'], $queries); 
+                parse_str($urlPrased['query'], $queries);
+                $queries[$queryParam] = $paramValue;
+                
+                /*
                 $newParamArray = array();
                 foreach($queries as $q_param => $param_v){
                     if($q_param != $queryParam){
@@ -1018,7 +1023,9 @@ error_reporting(E_ALL);
                 
                 foreach($newParamArray as $q_p=>$p_v){
                     $newUrl .= "&".  $q_p . "=". $p_v;
-                }
+                }*/
+                
+                $newUrl = $getBaseUrl . "/quick_search.php?".http_build_query($queries);
                 
                 return $newUrl;
             }
@@ -1278,9 +1285,8 @@ error_reporting(E_ALL);
 		<div class="alert alert-danger always-show">
 			<h4>
 				<strong style="color: #8d3400;">OR</strong>
-				<p>Didnâ€™t find what you are searching for? No worries, please give us the following details and VIL
-					will email you the desired Caselaws at the earliest:</p>
-				<p>Please Click CRF Button</p>
+				<p>Didn't find what you are searching for? Please send us case details in below 'Caselaw Request Form' and we will email you the desired Caselaw at the earliest:</p>
+				<p>Please click CRF link below</p>
 				<strong><b><a href='#caselawForm' class='open-popup-link' data-effect="mfp-zoom-in"
 							id='arrange'>CRF</a></b></strong>
 			</h4>
@@ -1366,14 +1372,14 @@ error_reporting(E_ALL);
 		window.location = 'searchBody?search=' + data;
 	}
 </script>
-<script>
+<!-- <script>
 	function reloadIt() {
 		if (window.location.href.substr(-1) !== "&") {
 			window.location = window.location.href + "&";
 		}
 	}
 	setTimeout(function () { reloadIt() }, 500);
-</script>
+</script> -->
 
 <script type="text/javascript">
 	$(document).ready(function () {

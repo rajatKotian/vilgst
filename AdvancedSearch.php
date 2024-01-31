@@ -7,6 +7,7 @@
     // ini_set('display_errors',0);
 ?>
 <?php
+
 function getCatDropdown($value, $data) {
     if ($data == '1') {
         $prodSelect = '<select id="prod_id" name="prod_id" class="form-control required" multiple >';
@@ -27,7 +28,7 @@ function getCatDropdown($value, $data) {
 
 function getStatDropdown($state_id, $selectValue) {
 
-    $stateSelect = '<select id="state_id" name="state_id" class="form-control required" style="width: 82%;position: relative;bottom: 15px;left: 150px;">
+    $stateSelect = '<select id="state_id" name="state_id" class="form-control required" >
                         <option value="0">Select State</option>';
     $state = $state_id;
     $result = mysqli_query($GLOBALS['con'],"SELECT state_id, state_name FROM state_master");
@@ -117,20 +118,23 @@ function getCategory($table, $value) {
 <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
 <!-- Main CSS-->
-<link href="css/main.css" rel="stylesheet" media="all">
+<link href="css/main_copy.css" rel="stylesheet" type="text/css" media="all">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 <style type="text/css">
+    <?php include 'css/main.css'; ?>
     .card-4 { background: rgb(32 23 23 / 0%); }
     .form { width: 100%; }
-    .form2 { padding-left: 250px; width: 100%; }
+    .form2 { 
+        width: 100%; 
+    }
     .display { display: none; }
-    .input-group .form-control { position: relative; z-index: 2; float: none; width: 100%; margin-bottom: 0; }
-    .input--style-1 { font-size: 15px; padding: 8px 0; color: #666; font-family: inherit; }
+    .input--style-1 { font-size: 15px; padding: 8px 0; color: #666; font-family: inherit;border: 1px solid #ccc;}
     .tab-list__link { display: block; text-transform: uppercase; font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
         font-weight: 400; font-size: 19px; color: rgba(128, 128, 128, 0.6); padding: 0 5px; }
-    .wrapper--w900 { max-width: 1140px;  margin-left: 0px; }
-    .tab-list { list-style: none; padding: 0 25px; padding-top: 40px; }
-    .wrapper .search-party { position: relative; background: #fff; width: 100%; border-radius: 5px; box-shadow: 0px 1px 5px 3px rgb(0 0 0 / 12%); }
+        .wrapper--w900 { max-width: 1140px;  margin-left: 0px; }
+        .tab-list { list-style: none; padding: 0 25px; padding-top: 40px; }
+    .input-group .form-control { position: relative; z-index: 2; float: none; width: 100%; margin-bottom: 0; }
+    .wrapper .search-party { position: relative; background: #fff; width: 100%; border-radius: 5px; box-shadow: 0px 1px 5px 3px rgb(0 0 0 / 12%); margin-bottom: 10px; }
     .search-party input { height: 55px; width: 100%; outline: none; border: none; border-radius: 5px; padding: 0 60px 0 20px;
         font-size: 18px; box-shadow: 0px 1px 5px rgb(0 0 0 / 10%); }
     .inf { font-size: 22px; background: #034f44; color: #c1e305; border-radius: 5px;}
@@ -140,38 +144,162 @@ function getCategory($table, $value) {
     .tool {position: relative; display: inline-block; }
     .tool .tooltiptext {visibility: hidden; width: 370px; background-color: black; color: #fff; text-align: center;border-radius: 6px; padding: 8px 0;/* Position the tooltip */position: absolute; z-index: 1;}
     .tool:hover .tooltiptext {visibility: visible; }
-    .tool .tooltiptext2 { visibility: hidden; width: 200px; background-color: black; color: #fff; text-align: center; 
-        border-radius: 6px; padding: 8px 0; /* Position the tooltip */ position: absolute; z-index: 1; }
-    .tool:hover .tooltiptext2 { visibility: visible; }
+    .tool .tooltiptext2 { visibility: hidden; width: 200px; background-color: black; color: #fff; text-align: center; z-index: 99999;
+        border-radius: 6px; padding: 8px 0; /* Position the tooltip */ position: absolute; z-index: 999; }
+    .tool:hover .tooltiptext2 { visibility: visible;  }
+</style>
+<style>
+    #loader {
+        display: none;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translate(0, -50%);
+        z-index: 9999;
+    }
+</style>
+<style>
+    .tab-list {
+        display: flex;
+        list-style: none;
+        padding: 20px;
+        background: linear-gradient(to bottom, #00789e 0%,#00548a 100%);
+        justify-content: center;
+    }
+    .tab-list::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    @media (max-width: 767px) {
+        .tab-list {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        .tab-list__link {
+            font-size: 22px;
+        }
+        .tab-list__item {
+            padding: 5px;
+        }
+    }
+
+    .tab-list__item {
+        float: none;
+    }
+    .tab-list__link:hover {
+        color: #dbad14;
+    }
+    .tab-list__item {
+        /* float: left; */
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .tab-list__link {
+        display: block;
+        text-transform: uppercase
+        font-weight: normal;
+        font-size: large;
+        color: #fff;
+        padding: 0 20px;
+    }
+    .tab-list .active .tab-list__link {
+        color: #00548a;
+        background-color:#dbad14
+    }
+    .tab-pane {
+        border: solid;
+        border-color: #00548a;
+    }
+
+    .table-container .form label {
+        float: left;
+        clear: left;
+        margin: 7px 5% 0 0;
+        text-align: right;
+        width: 30%;
+    }
+    .input-group {
+        position: relative;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .display {
+        display: none;
+    }
+    .input-group-big {
+        padding: 7px 10px;
+    }
+    .label {
+        font-size: 13px;
+        color: #333;
+        text-transform: capitalize;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        white-space: nowrap;
+        position: relative;
+        text-align: left;
+        margin-right: 11vw;
+    }
+    .label label{
+        position: absolute;
+        margin-inline-end: 9vw;
+    }
+    .btn-submit {
+        display: block;
+        width: 100%;
+        line-height: 50px;
+        font-family: inherit;
+        background: #00548a;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+        -webkit-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+
+    .btn-submit:hover {
+        background: #dbad14;
+    }
+
+
 </style>
 <?php 
-// if (isLogeedIn()) { 
+if (isLogeedIn()) { 
     ?>
-    <div class="page-wrapper col-md-16" style="background: #242c43;">
+    <div class="page-wrapper col-md-16">
         <div class="wrapper--w900">
-            <div class="card card-4">
-                <button style="float: right; position: relative; top: 15px; right: 10px;"><a href="AdvancedSearch.php" class="btn btn-primary">Refresh</a></button>
-                <div class="btn btn-primary tool" style="background: #ff7808; float: left; position: relative;top: 10px;left: 10px;">
-                    <a style="color: white;" href="#caselawForm" class="open-popup-link" data-effect="mfp-zoom-in">
-                        &nbsp;&nbsp;CRF&nbsp;&nbsp;
-                    </a>
-                    <span class="tooltiptext">Didn’t find desired Caselaws? Please submit CRF.</span>
-                </div>
                 <div class="card-body">
-                    <ul class="tab-list">
+                    
+                    <ul class="tab-list ">
                         <li class="tab-list__item active">
                             <a class="tab-list__link" href="#tab1" data-toggle="tab">
-                                <img src="images/caselaws.png" style="width: 25%; padding-right: 5px;">CaseLaws
+                            CaseLaws
                             </a>
                         </li>
                         <li class="tab-list__item">
                             <a class="tab-list__link" href="#tab2" data-toggle="tab">
-                                <img src="images/act&rules.png" style="width: 25%; padding-right: 5px;">Acts/ Rules
+                                Acts/ Rules
                             </a>
                         </li>
                         <li class="tab-list__item">
                             <a class="tab-list__link" href="#tab3" data-toggle="tab">
-                                <img src="images/notifications.png" style="width: 25%; padding-right: 5px;">Notifications
+                            Notifications
                             </a>
                         </li>
                         <!-- <li class="tab-list__item">
@@ -179,62 +307,76 @@ function getCategory($table, $value) {
                         </li> -->
                         <li class="tab-list__item">
                             <a class="tab-list__link" href="#tab5" data-toggle="tab">
-                                <img src="images/article.png" style="width: 25%; padding-right: 5px;">Articles
+                            Articles
                             </a>
                         </li>
                         <li class="tab-list__item">
                             <a class="tab-list__link" href="#tab6" data-toggle="tab">
-                                <img src="images/taxvista.png" style="width: 25%; padding-right: 5px;">Tax Vista
+                            Tax Vista
                             </a>
                         </li>
                     </ul>
+                    <div class="card card-4">
+                    
+                    <button style="float: right; position: relative; top: 15px; right: 10px; bottom: 15px; "><a href="AdvancedSearch.php" class="btn btn-primary">Refresh</a></button>
+                    <div class="btn btn-primary tool" style="background: #ff7808; float: left; position: relative;top: 15px;left: 10px; bottom: 15px;">
+                        <a style="color: white;" href="#caselawForm" class="open-popup-link" data-effect="mfp-zoom-in">
+                            &nbsp;&nbsp;CRF&nbsp;&nbsp;
+                        </a>
+                        <span class="tooltiptext">Didn’t find desired Caselaws? Please submit CRF.</span>
+                    </div>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab1">
                             <form name="form2" id="form2" action="Advance_Search.php" method="GET" class="form padding-b-15">
                                 <input type="hidden" name="pagename" value="CaseLaws">
                                 <input type="hidden" name="function_name" value="case_data">
                                 <input type="hidden" id="dbsuffix" name="dbsuffix" value="0">
-                                <!-- <div class="wrapper" style="margin-bottom: 10px;">
-                                    <div class="search-input">
-                                        <input type="text" id="keyword" name="keyword" value="<?php //if (isset($_REQUEST['keyword']) && !empty($_REQUEST['keyword'])) { echo $_REQUEST['keyword']; }?>" placeholder="Type To Search in Keyword....">
-                                        <div class="autocom-box">
-                                            <li>Login Form In Html & Css</li>
-                                            <li>Login Form In Html & Css</li>
-                                            <li>Login Form In Html & Css</li>
-                                            <li>Login Form In Html & Css</li>
-                                            <li>Login Form In Html & Css</li>
-                                        </div>
-                                        <!-- <div class="icon">
-                                            <i class="fa fa-search"></i>
-                                        </div> -->
-                                    <!-- </div>
-                                </div> -->
+                              
                                 <div class="input-group input-group-big">
-                                    <label class="label">Keyword:</label>
+                                    <div class="label"><label>Keyword:</label></div>
+                                    
                                     <input type="text" class="form-control" id="keyword" name="keyword" value="<?php if (isset($_REQUEST['keyword']) && !empty($_REQUEST['keyword'])) { echo $_REQUEST['keyword']; }?>" placeholder="Keyword"/>
+                                    <div class = "form2">
+                                        <div class="col-md-2" >
+                                            <label class="label" style="color: #00548a;">Exact:</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="radio" class="form-control" id="exactSearch" <?php if(($_REQUEST['exact_search']=='exact') || ($_REQUEST['exact_search']=='')) { ?> checked    <?php } ?> name="exact_search" value="exact" style="height:20px;border:0px;margin-top:2px;box-shadow: 0 0 0 0;">
+                                        </div>
+                                        <div class="col-md-2 tool">
+                                            <i class="fa fa-info-circle infor"></i>
+                                            <span class="tooltiptext2">Search for exact Word or Phrase. Try with texts most likely to be present in Caselaw. You can search-in-search in next step.</span>
+                                        </div>
+                                        <div class="col-md-2" >
+                                            <label class="label" style="color: #00548a;">Like:</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="radio" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like') { ?> checked <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:2px;box-shadow: 0 0 0 0;">
+                                        </div>
+                                        <div class="col-md-2 tool">
+                                            <i class="fa fa-info-circle infor"></i>
+                                            <span class="tooltiptext2">Search for multiple Words or Phrase in same Caselaw seprating them by comma e.g. Credit Note, Supplementary invoice. You can search-in-search in next step.</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form2">
-                                    <div class="col-md-2" style="width: 8%;">
-                                         <label class="label" style="color: white;">Exact:</label>
-                                     </div>
-                                     <div class="col-md-1">
-                                        <input type="radio" class="form-control" id="exactSearch" <?php if(($_REQUEST['exact_search']=='exact') || ($_REQUEST['exact_search']=='')) { ?> checked    <?php } ?> name="exact_search" value="exact" style="height:20px;border:0px;margin-top:2px;box-shadow: 0 0 0 0;">
-                                    </div>
-                                    <div class="col-md-1 tool">
-                                        <i class="fa fa-info-circle inf"></i>
-                                        <span class="tooltiptext2">Search for exact Word or Phrase. Try with texts most likely to be present in Caselaw. You can search-in-search in next step.</span>
-                                    </div>
-                                    <div class="col-md-2" style="width: 8%;">
-                                        <label class="label" style="color: white;">Like:</label>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <input type="radio" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like') { ?> checked <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:2px;box-shadow: 0 0 0 0;">
-                                    </div>
-                                    <div class="col-md-2 tool">
-                                        <i class="fa fa-info-circle inf"></i>
-                                        <span class="tooltiptext2">Search for multiple Words or Phrase in same Caselaw seprating them by comma e.g. Credit Note, Supplementary invoice. You can search-in-search in next step.</span>
-                                    </div>
+                                <div class="input-group input-group-big">
+                                    <div class="label"><label>Party Name:</label></div>
+                                    
+                                    <div  style="width: 100%;">
+                                        <input type="text"  
+                                        class="form-control"
+                                        onkeyup="javascript:load_data(this.value)"
+                                        onfocus="javascript:load_search_history()"
+                                        onblur="javascript:lose_focus()"
+                                        id="party_name"
+                                        placeholder="Type to Search" 
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="party_name" value="<?php if (isset($_REQUEST['party_name']) && (!empty($_REQUEST['party_name']))) { echo $_REQUEST['party_name']; } ?>" />
+                                        <span id="loader"><i class="fas fa-spinner fa-spin"></i></span>
+
+                                        <div id="search_result"></div>
+                                    </div>                                    
                                 </div>
+                            <!--                                 
                                 <div class="input-group input-group-big">
                                     <label class="label">Search In:</label>
                                     <select name="search_in" id="search_in" class="form-control">
@@ -242,20 +384,18 @@ function getCategory($table, $value) {
                                         <option value="1" <?php if (isset($_REQUEST['search_in']) && ($_REQUEST['search_in'] == "1")) { echo "selected=selected"; } ?> data-dbsuffix="0">Headnote </option>
                                         <option value="2" <?php if (isset($_REQUEST['search_in']) && ($_REQUEST['search_in'] == "2")) { echo "selected=selected"; } ?>data-dbsuffix="0">Case Text</option>
                                     </select>
-                                </div>
-                                <div class="input-group wrapper" style="margin-bottom: 10px;padding: 0px 10px 0px 0px;">
-                                    <div class="search-party">
-                                        <input type="text" style="text-transform:uppercase;" onkeyup="javascript:load_data(this.value)" onfocus="javascript:load_search_history()" id="party_name" placeholder="Party Name....." data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="party_name" value="<?php if (isset($_REQUEST['party_name']) && (!empty($_REQUEST['party_name']))) { echo $_REQUEST['party_name']; } ?>" />
-                                        <div id="search_result"></div>
-                                    </div>
-                                    <div class="tool" style="padding-left: 10px;">
-                                        <i class="fa fa-info-circle infor"></i>
-                                        <span class="tooltiptext2">Type party name (try excluding Pvt Ltd/Limited) or select from list. Searching with party name without selecting from the list will give result of all Caselaws for searched party.</span>
-                                    </div>
-                                </div>
-                                  
+                                </div> -->
+                                
                                 <div class="input-group input-group-big">
-                                    <label class="label">Category:</label>
+                                    <!-- <label class="label"></label> -->
+                                    <div class="label"><label>Search In:</label></div>
+                                    <select name="search_in" id="search_in" class="form-control">
+                                        <option value="0" <?php if (isset($_REQUEST['search_in']) && ($_REQUEST['search_in'] == "0")) { echo "selected=selected"; } ?> data-dbsuffix="0">Select </option>   
+                                        <option value="1" <?php if (isset($_REQUEST['search_in']) && ($_REQUEST['search_in'] == "1")) { echo "selected=selected"; } ?> data-dbsuffix="0">Headnote </option>
+                                        <option value="2" <?php if (isset($_REQUEST['search_in']) && ($_REQUEST['search_in'] == "2")) { echo "selected=selected"; } ?>data-dbsuffix="0">Case Text</option>
+                                    </select>
+
+                                    <div class="label" ><label>Category:</label></div>
                                     <select name="prod_id" id="prod_id" class="form-control">
                                         <option value="0" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "0")) { echo "selected=selected"; } ?> data-dbsuffix="0">Select</option>
                                         <option value="7" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "7")) { echo "selected=selected"; } ?> data-dbsuffix="0">GST</option>
@@ -264,7 +404,8 @@ function getCategory($table, $value) {
                                         <option value="2" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "2")) { echo "selected=selected"; } ?> data-dbsuffix="0">Service Tax</option>
                                         <option value="5" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "5")) { echo "selected=selected"; } ?> data-dbsuffix="0">Customs</option>
                                     </select>
-                                    <label class="label">Court/Forum:</label>
+
+                                    <div class="label"><label>Court/Forum:</label></div>
                                     <select id='court' name='court' class="form-control">
                                         <option value="0" <?php if (isset($_REQUEST['court']) && ($_REQUEST['court'] == "0")) { echo "selected=selected"; } ?>data-dbsuffix="0">Select</option>
                                         <option value="SC" <?php if (isset($_REQUEST['court']) && ($_REQUEST['court'] == "SC")) { echo "selected=selected"; } ?>data-dbsuffix="0">Supreme Court</option>
@@ -277,8 +418,8 @@ function getCategory($table, $value) {
                                 </div>
                                 
                                 <div class="input-group input-group-big display" id='hc'>
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">Bench/City:</label>
-                                    <select id='courtCityHC' name='courtCity' style="width: 82%;position: relative;bottom: 15px;left: 150px;" class="form-control" >
+                                    <div class="label"><label>Bench/City:</label></div>
+                                    <select id='courtCityHC' name='courtCity' style="/* width: 82%;position: relative;bottom: 15px;left: 150px;*/" class="form-control" >
                                         <option value="0">Select City</option>
                                         <option value="ALH" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'ALH')) { echo "selected=selected"; } ?>>Allahabad</option>
                                         <option value="AP" <?php  if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'AP')) {  echo "selected=selected"; } ?>>Andhra Pradesh</option>
@@ -308,8 +449,8 @@ function getCategory($table, $value) {
                                     </select>
                                 </div>
                                 <div class="input-group input-group-big display" id='tri'>
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">Bench/City:</label>
-                                    <select id='courtCityTRI' name='courtCity1' style="width: 82%;position: relative;bottom: 15px;left: 150px;" class="form-control" >
+                                    <div class="label"><label>Bench/City:</label></div>
+                                    <select id='courtCityTRI' name='courtCity1' class="form-control" >
                                         <option value="0">Select City</option>
                                         <option value="AHM" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'AHM')) { echo "selected=selected"; } ?>>Ahmedabad</option>
                                         <option value="ALH" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'ALH')) { echo "selected=selected"; } ?>>Allahabad</option>
@@ -323,8 +464,8 @@ function getCategory($table, $value) {
                                     </select>
                                 </div>
                                 <div class="input-group input-group-big display" id='aar'>
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">Bench/City:</label>
-                                    <select id='courtCityAAR' name='courtCityAAR' style="width: 82%;position: relative;bottom: 15px;left: 150px;" class="form-control" >
+                                    <div class="label"><label>Bench/City:</label></div>
+                                    <select id='courtCityAAR' name='courtCityAAR'class="form-control" >
                                         <option value="0">Select STATE</option>
                                         <option value="1" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '1')) { echo "selected=selected"; } ?>>Andaman and Nicobar Islands</option>
                                         <option value="2" <?php  if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '2')) {  echo "selected=selected"; } ?>>Andhra Pradesh</option>
@@ -366,8 +507,8 @@ function getCategory($table, $value) {
                                     </select>
                                 </div>
                                 <div class="input-group input-group-big display" id='aaar'>
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">Bench/City:</label>
-                                    <select id='courtCityAAAR' name='courtCityAAAR' style="width: 82%;position: relative;bottom: 15px;left: 150px;" class="form-control" >
+                                    <div class="label"><label>Bench/City:</label></div>
+                                    <select id='courtCityAAAR' name='courtCityAAAR' class="form-control" >
                                         <option value="0">Select STATE</option>
                                         <option value="1" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '1')) { echo "selected=selected"; } ?>>Andaman and Nicobar Islands</option>
                                         <option value="2" <?php  if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '2')) {  echo "selected=selected"; } ?>>Andhra Pradesh</option>
@@ -409,7 +550,7 @@ function getCategory($table, $value) {
                                     </select>
                                 </div>
                                 <div class="input-group input-group-big">
-                                    <label class="label">CGST Section No.:</label>
+                                    <div class="label"><label>CGST Section No.:</label></div>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" id="cgst_section" placeholder="" name="cgst_section" value="<?php if (isset($_REQUEST['cgst_section']) && (!empty($_REQUEST['cgst_section']))) { echo $_REQUEST['cgst_section']; } ?>" onkeypress="return isNumberKey(event)" />
                                     </div>
@@ -428,7 +569,7 @@ function getCategory($table, $value) {
                                     </div>
                                 </div>
                                 <div class="input-group input-group-big">
-                                    <label class="label">CGST Rule No.:</label>
+                                    <div class="label"><label>CGST Rule No.:</label></div>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" id="cgst_rule" placeholder="" name="cgst_rule" value="<?php if (isset($_REQUEST['cgst_rule']) && (!empty($_REQUEST['cgst_rule']))) { echo $_REQUEST['cgst_rule']; } ?>" onkeypress="return isNumberKey(event)" />
                                     </div>
@@ -447,7 +588,7 @@ function getCategory($table, $value) {
                                     </div>
                                 </div>
                                 <div class="input-group input-group-big">
-                                    <label class="label">IGST Section No.:</label>
+                                    <div class="label"><label>IGST Section No.:</label></div>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" id="igst_section" placeholder="" name="igst_section" value="<?php if (isset($_REQUEST['igst_section']) && (!empty($_REQUEST['igst_section']))) { echo $_REQUEST['igst_section']; } ?>" onkeypress="return isNumberKey(event)" />
                                     </div>
@@ -466,7 +607,7 @@ function getCategory($table, $value) {
                                     </div>
                                 </div>
                                 <div class="input-group input-group-big">
-                                    <label class="label">IGST Rule No.:</label>
+                                    <div class="label"><label>IGST Rule No.:</label></div>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" id="igst_rule" placeholder="" name="igst_rule" value="<?php if (isset($_REQUEST['igst_rule']) && (!empty($_REQUEST['igst_rule']))) {  echo $_REQUEST['igst_rule']; } ?>" onkeypress="return isNumberKey(event)"/>
                                     </div>
@@ -483,10 +624,10 @@ function getCategory($table, $value) {
                                         <i class="fa fa-info-circle infor"></i>
                                         <span class="tooltiptext2">Search for GST Caselaws by IGST Rule. Selection of sub-rule/clause is optional.</span>
                                     </div>
-                                </div>
+                                </div> 
                                 
                                 <div class="input-group input-group-big">
-                                    <label class="label">Judge Name:</label>
+                                    <div class="label"><label>Judge Name:</label></div>
                                     <input type="text" class="form-control" id="judge_name" placeholder="Judge Name" name="judge_name" value="<?php if (isset($_REQUEST['judge_name']) && (!empty($_REQUEST['judge_name']))) { echo $_REQUEST['judge_name']; } ?>" />
                                 </div>
                                 <!-- <div class="input-group input-group-big">
@@ -499,7 +640,7 @@ function getCategory($table, $value) {
                                 </div> -->
                                 
                                 <div class="input-group input-group-big" style="width: 100%">
-                                    <label class="label">VIL Citation:</label>
+                                    <div class="label"><label>VIL Citation:</label></div>
                                     <div class="col-md-4">
                                         <select class="form-control" id="year" name="year" >
                                             <option value=''>Year</option>
@@ -512,7 +653,7 @@ function getCategory($table, $value) {
                                         </select>
                                     </div>
                                     <div class="col-md-1 text-center">
-                                        <p class="text" style="font-size: 17px; font-weight: 500;color: #333;"> VIL</p>
+                                        <div class="label"><label>VIL</label></div>
                                     </div>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" id="vol" placeholder="Volumn" name="vol" value="<?php if (isset($_REQUEST['vol']) && (!empty($_REQUEST['vol']))) { echo $_REQUEST['vol']; } ?>" onkeypress="return isNumberKey(event)"/>
@@ -522,27 +663,20 @@ function getCategory($table, $value) {
                                         <input type="text" class="form-control" id="Citation" placeholder="" name="Citation" value="<?php if (isset($_REQUEST['Citation']) && (!empty($_REQUEST['Citation']))) { echo $_REQUEST['Citation']; } ?>" />
                                     </div>
                                 </div>
-                                <div class="row-space">
-                                    <div class="col-md-5">
-                                        <div class="input-group">
-                                            <label class="label">Date:</label>
-                                            <input class="input--style-1" type="date"
-                                             id="date" placeholder="Date" name="date" value="<?php if (isset($_REQUEST['date']) && (!empty($_REQUEST['date']))) { echo $_REQUEST['date']; } ?>" />
-                                        </div>
+                                <div style="display: flex; font-size: 13px;padding: 7px 10px;gap: 10em;">
+                                    <div style="margin-bottom: 10px;display: inline-flex;align-items: center;padding: 0.2em 0.6em 0.3em;">
+                                        <label style="margin-right: 2vw;">Date:</label>
+                                        <input style="border: 1px solid #ccc; padding: 5px; font-size: 13px;" type="date" id="date" name="date" value="<?php if (isset($_REQUEST['date']) && (!empty($_REQUEST['date']))) { echo $_REQUEST['date']; } ?>" />
                                     </div>
-                                    <div class="col-md-5">
-                                        <div class="input-group">
-                                            <label class="col-md-5" style="font-weight: 500; font-size: 17px; color: #333;">Date Range:</label>
-                                            <input class="input--style-1 col-md-11" type="date" id="dt_from" placeholder="" name="dt_from" value="<?php if (isset($_REQUEST['dt_from']) && (!empty($_REQUEST['dt_from']))) { echo $_REQUEST['dt_from']; } ?>" />
-                                        </div>
+
+                                    <div style="display: flex; align-items: center; margin-bottom: 10px;padding: 0.2em 0.6em 0.3em;">
+                                        <label style="width: 100%;">Date Range:</label>
+                                        <input style="border: 1px solid #ccc; padding: 5px; margin-right: 10px; font-size: 13px;" type="date" id="dt_from" name="dt_from" value="<?php if (isset($_REQUEST['dt_from']) && (!empty($_REQUEST['dt_from']))) { echo $_REQUEST['dt_from']; } ?>" />
+                                        <label>To:</label>
+                                        <input style="border: 1px solid #ccc; padding: 5px; font-size: 13px; margin-left: 5px;" type="date" id="dt_to" name="dt_to" value="<?php if (isset($_REQUEST['dt_to']) && (!empty($_REQUEST['dt_to']))) { echo $_REQUEST['dt_to']; } ?>" />
                                     </div>
-                                    <div class="col-md-5">
-                                        <div class="input-group">
-                                            <label class="label">to:</label>
-                                            <input class="input--style-1" type="date" id="dt_to" placeholder="" name="dt_to" value="<?php if (isset($_REQUEST['dt_to']) && (!empty($_REQUEST['dt_to']))) { echo $_REQUEST['dt_to']; } ?>" />
-                                        </div>
-                                    </div>
-                                </div>                             
+
+                                </div>                            
                                 <input type="submit" name="searchButton" id="searchButton" value="Search" class="btn-submit m-t-35"/>
                             </form>
                         </div>
@@ -569,10 +703,39 @@ function getCategory($table, $value) {
                                     <!-- </div>
                                 </div> -->
                                 <div class="input-group input-group-big">
-                                    <label class="label">Keyword:</label>
+                                    <div class="label"><label>Keyword:</label></div>
                                     <input type="text" class="form-control" id="keyword" name="keyword" value="<?php if (isset($_REQUEST['keyword']) && !empty($_REQUEST['keyword'])) { echo $_REQUEST['keyword']; }?>" placeholder="Keyword"/>
+                                                    
+                                    <div class="form2">
+                                        <div class="col-md-2">
+                                            <label class="label" style="color: #00548a;">Exact:</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="radio" class="form-control" id="exactSearch" <?php if(($_REQUEST['exact_search']=='exact' ) ||
+                                                ($_REQUEST['exact_search']=='' )) { ?> checked
+                                            <?php } ?> name="exact_search" value="exact" style="height:20px;border:0px;margin-top:2px;box-shadow: 0 0 0 0;">
+                                        </div>
+                                        <div class="col-md-2 tool">
+                                            <i class="fa fa-info-circle infor"></i>
+                                            <span class="tooltiptext2">Search for exact Word or Phrase. Try with texts most likely to be present in Caselaw.
+                                                You can search-in-search in next step.</span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="label" style="color: #00548a;">Like:</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="radio" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like' ) { ?>
+                                            checked
+                                            <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:2px;box-shadow: 0 0 0 0;">
+                                        </div>
+                                        <div class="col-md-2 tool">
+                                            <i class="fa fa-info-circle infor"></i>
+                                            <span class="tooltiptext2">Search for multiple Words or Phrase in same Caselaw seprating them by comma e.g.
+                                                Credit Note, Supplementary invoice. You can search-in-search in next step.</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-16 form2">
+                                <!-- <div class="col-md-16 form2">
                                     <div class="col-md-1">
                                          <label class="label" style="color: white;">Exact:</label>
                                      </div>
@@ -585,13 +748,15 @@ function getCategory($table, $value) {
                                     <div class="col-md-3">
                                         <input type="radio" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like') { ?> checked <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="input-group input-group-big">
-                                    <label class="label">Section No.:</label>
+                                    <!-- <label class="label">Section No.:</label> -->
+                                    <div class="label"><label>Section No.:</label></div>
                                     <input type="number" class="form-control" name="sect" value="<?php if (isset($_REQUEST['sect']) && !empty($_REQUEST['sect'])) { echo $_REQUEST['sect']; } ?>" placeholder="Section No." />
                                 </div>
                                 <div class="input-group input-group-big">
-                                    <label class="label">Search Type:</label>
+                                    <!-- <label class="label">Search Type:</label> -->
+                                    <div class="label"><label>Search Type:</label></div>
                                     <select name="type" id="type" class="form-control">
                                         <option value="">Select Type</option>
                                         <option value="Acts" <?php if (isset($_REQUEST['type']) && $_REQUEST['type'] == 'Acts') { echo "selected"; } ?>>Acts</option>
@@ -603,7 +768,8 @@ function getCategory($table, $value) {
                                         <option value="Public Notice" <?php if (isset($_REQUEST['type']) && $_REQUEST['type'] == 'Public Notice') { echo "selected"; } ?>>Public Notice</option>
                                         <option value="Trade Notice" <?php if (isset($_REQUEST['type']) && $_REQUEST['type'] == 'Trade Notice') { echo "selected"; } ?>>Trade Notice</option>
                                     </select>
-                                    <label class="label">Category:</label>
+                                    <!-- <label class="label">Category:</label> -->
+                                    <div class="label"><label>Category:</label></div>
                                     <select name="prod_id" id="prod_id" class="form-control">
                                         <option value="0" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "0")) { echo "selected=selected"; } ?> data-dbsuffix="0">Select</option>
                                         <option value="10" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "10")) { echo "selected=selected"; } ?> data-dbsuffix="cgst">CGST</option>
@@ -616,36 +782,43 @@ function getCategory($table, $value) {
                                     </select>
                                 </div>
                                 <div class="input-group input-group-big display" id="section">
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">Section No.:</label>
-                                    <input style="width: 82%;position: relative;bottom: 15px;left: 150px;" type="text" class="form-control" id="section_no" name="section_no" value="<?php if (isset($_REQUEST['section_no']) && !empty($_REQUEST['section_no'])) { echo $_REQUEST['section_no']; } ?>" placeholder="Section No." />
+                                    <!-- <label class="label" style="width: 0px; position: relative; top: 15px;">Section No.:</label> -->
+                                    <div class="label"><label>Section No.:</label></div>
+                                    <input type="text" class="form-control" id="section_no" name="section_no" value="<?php if (isset($_REQUEST['section_no']) && !empty($_REQUEST['section_no'])) { echo $_REQUEST['section_no']; } ?>" placeholder="Section No." />
                                 </div>
                                 <div class="input-group input-group-big display" id="rule">
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">Rule No.:</label>
-                                    <input style="width: 82%;position: relative;bottom: 15px;left: 150px;" type="text" class="form-control" id="rule_no" name="rule_no" value="<?php if (isset($_REQUEST['rule_no']) && !empty($_REQUEST['rule_no'])) { echo $_REQUEST['rule_no']; } ?>" placeholder="Rule No." />
+                                    <!-- <label class="label" style="width: 0px; position: relative; top: 15px;">Rule No.:</label> -->
+                                    <div class="label"><label>Rule No.:</label></div>
+                                    <input type="text" class="form-control" id="rule_no" name="rule_no" value="<?php if (isset($_REQUEST['rule_no']) && !empty($_REQUEST['rule_no'])) { echo $_REQUEST['rule_no']; } ?>" placeholder="Rule No." />
                                 </div>
                                 <!-- <div class="input-group input-group-big display" id="notification">
                                     <label class="label" style="width: 0px; position: relative; top: 15px;">Notification:</label>
-                                    <input style="width: 82%;position: relative;bottom: 15px;left: 150px;" type="text" class="form-control" id="notification" name="notification" value="<?php if (isset($_REQUEST['notification']) && !empty($_REQUEST['notification'])) { echo $_REQUEST['notification']; } ?>" placeholder="Notification" />
+                                    <input  type="text" class="form-control" id="notification" name="notification" value="<?php if (isset($_REQUEST['notification']) && !empty($_REQUEST['notification'])) { echo $_REQUEST['notification']; } ?>" placeholder="Notification" />
                                 </div> -->
                                 <div class="input-group input-group-big display" id="policy">
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">Policy:</label>
-                                    <input style="width: 82%;position: relative;bottom: 15px;left: 150px;" type="text" class="form-control" id="policy" name="policy" value="<?php if (isset($_REQUEST['policy']) && !empty($_REQUEST['policy'])) { echo $_REQUEST['policy']; } ?>" placeholder="Policy" />
+                                    <!-- <label class="label" style="width: 0px; position: relative; top: 15px;">Policy:</label> -->
+                                    <div class="label"><label>Policy:</label></div>
+                                    <input type="text" class="form-control" id="policy" name="policy" value="<?php if (isset($_REQUEST['policy']) && !empty($_REQUEST['policy'])) { echo $_REQUEST['policy']; } ?>" placeholder="Policy" />
                                 </div>
                                 <div class="input-group input-group-big display" id="policy_circular">
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">Policy Circular:</label>
-                                    <input style="width: 82%;position: relative;bottom: 15px;left: 150px;" type="text" class="form-control" id="policy_circular" name="policy_circular" value="<?php if (isset($_REQUEST['policy_circular']) && !empty($_REQUEST['policy_circular'])) { echo $_REQUEST['policy_circular']; } ?>" placeholder="Policy Circular" />
+                                    <!-- <label class="label" style="width: 0px; position: relative; top: 15px;">Policy Circular:</label> -->
+                                    <div class="label"><label>Policy Circular:</label></div>
+                                    <input type="text" class="form-control" id="policy_circular" name="policy_circular" value="<?php if (isset($_REQUEST['policy_circular']) && !empty($_REQUEST['policy_circular'])) { echo $_REQUEST['policy_circular']; } ?>" placeholder="Policy Circular" />
                                 </div>
                                 <div class="input-group input-group-big display" id="procedure">
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">Procedure:</label>
-                                    <input style="width: 82%;position: relative;bottom: 15px;left: 150px;" type="text" class="form-control" id="procedure" name="procedure" value="<?php if (isset($_REQUEST['procedure']) && !empty($_REQUEST['procedure'])) { echo $_REQUEST['procedure']; } ?>" placeholder="Procedure" />
+                                    <!-- <label class="label" style="width: 0px; position: relative; top: 15px;">Procedure:</label> -->
+                                    <div class="label"><label>Procedure:</label></div>
+                                    <input type="text" class="form-control" id="procedure" name="procedure" value="<?php if (isset($_REQUEST['procedure']) && !empty($_REQUEST['procedure'])) { echo $_REQUEST['procedure']; } ?>" placeholder="Procedure" />
                                 </div>
                                 <div class="input-group input-group-big display" id="public_notice">
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">Public Notice:</label>
-                                    <input style="width: 82%;position: relative;bottom: 15px;left: 150px;" type="text" class="form-control" id="public_notice" name="public_notice" value="<?php if (isset($_REQUEST['public_notice']) && !empty($_REQUEST['public_notice'])) { echo $_REQUEST['public_notice']; } ?>" placeholder="Public Notice" />
+                                    <!-- <label class="label" style="width: 0px; position: relative; top: 15px;">Public Notice:</label> -->
+                                    <div class="label"><label>Public Notice:</label></div>
+                                    <input type="text" class="form-control" id="public_notice" name="public_notice" value="<?php if (isset($_REQUEST['public_notice']) && !empty($_REQUEST['public_notice'])) { echo $_REQUEST['public_notice']; } ?>" placeholder="Public Notice" />
                                 </div>
                                 <div class="input-group input-group-big display" id="trade_notice">
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">Trade Notice:</label>
-                                    <input style="width: 82%;position: relative;bottom: 15px;left: 150px;" type="text" class="form-control" id="trade_notice" name="trade_notice" value="<?php if (isset($_REQUEST['trade_notice']) && !empty($_REQUEST['trade_notice'])) { echo $_REQUEST['trade_notice']; } ?>" placeholder="Trade Notice" />
+                                    <!-- <label class="label" style="width: 0px; position: relative; top: 15px;">Trade Notice:</label> -->
+                                    <div class="label"><label>Trade Notice:</label></div>
+                                    <input type="text" class="form-control" id="trade_notice" name="trade_notice" value="<?php if (isset($_REQUEST['trade_notice']) && !empty($_REQUEST['trade_notice'])) { echo $_REQUEST['trade_notice']; } ?>" placeholder="Trade Notice" />
                                 </div>
                                 <input type="submit" name="searchButton" id="searchButton" value="Search" class="btn-submit m-t-35"/>
                             </form>
@@ -676,10 +849,39 @@ function getCategory($table, $value) {
                                     <!-- </div>
                                 </div> -->
                                 <div class="input-group input-group-big">
-                                    <label class="label">Keyword:</label>
+                                    <!-- <label class="label">Keyword:</label> -->
+                                    <div class="label"><label>Keyword:</label></div>
                                     <input type="text" class="form-control" id="keyword" placeholder="Keyword" name="keyword" value="<?php if (isset($_REQUEST['keyword']) && (!empty($_REQUEST['keyword']))) { echo $_REQUEST['keyword']; } ?>" />
+                                    <div class="form2">
+                                        <div class="col-md-2">
+                                            <label class="label" style="color: #00548a;">Exact:</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="radio" class="form-control" id="exactSearch" <?php if(($_REQUEST['exact_search']=='exact' ) ||
+                                                ($_REQUEST['exact_search']=='' )) { ?> checked
+                                            <?php } ?> name="exact_search" value="exact" style="height:20px;border:0px;margin-top:2px;box-shadow: 0 0 0 0;">
+                                        </div>
+                                        <div class="col-md-2 tool">
+                                            <i class="fa fa-info-circle infor"></i>
+                                            <span class="tooltiptext2">Search for exact Word or Phrase. Try with texts most likely to be present in Caselaw.
+                                                You can search-in-search in next step.</span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="label" style="color: #00548a;">Like:</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="radio" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like' ) { ?>
+                                            checked
+                                            <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:2px;box-shadow: 0 0 0 0;">
+                                        </div>
+                                        <div class="col-md-2 tool">
+                                            <i class="fa fa-info-circle infor"></i>
+                                            <span class="tooltiptext2">Search for multiple Words or Phrase in same Caselaw seprating them by comma e.g.
+                                                Credit Note, Supplementary invoice. You can search-in-search in next step.</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form2">
+                                <!-- <div class="form2">
                                     <div class="col-md-1">
                                          <label class="label" style="color: white;">Exact:</label>
                                      </div>
@@ -692,9 +894,10 @@ function getCategory($table, $value) {
                                     <div class="col-md-3">
                                         <input type="radio" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like') { ?> checked <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="input-group input-group-big">
-                                    <label class="label">Category:</label>
+                                    <!-- <label class="label">Category:</label> -->
+                                    <div class="label"><label>Category:</label></div>
                                     <select name="prod_id" id="product_id" class="form-control">
                                         <option value="0" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "0")) { echo "selected=selected"; } ?> data-dbsuffix="0">Select</option>
                                         <option value="10" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "10")) { echo "selected=selected"; } ?> data-dbsuffix="cgst">CGST</option>
@@ -708,7 +911,8 @@ function getCategory($table, $value) {
                                     </select>
                                 </div>
                                 <div class="input-group input-group-big display" id="state">
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">State:</label>
+                                <div class="label"><label>State:</label></div>
+                                    <!-- <label class="label" style="width: 0px; position: relative; top: 15px;">State:</label> -->
                                     <div class="form">
                                         <?php 
                                             if (isset($_REQUEST['state_id'])) {
@@ -720,39 +924,35 @@ function getCategory($table, $value) {
                                     </div>
                                 </div>
                                 <div class="input-group input-group-big display" id="category_type">
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">Category Type:</label>
+                                    <div class="label"><label>Category Type:</label></div>
                                     <div class="form" id="noti_div">
-                                        <select id="sub_product_id" name="sub_product_id" class="form-control required" style="width: 82%;position: relative;bottom: 15px;left: 150px;"></select>
+                                        <select id="sub_product_id" name="sub_product_id" class="form-control required" ></select>
                                     </div>
                                 </div>
                                 <div class="input-group input-group-big display" id="notification_type">
-                                    <label class="label" style="width: 0px; position: relative; top: 15px;">Notification Type:</label>
+                                    <div class="label"><label>Notification Type:</label></div>
                                     <div class="form" id="noti_div">
-                                        <select id="not_type" name="type" class="form-control required" style="width: 82%;position: relative;bottom: 15px;left: 150px;"></select>
+                                        <select id="not_type" name="type" class="form-control required" ></select>
                                     </div>
                                 </div>
                                 <div class="input-group input-group-big">
-                                    <label class="label">Notification No.:</label>
+                                    <div class="label"><label>Notification No.:</label></div>
                                     <input type="text" class="form-control" id="noti_no" placeholder="Notification No." name="noti_no" value="<?php if (isset($_REQUEST['noti_no']) && (!empty($_REQUEST['noti_no']))) {echo $_REQUEST['noti_no']; } ?>" />
                                 </div>
-                                <div class="input-group">
-                                    <label class="label">Notification Date:</label>
-                                    <input class="input--style-1" type="date" id="date" placeholder="Notification Date" name="date" value="<?php if (isset($_REQUEST['date']) && (!empty($_REQUEST['date']))) { echo $_REQUEST['date']; } ?>" />
-                                </div>
-                                <div class="row row-space">
-                                    <div class="col-2">
-                                        <div class="input-group">
-                                            <label class="label">Date Range:</label>
-                                            <input class="input--style-1" type="date" id="dt_from" placeholder="" name="dt_from" value="<?php if (isset($_REQUEST['dt_from']) && (!empty($_REQUEST['dt_from']))) { echo $_REQUEST['dt_from']; } ?>" />
-                                        </div>
+                                
+                                <div style="display: flex; font-size: 13px;padding: 7px 10px;gap: 10em;">
+                                    <div style="margin-bottom: 10px;display: inline-flex;align-items: center;">
+                                        <label style="margin-right: 2vw;width: 100%;">Notification Date:</label>
+                                        <input style="border: 1px solid #ccc; padding: 5px; font-size: 13px;"  placeholder="Notification Date" type="date" id="date" name="date" value="<?php if (isset($_REQUEST['date']) && (!empty($_REQUEST['date']))) { echo $_REQUEST['date']; } ?>" />
                                     </div>
-                                    <div class="col-2">
-                                        <div class="input-group">
-                                            <label class="label">to:</label>
-                                            <input class="input--style-1" type="date" id="dt_to" placeholder="" name="dt_to" value="<?php if (isset($_REQUEST['dt_to']) && (!empty($_REQUEST['dt_to']))) { echo $_REQUEST['dt_to']; } ?>" />
-                                        </div>
+
+                                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                        <label style="width: 100%;">Date Range:</label>                                        <input style="border: 1px solid #ccc; padding: 5px; margin-right: 10px; font-size: 13px;" type="date" id="dt_from" name="dt_from" value="<?php if (isset($_REQUEST['dt_from']) && (!empty($_REQUEST['dt_from']))) { echo $_REQUEST['dt_from']; } ?>" />
+                                        <label>To:</label>
+                                        <input style="border: 1px solid #ccc; padding: 5px; font-size: 13px; margin-left: 5px;" type="date" id="dt_to" name="dt_to" value="<?php if (isset($_REQUEST['dt_to']) && (!empty($_REQUEST['dt_to']))) { echo $_REQUEST['dt_to']; } ?>" />
                                     </div>
-                                </div>
+
+                                </div> 
                                 <input type="submit" name="searchButton" id="searchButton" value="Search" class="btn-submit m-t-35"/>
                             </form>
                         </div>
@@ -805,32 +1005,44 @@ function getCategory($table, $value) {
                                         </div> -->
                                     <!-- </div>
                                 </div> -->
-                                <div class="input-group input-group-big">   
-                                    <label class="label">Keywords:</label>
-                                    <input type="text" class="form-control" id="text" name="keyword" placeholder="Keyword" value="<?php if (isset($_REQUEST['keyword']) && (!empty($_REQUEST['keyword']))) {
-                                        echo $_REQUEST['keyword']; } ?>"/>
-                                </div>
-                                <div class="form2">
-                                    <div class="col-md-1">
-                                         <label class="label" style="color: white;">Exact:</label>
-                                     </div>
-                                     <div class="col-md-3">
-                                        <input type="radio" class="form-control" id="exactSearch" <?php if(($_REQUEST['exact_search']=='exact') || ($_REQUEST['exact_search']=='')) { ?> checked    <?php } ?> name="exact_search" value="exact" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
-                                    </div>
-                                    <div class="col-md-1">
-                                        <label class="label" style="color: white;">Like:</label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="radio" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like') { ?> checked <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                <div class="input-group input-group-big">
+                                    <div class="label"><label>Keyword:</label></div>
+                                    
+                                    <input type="text" class="form-control" id="keyword" name="keyword" value="<?php if (isset($_REQUEST['keyword']) && !empty($_REQUEST['keyword'])) { echo $_REQUEST['keyword']; }?>" placeholder="Keyword"/>
+                                    <div class = "form2">
+                                        <div class="col-md-2" >
+                                            <label class="label" style="color: #00548a;">Exact:</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="radio" class="form-control" id="exactSearch" <?php if(($_REQUEST['exact_search']=='exact') || ($_REQUEST['exact_search']=='')) { ?> checked    <?php } ?> name="exact_search" value="exact" style="height:20px;border:0px;margin-top:2px;box-shadow: 0 0 0 0;">
+                                        </div>
+                                        <div class="col-md-2 tool">
+                                            <i class="fa fa-info-circle infor"></i>
+                                            <span class="tooltiptext2">Search for exact Word or Phrase. Try with texts most likely to be present in Caselaw. You can search-in-search in next step.</span>
+                                        </div>
+                                        <div class="col-md-2" >
+                                            <label class="label" style="color: #00548a;">Like:</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="radio" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like') { ?> checked <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:2px;box-shadow: 0 0 0 0;">
+                                        </div>
+                                        <div class="col-md-2 tool">
+                                            <i class="fa fa-info-circle infor"></i>
+                                            <span class="tooltiptext2">Search for multiple Words or Phrase in same Caselaw seprating them by comma e.g. Credit Note, Supplementary invoice. You can search-in-search in next step.</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="input-group input-group-big">
-                                    <label class="label">Topic:</label>
+                                    <!-- <label class="label">Topic:</label> -->
+                                    <div class="label"><label>Topic:</label></div>
+
                                     <input type="text" class="form-control" id="topic" placeholder="Enter Topic"  name="topic" value="<?php if (isset($_REQUEST['topic']) && (!empty($_REQUEST['topic']))) {
                                         echo $_REQUEST['topic']; } ?>"/>
                                 </div>
                                 <div class="input-group input-group-big">
-                                    <label class="label">Category:</label>
+                                    <!-- <label class="label">Category:</label> -->
+                                    <div class="label"><label>Category:</label></div>
+
                                     <select id="" name="prod_id" class="form-control">
                                         <option value="0" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == '0')) { echo "selected=selected"; } ?>>Select</option>
                                         <option value="GST" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == 'GST')) { echo "selected=selected"; } ?>>GST</option>
@@ -838,7 +1050,9 @@ function getCategory($table, $value) {
                                     </select>
                                 </div>
                                 <div class="input-group input-group-big">
-                                    <label class="label">Author:</label>
+                                    <!-- <label class="label">Author:</label> -->
+                                    <div class="label"><label>Author:</label></div>
+
                                     <div class="form">
                                         <?php echo getAuthor('articles'); ?>      
                                     </div>
@@ -846,13 +1060,15 @@ function getCategory($table, $value) {
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group">
-                                            <label class="label">Select From Date:</label>
+                                            <div class="label"><label>Select From Date:</label></div>
+                                            <!-- <label class="label">Select From Date:</label> -->
                                             <input class="input--style-1" type="date" name="check-in" placeholder="From Date" id="fromDate" name="fromDate" value="<?php if (isset($_REQUEST['fromDate']) && (!empty($_REQUEST['fromDate']))) { echo $_REQUEST['fromDate']; } ?>"/>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group">
-                                            <label class="label">Select To Date:</label>
+                                            <div class="label"><label>Select To Date:</label></div>
+                                            <!-- <label class="label">Select To Date:</label> -->
                                             <input class="input--style-1" type="date" name="check-out" placeholder="To Date" id="toDate"  name="toDate" value="<?php if (isset($_REQUEST['toDate']) && (!empty($_REQUEST['toDate']))) { echo $_REQUEST['toDate']; } ?>"/>
                                         </div>
                                     </div>
@@ -881,35 +1097,45 @@ function getCategory($table, $value) {
                                 <!--        </div>-->
                                 <!--     </div>-->
                                 <!--</div>-->
-                                <div class="input-group input-group-big">   
-                                    <label class="label">Keywords:</label>
-                                    <input type="text" class="form-control" id="text" name="keyword" placeholder="Keyword" value="<?php if (isset($_REQUEST['keyword']) && (!empty($_REQUEST['keyword']))) {
-                                        echo $_REQUEST['keyword']; } ?>"/>
-                                </div>
-                                <div class="form2">
-                                    <div class="col-md-1">
-                                         <label class="label" style="color: white;">Exact:</label>
-                                     </div>
-                                     <div class="col-md-3">
-                                        <input type="radio" class="form-control" id="exactSearch" <?php if(($_REQUEST['exact_search']=='exact') || ($_REQUEST['exact_search']=='')) { ?> checked    <?php } ?> name="exact_search" value="exact" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
-                                    </div>
-                                    <div class="col-md-1">
-                                        <label class="label" style="color: white;">Like:</label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="radio" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like') { ?> checked <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                <div class="input-group input-group-big">
+                                    <div class="label"><label>Keyword:</label></div>
+                                    
+                                    <input type="text" class="form-control" id="keyword" name="keyword" value="<?php if (isset($_REQUEST['keyword']) && !empty($_REQUEST['keyword'])) { echo $_REQUEST['keyword']; }?>" placeholder="Keyword"/>
+                                    <div class = "form2">
+                                        <div class="col-md-2" >
+                                            <label class="label" style="color: #00548a;">Exact:</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="radio" class="form-control" id="exactSearch" <?php if(($_REQUEST['exact_search']=='exact') || ($_REQUEST['exact_search']=='')) { ?> checked    <?php } ?> name="exact_search" value="exact" style="height:20px;border:0px;margin-top:2px;box-shadow: 0 0 0 0;">
+                                        </div>
+                                        <div class="col-md-2 tool">
+                                            <i class="fa fa-info-circle infor"></i>
+                                            <span class="tooltiptext2">Search for exact Word or Phrase. Try with texts most likely to be present in Caselaw. You can search-in-search in next step.</span>
+                                        </div>
+                                        <div class="col-md-2" >
+                                            <label class="label" style="color: #00548a;">Like:</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="radio" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like') { ?> checked <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:2px;box-shadow: 0 0 0 0;">
+                                        </div>
+                                        <div class="col-md-2 tool">
+                                            <i class="fa fa-info-circle infor"></i>
+                                            <span class="tooltiptext2">Search for multiple Words or Phrase in same Caselaw seprating them by comma e.g. Credit Note, Supplementary invoice. You can search-in-search in next step.</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row row-space" style="width: 100%;">
                                     <div class="col-2">
                                         <div class="input-group">
-                                            <label class="label">Select From Date:</label>
+                                            <!-- <label class="label">Select From Date:</label> -->
+                                            <div class="label"><label>Select From Date:</label></div>
                                             <input class="input--style-1" type="date" name="check-in" placeholder="From Date" id="fromDate" name="fromDate" value="<?php if (isset($_REQUEST['fromDate']) && (!empty($_REQUEST['fromDate']))) { echo $_REQUEST['fromDate']; } ?>"/>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group">
-                                            <label class="label">Select To Date:</label>
+                                            <!-- <label class="label">Select To Date:</label> -->
+                                            <div class="label"><label>Select To Date:</label></div>
                                             <input class="input--style-1" type="date" name="check-out" placeholder="To Date" id="toDate"  name="toDate" value="<?php if (isset($_REQUEST['toDate']) && (!empty($_REQUEST['toDate']))) { echo $_REQUEST['toDate']; } ?>"/>
                                         </div>
                                     </div>
@@ -922,9 +1148,9 @@ function getCategory($table, $value) {
             </div>
         </div>
     </div><?php
-// } else {
-//     include('loggedInError.php');
-// }
+} else {
+    include('loggedInError.php');
+}
 
 include('footer.php');
 ?>
@@ -945,7 +1171,8 @@ include('footer.php');
 <!-- <script src="js/global.js"></script> -->
 
 <script type="text/javascript">
-    
+    var loader = document.getElementById("loader");
+
     function delete_search_history($id) {
         return mysqli_query($GLOBALS['con'],"DELETE FROM search_history WHERE search_id = $id");
         // $result = mysqli_query($GLOBALS['con'],$query);
@@ -1004,11 +1231,12 @@ include('footer.php');
         }
     }
 
+    var getTextTriggered = false;
 
     function get_text(event) {
 
         var string = event.textContent;
-
+        getTextTriggered=true
         //fetch api
 
         //document.getElementsByName('party_name')[0].value = string;
@@ -1037,15 +1265,25 @@ include('footer.php');
             document.getElementsByName('party_name')[0].value = string;
         
             document.getElementById('search_result').innerHTML = '';
-
         });
 
+    }
+
+    // Function to show the loader
+    function showLoader() {
+        loader.style.display = "block";
+    }
+
+    // Function to hide the loader
+    function hideLoader() {
+        loader.style.display = "none";
     }
 
     function load_data(query) {
 
         if(query.length > 0)
         {
+            showLoader()
             var form_data = new FormData();
 
             form_data.append('query', query);
@@ -1079,12 +1317,24 @@ include('footer.php');
                     html += '</div>';
 
                     document.getElementById('search_result').innerHTML = html;
+                    hideLoader();
+                }else{
+                    console.log('ajax_request:::',ajax_request)
+                    document.getElementById('search_result').innerHTML = '';
+                    hideLoader();
                 }
             }
+
         }
         else
         {
             document.getElementById('search_result').innerHTML = '';
+        }
+    }
+    function lose_focus() {
+        if(getTextTriggered){
+            document.getElementById('search_result').innerHTML = '';
+            getTextTriggered=false
         }
     }
     
@@ -1093,7 +1343,7 @@ include('footer.php');
 <script>
      function isNumberKey(evt)
     {
-        debugger;
+        // debugger;
         var charCode = (evt.which) ? evt.which : evt.keyCode;
         if (charCode != 46 && charCode > 31
                 && (charCode < 48 || charCode > 57))
@@ -1105,11 +1355,11 @@ include('footer.php');
 <script>
     // for act and rule
     $("#type").change(function() {
-        debugger;
+        // debugger;
         var value = $(this).val();
         if (value == "Acts") {
             $("#section_no").val("");
-            $("#section").css("display", "block");
+            $("#section").css("display", "flex");
             $("#rule").css("display", "none");
             $("#notification").css("display", "none");
             $("#policy").css("display", "none");
@@ -1120,7 +1370,7 @@ include('footer.php');
         } 
         else if (value == "Notification") {
             $("#notification").val("");
-            $("#notification").css("display", "block");
+            $("#notification").css("display", "flex");
             $("#section").css("display", "none");
             $("#rule").css("display", "none");
             $("#policy").css("display", "none");
@@ -1131,7 +1381,7 @@ include('footer.php');
         }
         else if (value == "Policy") {
             $("#policy").val("");
-            $("#policy").css("display", "block");
+            $("#policy").css("display", "flex");
             $("#section").css("display", "none");
             $("#rule").css("display", "none");
             $("#notification").css("display", "none");
@@ -1142,7 +1392,7 @@ include('footer.php');
         }
         else if (value == "Policy Circular") {
             $("#policy_circular").val("");
-            $("#policy_circular").css("display", "block");
+            $("#policy_circular").css("display", "flex");
             $("#section").css("display", "none");
             $("#rule").css("display", "none");
             $("#notification").css("display", "none");
@@ -1153,7 +1403,7 @@ include('footer.php');
         }
         else if (value == "Procedure") {
             $("#procedure").val("");
-            $("#procedure").css("display", "block");
+            $("#procedure").css("display", "flex");
             $("#section").css("display", "none");
             $("#rule").css("display", "none");
             $("#notification").css("display", "none");
@@ -1164,7 +1414,7 @@ include('footer.php');
         }
         else if (value == "Public Notice") {
             $("#public_notice").val("");
-            $("#public_notice").css("display", "block");
+            $("#public_notice").css("display", "flex");
             $("#section").css("display", "none");
             $("#rule").css("display", "none");
             $("#notification").css("display", "none");
@@ -1175,7 +1425,7 @@ include('footer.php');
         }
         else if (value == "Trade Notice") {
             $("#trade_notice").val("");
-            $("#trade_notice").css("display", "block");
+            $("#trade_notice").css("display", "flex");
             $("#section").css("display", "none");
             $("#rule").css("display", "none");
             $("#notification").css("display", "none");
@@ -1186,7 +1436,7 @@ include('footer.php');
         }
         else {
             $("#rule_no").val("");
-            $("#rule").css("display", "block");
+            $("#rule").css("display", "flex");
             $("#section").css("display", "none");
             $("#notification").css("display", "none");
             $("#policy").css("display", "none");
@@ -1206,25 +1456,25 @@ include('footer.php');
         $("#court").change(function() {
             var value = $(this).val();
             if (value == "HC") {
-                $("#hc").css('display', 'block');
+                $("#hc").css('display', 'flex');
                 $("#tri").css('display', 'none');
                 $("#aar").css('display', 'none');
                 $("#aaar").css('display', 'none');
             } else if (value == "TRI") {
                 $("#hc").css('display', 'none');
-                $("#tri").css('display', 'block');
+                $("#tri").css('display', 'flex');
                 $("#aar").css('display', 'none');
                 $("#aaar").css('display', 'none');
             } else if (value == "AAR") {
                 $("#hc").css('display', 'none');
                 $("#tri").css('display', 'none');
-                $("#aar").css('display', 'block');
+                $("#aar").css('display', 'flex');
                 $("#aaar").css('display', 'none');
             } else if (value == "AAAR") {
                 $("#hc").css('display', 'none');
                 $("#tri").css('display', 'none');
                 $("#aar").css('display', 'none');
-                $("#aaar").css('display', 'block');
+                $("#aaar").css('display', 'flex');
             } else {
                 $("#courtCityHC").val("0");
                 $("#courtCityTRI").val("0");
@@ -1247,8 +1497,8 @@ include('footer.php');
             $("#dbsuffix").val(dbsuffix);
 
             if (val == '7') {
-                $("#state").css("display", "block");
-                $('#category_type').css("display", "block");
+                $("#state").css("display", "flex");
+                $('#category_type').css("display", "flex");
             } else {
                 $("#state").css("display", "none");
             }
@@ -1266,10 +1516,10 @@ include('footer.php');
                     type: 'POST',
                     dataType: 'html',
                     success: function(data) {
-                        debugger;
+                        // debugger;
                         //alert(data);
                         if (data != "no") {
-                            $('#category_type').css("display", "block");
+                            $('#category_type').css("display", "flex");
                             $("#sub_product_id").html(data);
                         } else {
                             $('#category_type').css("display", "none");
@@ -1292,7 +1542,7 @@ include('footer.php');
                 }
                 else
                 {
-                    $("#notification_type").css('display', 'block');
+                    $("#notification_type").css('display', 'flex');
                     $(".not_type_label").text('Notification Type');
                     $("#not_type").append('<option value="0">Select</option>' + '<option value="Notification">Notification</option>' +
                             '<option value="Rate Notification">Rate Notification</option>');
@@ -1301,7 +1551,7 @@ include('footer.php');
 
             if (val == '5')
             {
-                $("#notification_type").css('display', 'block');
+                $("#notification_type").css('display', 'flex');
                 if (type == "Notification")
                 {
                     $(".not_type_label").text('Notification Type');
@@ -1320,7 +1570,7 @@ include('footer.php');
 
             if (val == '4')
             {
-                $("#notification_type").css('display', 'block');
+                $("#notification_type").css('display', 'flex');
                 if (type == "Notification")
                 {
                     $(".not_type_label").text('Notification Type');
