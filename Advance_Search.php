@@ -99,7 +99,7 @@ function getsubproductnoti($table, $value, $id) {
             $subprod_id[] = $row['sub_prod_id'];
         }
         foreach ($subprod_id as $key) {
-            $s_id[] = "a.sub_prod_id='$key'";
+            $s_id[] = "a.sub_prod_id=$key";
         }
         return implode(' OR ', $s_id);
     }
@@ -122,7 +122,7 @@ function getsubproduct($table, $value, $id) {
             $subprod_id[] = $row['sub_prod_id'];
         }
         foreach ($subprod_id as $key) {
-            $s_id[] = "a.sub_prod_id='$key'";
+            $s_id[] = "a.sub_prod_id=$key";
         }
         return implode(' OR ', $s_id);
     }
@@ -246,7 +246,7 @@ function tableUnion($conditions, $table, $ids, $sub_prod_name) {
 
         if (mysqli_num_rows($qry) > 0) {
             while ($data = mysqli_fetch_array($qry)) {
-                $where[] = "a.sub_prod_id = '" . $data['sub_prod_id'] . "'";
+                $where[] = "a.sub_prod_id = " . $data['sub_prod_id'];
             }
         }
         if (!empty($where)) {
@@ -281,7 +281,7 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
 
         if (mysqli_num_rows($qry) > 0) {
             while ($data = mysqli_fetch_array($qry)) {
-                $where[] = "a.sub_prod_id = '" . $data['sub_prod_id'] . "'";
+                $where[] = "a.sub_prod_id = " . $data['sub_prod_id'];
             }
         }
         if (!empty($where)) {
@@ -304,16 +304,16 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
 ?>
 
 <script type="text/javascript">
-    var calcHeight = function() {
+    var calcHeight = function () {
         // global $con;
         var the_height = document.getElementById('iFramePopupFrame').contentWindow.document.body.scrollHeight + 50;
-         //isPdf=0
-                              
-        if ($('#iFramePopupFrame').attr('isPdf')=='0'){
-            document.getElementById('iFramePopupFrame').height = the_height;    
+        //isPdf=0
+
+        if ($('#iFramePopupFrame').attr('isPdf') == '0') {
+            document.getElementById('iFramePopupFrame').height = the_height;
         }
 
-        $('.widget-box .preview').click(function(e) {
+        $('.widget-box .preview').click(function (e) {
             e.preventDefault();
             e.stopPropagation();
             e.stopImmediatePropagation();
@@ -325,8 +325,8 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
             $('#iFramePreviewFrame').attr('src', linktoopen);
             var the_height2 = document.getElementById('iFramePreviewFrame').contentWindow.document.body.scrollHeight + 50;
             $('#iFramePreviewFrame').height('580px');
-//            iFramePreviewFrame
-            $('#recordInfoModal').modal('show');    
+            //            iFramePreviewFrame
+            $('#recordInfoModal').modal('show');
         });
     }
 </script>
@@ -337,7 +337,9 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
 <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
 <!-- Font special for pages-->
 <!-- <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet"> -->
-<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
 
 <!-- Vendor CSS-->
 <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
@@ -347,51 +349,178 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
 <link href="css/main.css" rel="stylesheet" media="all">
 
 <style type="text/css">
-    .filt { color: white; padding-left: 5px; } 
-    .form { width: 100%; }
-    .form2 { padding-left: 50px; width: 100%; }
-    .display { display: none; }
-    .input-group { background: none !important; }
-    .input-group-big { padding: 4px 10px; padding-right: 10px;}
-    .daterangepicker { padding: 0; margin: 0; }
-    #sidebar h1 { margin-bottom: 15px; font-weight: 600; font-size: 16px; }
-    .label { font-size: 14px; color: #333; text-transform: capitalize; display: block; font-weight: 500;
-        white-space: nowrap; margin-right: 5px; }
-    input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"] { line-height: 15px;
-       line-height: 1.42857143 \0; }
-    .input--style-1 { font-size: 15px; padding: 8px 0; color: #666; font-family: inherit; border: 1px solid black; }
-    .form-control { height: 30px !important; background: #fff; color: #000; font-size: 13px; border-radius: 4px;
-        -webkit-box-shadow: none !important; box-shadow: none !important; border: 1px solid black; }
-    .widget-box h4 span { color: #696c70; font-size: 14px; float: right; text-transform: capitalize; }
-    #sidebar .custom-menu { border: 1px solid #dee2e6; display: inline-block;position: absolute;top: 0px;left: 0px;-webkit-transition: 0.3s;
-        -o-transition: 0.3s;transition: 0.3s; background-co}
-    #sidebar .custom-menu .btn.btn-primary:after, #sidebar .custom-menu .btn.btn-primary:before {
+    .filt {
+        color: white;
+        padding-left: 5px;
+    }
+
+    .form {
+        width: 100%;
+    }
+
+    .form2 {
+        padding-left: 50px;
+        width: 100%;
+    }
+
+    .display {
+        display: none;
+    }
+
+    .input-group {
+        background: none !important;
+    }
+
+    .input-group-big {
+        padding: 4px 10px;
+        padding-right: 10px;
+    }
+
+    .daterangepicker {
+        padding: 0;
+        margin: 0;
+    }
+
+    #sidebar h1 {
+        margin-bottom: 15px;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .label {
+        font-size: 14px;
+        color: #333;
+        text-transform: capitalize;
+        display: block;
+        font-weight: 500;
+        white-space: nowrap;
+        margin-right: 5px;
+    }
+
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"],
+    input[type="month"] {
+        line-height: 15px;
+        line-height: 1.42857143 \0;
+    }
+
+    .input--style-1 {
+        font-size: 15px;
+        padding: 8px 0;
+        color: #666;
+        font-family: inherit;
+        border: 1px solid black;
+    }
+
+    .form-control {
+        height: 30px !important;
+        background: #fff;
+        color: #000;
+        font-size: 13px;
+        border-radius: 4px;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        border: 1px solid black;
+    }
+
+    .widget-box h4 span {
+        color: #696c70;
+        font-size: 14px;
+        float: right;
+        text-transform: capitalize;
+    }
+
+    #sidebar .custom-menu {
+        border: 1px solid #dee2e6;
+        display: inline-block;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        -webkit-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s;
+        background-co
+    }
+
+    #sidebar .custom-menu .btn.btn-primary:after,
+    #sidebar .custom-menu .btn.btn-primary:before {
         color: #00789e;
     }
-    .wrapper .mail-input { position: relative; background: #fff; width: 100%; border-radius: 5px; box-shadow: 0px 1px 5px 3px rgb(0 0 0 / 12%); }
-    .mail-input input { height: 55px; width: 100%; outline: none; border: 1px solid black; border-radius: 5px; padding: 0 60px 0 20px;
-        font-size: 18px; box-shadow: 0px 1px 5px rgb(0 0 0 / 10%); }
+
+    .wrapper .mail-input {
+        position: relative;
+        background: #fff;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 0px 1px 5px 3px rgb(0 0 0 / 12%);
+    }
+
+    .mail-input input {
+        height: 55px;
+        width: 100%;
+        outline: none;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 0 60px 0 20px;
+        font-size: 18px;
+        box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
+    }
 </style>
 <style>
-    .tool {position: relative; display: inline-block; }
-    .tool .tooltiptext {visibility: hidden; width: 370px; background-color: black; color: #fff; text-align: center;border-radius: 6px; padding: 8px 0;/* Position the tooltip */position: absolute; z-index: 1;}
-    .tool:hover .tooltiptext {visibility: visible; }
-    .tool .tooltiptext2 { visibility: hidden; width: 200px; background-color: black; color: #fff; text-align: center; 
-        border-radius: 6px; padding: 8px 0; /* Position the tooltip */ position: absolute; z-index: 1; }
-    .tool:hover .tooltiptext2 { visibility: visible; }
+    .tool {
+        position: relative;
+        display: inline-block;
+    }
+
+    .tool .tooltiptext {
+        visibility: hidden;
+        width: 370px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+    }
+
+    .tool:hover .tooltiptext {
+        visibility: visible;
+    }
+
+    .tool .tooltiptext2 {
+        visibility: hidden;
+        width: 200px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+    }
+
+    .tool:hover .tooltiptext2 {
+        visibility: visible;
+    }
 </style>
+
 <body>
-<div class="wrapper d-flex align-items-stretch contain">
-    <nav id="sidebar" class="order-last" class="img" >
-        <div class="custom-menu" style="border-style: solid;border-color: #006995;">
-            <button type="button" id="sidebarCollapse" class="btn btn-primary" 
-                style="margin-bottom: 10px; background: #ffa100;"></button>
-            <div>
-                <div style="border-bottom: 1px solid #ff7808; padding:10px 0px; text-align: center; font-size: 17px; margin-bottom: 15px; margin-top: 5px; background: linear-gradient(to bottom, #00789e 0%,#00548a 100%);">
-                    <strong>Search-in-Search</strong>
-                </div>
-                <ul class="list-unstyled components mb-5">
-                    <?php if ($_REQUEST['pagename'] == 'CaseLaws') { ?>
+    <div class="wrapper d-flex align-items-stretch contain">
+        <nav id="sidebar" class="order-last" class="img">
+            <div class="custom-menu" style="border-style: solid;border-color: #006995;">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary"
+                    style="margin-bottom: 10px; background: #ffa100;"></button>
+                <div>
+                    <div
+                        style="border-bottom: 1px solid #ff7808; padding:10px 0px; text-align: center; font-size: 17px; margin-bottom: 15px; margin-top: 5px; background: linear-gradient(to bottom, #00789e 0%,#00548a 100%);">
+                        <strong>Search-in-Search</strong>
+                    </div>
+                    <ul class="list-unstyled components mb-5">
+                        <?php if ($_REQUEST['pagename'] == 'CaseLaws') { ?>
                         <li class="active">
                             <form name="form2" id="form2" method="GET" class="form padding-b-15">
                                 <!-- <div id="inexid">
@@ -476,37 +605,57 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                             <?php } ?> -->
                                 <div class="input-group input-group-big">
                                     <label class="label">Keyword:</label>
-                                    <input type="text" class="form-control" id="keyword" name="keyword" placeholder="Keyword"/>
+                                    <input type="text" class="form-control" id="keyword" name="keyword"
+                                        placeholder="Keyword" value="<?php if (isset($_REQUEST['keyword'])) {  echo $_REQUEST['keyword']; } ?>"/>
                                 </div>
                                 <div style="padding-left: 30px;">
                                     <div class="col-md-3">
-                                         <label class="label" style="color: white;">Exact:</label>
-                                     </div>
-                                     <div class="col-md-3">
-                                        <input type="radio" style="margin-top: -6px; margin-left: 20px;" class="form-control" id="exactSearch" <?php if(($_REQUEST['exact_search']=='exact') || ($_REQUEST['exact_search']=='')) { ?> checked    <?php } ?> name="exact_search" value="exact" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label class="label" style="color: white;">Like:</label>
+                                        <label class="label">Exact:</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="radio" style="margin-top: -6px; margin-left: 20px;" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like') { ?> checked <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                        <input type="radio" style="margin-top: -6px; margin-left: 20px;"
+                                            class="form-control" id="exactSearch" <?php
+                                            if(($_REQUEST['exact_search']=='exact' ) || ($_REQUEST['exact_search']==''
+                                            )) { ?> checked
+                                        <?php } ?> name="exact_search" value="exact"
+                                        style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="label">Like:</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="radio" style="margin-top: -6px; margin-left: 20px;"
+                                            class="form-control" id="exactSearch" <?php
+                                            if($_REQUEST['exact_search']=='like' ) { ?> checked
+                                        <?php } ?> name="exact_search" value="like"
+                                        style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
                                     </div>
                                 </div>
                                 <div class="input-group input-group-big">
                                     <label class="label">Search In:</label>
                                     <select name="search_in" id="search_in" class="form-control">
-                                        <option value="0" <?php if (isset($_REQUEST['search_in']) && ($_REQUEST['search_in'] == "0")) { echo "selected=selected"; } ?> data-dbsuffix="0">Select </option>   
-                                        <option value="1" <?php if (isset($_REQUEST['search_in']) && ($_REQUEST['search_in'] == "1")) { echo "selected=selected"; } ?> data-dbsuffix="0">Headnote </option>
-                                        <option value="2" <?php if (isset($_REQUEST['search_in']) && ($_REQUEST['search_in'] == "2")) { echo "selected=selected"; } ?>data-dbsuffix="0">Case Text</option>
+                                        <option value="0" <?php if (isset($_REQUEST['search_in']) &&
+                                            ($_REQUEST['search_in']=="0" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="0">Select </option>
+                                        <option value="1" <?php if (isset($_REQUEST['search_in']) &&
+                                            ($_REQUEST['search_in']=="1" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="0">Headnote </option>
+                                        <option value="2" <?php if (isset($_REQUEST['search_in']) &&
+                                            ($_REQUEST['search_in']=="2" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="0">Case Text</option>
                                     </select>
                                 </div>
                                 <div class="input-group input-group-big">
                                     <label class="label">Party Name:</label>
-                                    <input type="text" class="form-control" id="party_name" placeholder="Party Name" name="party_name" value="<?php if (isset($_REQUEST['party_name']) && (!empty($_REQUEST['party_name']))) { echo $_REQUEST['party_name']; } ?>" />
+                                    <input type="text" class="form-control" id="party_name" placeholder="Party Name"
+                                        name="party_name"
+                                        value="<?php if (isset($_REQUEST['party_name']) && (!empty($_REQUEST['party_name']))) { echo $_REQUEST['party_name']; } ?>" />
                                 </div>
                                 <div class="input-group input-group-big">
                                     <label class="label">Judge Name:</label>
-                                    <input type="text" class="form-control" id="judge_name" placeholder="Judge Name" name="judge_name" value="<?php if (isset($_REQUEST['judge_name']) && (!empty($_REQUEST['judge_name']))) { echo $_REQUEST['judge_name']; } ?>" />
+                                    <input type="text" class="form-control" id="judge_name" placeholder="Judge Name"
+                                        name="judge_name"
+                                        value="<?php if (isset($_REQUEST['judge_name']) && (!empty($_REQUEST['judge_name']))) { echo $_REQUEST['judge_name']; } ?>" />
                                 </div>
                                 <!-- <div class="input-group input-group-big">
                                     <label class="label">Order No:</label>
@@ -534,221 +683,533 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                                 // }
                                             ?>
                                         </option> -->
-                                        <option value="0" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "0")) { echo "selected=selected"; } ?> data-dbsuffix="0">Select</option>
-                                        <option value="7" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "7")) { echo "selected=selected"; } ?> data-dbsuffix="0">GST</option>
-                                        <option value="1" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "1")) { echo "selected=selected"; } ?> data-dbsuffix="0">VAT/Sales Tax</option>
-                                        <option value="4" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "4")) { echo "selected=selected"; } ?> data-dbsuffix="0">Central Excise</option>
-                                        <option value="2" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "2")) { echo "selected=selected"; } ?> data-dbsuffix="0">Service Tax</option>
-                                        <option value="5" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "5")) { echo "selected=selected"; } ?> data-dbsuffix="0">Customs</option>
+                                        <option value="0" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="0" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="0">Select</option>
+                                        <option value="7" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="7" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="0">GST</option>
+                                        <option value="1" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="1" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="0">VAT/Sales Tax</option>
+                                        <option value="4" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="4" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="0">Central Excise</option>
+                                        <option value="2" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="2" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="0">Service Tax</option>
+                                        <option value="5" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="5" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="0">Customs</option>
                                     </select>
                                 </div>
                                 <div class="input-group input-group-big">
                                     <label class="label">Court/Forum:</label>
                                     <select id='court' name='court' class="form-control">
-                                        <!-- <option value="<?php if (isset($_REQUEST['court'])) { echo $_REQUEST['court']; } ?>"data-dbsuffix="<?php echo $_REQUEST['court']; ?>">
-                                            <?php
-                                                // if ($_REQUEST['court'] == "SC") {
-                                                //     echo "Supreme Court";
-                                                // } elseif ($_REQUEST['court'] == "HC") {
-                                                //     echo "High Court";
-                                                // } elseif ($_REQUEST['court'] == "TRI") {
-                                                //     echo "CESTAT Cases";
-                                                // } elseif ($_REQUEST['court'] == "AAR") {
-                                                //     echo "AAR";
-                                                // } elseif ($_REQUEST['court'] == "NAA") {
-                                                //     echo "NAA";
-                                                // } elseif ($_REQUEST['court'] == "AAAR") {
-                                                //     echo "AAAR";
-                                                // }
-                                            ?>
-                                        </option> -->
-                                        <option value="0" <?php if (isset($_REQUEST['court']) && ($_REQUEST['court'] == "0")) { echo "selected=selected"; } ?>data-dbsuffix="<?php echo $_REQUEST['court']; ?>">Select</option>
-                                        <option value="SC" <?php if (isset($_REQUEST['court']) && ($_REQUEST['court'] == "SC")) { echo "selected=selected"; } ?>data-dbsuffix="<?php echo $_REQUEST['court']; ?>">Supreme Court</option>
-                                        <option value="HC" <?php if (isset($_REQUEST['court']) && ($_REQUEST['court'] == "HC")) { echo "selected=selected"; } ?>data-dbsuffix="<?php echo $_REQUEST['court']; ?>">High Court</option>
-                                        <option value="TRI" <?php if (isset($_REQUEST['court']) && ($_REQUEST['court'] == "TRI")) { echo "selected=selected"; } ?>data-dbsuffix="<?php echo $_REQUEST['court']; ?>">CESTAT Cases</option>
-                                        <option value="AAR" <?php if (isset($_REQUEST['court']) && ($_REQUEST['court'] == "AAR")) { echo "selected=selected"; } ?>data-dbsuffix="<?php echo $_REQUEST['court']; ?>">AAR</option>
-                                        <option value="NAA" <?php if (isset($_REQUEST['court']) && ($_REQUEST['court'] == "NAA")) { echo "selected=selected"; } ?>data-dbsuffix="<?php echo $_REQUEST['court']; ?>">NAA</option>
-                                        <option value="AAAR" <?php if (isset($_REQUEST['court']) && ($_REQUEST['court'] == "AAAR")) { echo "selected=selected"; } ?>data-dbsuffix="<?php echo $_REQUEST['court']; ?>">AAAR</option>
+                                        <option value="0" <?php if (isset($_REQUEST['court']) &&
+                                            ($_REQUEST['court']=="0" )) { echo "selected=selected" ; } ?>data-dbsuffix="
+                                            <?php echo $_REQUEST['court']; ?>">Select
+                                        </option>
+                                        <option value="SC" <?php if (isset($_REQUEST['court']) &&
+                                            ($_REQUEST['court']=="SC" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="
+                                            <?php echo $_REQUEST['court']; ?>">Supreme Court
+                                        </option>
+                                        <option value="HC" <?php if (isset($_REQUEST['court']) &&
+                                            ($_REQUEST['court']=="HC" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="
+                                            <?php echo $_REQUEST['court']; ?>">High Court
+                                        </option>
+                                        <option value="TRI" <?php if (isset($_REQUEST['court']) &&
+                                            ($_REQUEST['court']=="TRI" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="
+                                            <?php echo $_REQUEST['court']; ?>">CESTAT Cases
+                                        </option>
+                                        <option value="AAR" <?php if (isset($_REQUEST['court']) &&
+                                            ($_REQUEST['court']=="AAR" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="
+                                            <?php echo $_REQUEST['court']; ?>">AAR
+                                        </option>
+                                        <option value="NAA" <?php if (isset($_REQUEST['court']) &&
+                                            ($_REQUEST['court']=="NAA" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="
+                                            <?php echo $_REQUEST['court']; ?>">NAA
+                                        </option>
+                                        <option value="AAAR" <?php if (isset($_REQUEST['court']) &&
+                                            ($_REQUEST['court']=="AAAR" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="
+                                            <?php echo $_REQUEST['court']; ?>">AAAR
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="col-md-16 display" id='hc' style="margin-bottom: 10px;">
-                                    <label class="col-md-6" style="color: #333; font-size: 14px; font-weight: 500;">Bench/City:</label>
+                                    <label class="col-md-6"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Bench/City:</label>
                                     <select id='courtCityHC' name='courtCity' class="col-md-7 form-control">
                                         <option value="0">Select City</option>
-                                        <option value="ALH" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'ALH')) { echo "selected=selected"; } ?>>Allahabad</option>
-                                        <option value="AP" <?php  if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'AP')) {  echo "selected=selected"; } ?>>Andhra Pradesh</option>
-                                        <option value="GAU" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'GAU')) { echo "selected=selected"; } ?>>Gauhati</option>
-                                        <option value="CHG" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'CHG')) { echo "selected=selected"; } ?>>Chhattishgarh</option>
-                                        <option value="DEL" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'DEL')) { echo "selected=selected"; } ?>>Delhi</option>
-                                        <option value="BOM" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'BOM')) { echo "selected=selected"; } ?>>Bombay</option>
-                                        <option value="GUJ" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'GUJ')) { echo "selected=selected"; } ?>>Gujarat</option>
-                                        <option value="P_H" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'P_H')) { echo "selected=selected"; } ?>>Punjab & Haryana</option>
-                                        <option value="J_K" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'J_K')) { echo "selected=selected"; } ?>>Jammu & Kashmir</option>
-                                        <option value="JHR" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'JHR')) { echo "selected=selected"; } ?>>Jharkhand</option>
-                                        <option value="KER" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'KER')) { echo "selected=selected"; } ?>>Kerala</option>
-                                        <option value="KAR" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'KAR')) { echo "selected=selected"; } ?>>Karnataka</option>
-                                        <option value="RAJ" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'RAJ')) { echo "selected=selected"; } ?>>Rajasthan</option>
-                                        <option value="ORI" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'ORI')) { echo "selected=selected"; } ?>>Odisha</option>
-                                        <option value="MAD" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'MAD')) { echo "selected=selected"; } ?>>Madras</option>
-                                        <option value="UTR" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'UTR')) { echo "selected=selected"; } ?>>Uttarakhand</option>
-                                        <option value="CAL" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'CAL')) { echo "selected=selected"; } ?>>Calcutta</option>
-                                        <option value="MP" <?php  if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'MP')) { echo "selected=selected"; } ?>>Madhya Pradesh</option>
-                                        <option value="SIK" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'SIK')) { echo "selected=selected"; } ?>>Sikkim</option>
-                                        <option value="MEG" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'MEG')) { echo "selected=selected"; } ?>>Meghalaya</option>
-                                        <option value="HP" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'HP')) { echo "selected=selected"; } ?>>Himachal Pradesh</option>
-                                        <option value="PAT" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'PAT')) { echo "selected=selected"; } ?>>Patna</option>
-                                        <option value="ORI" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'ORI')) { echo "selected=selected"; } ?>>Orissa</option>
-                                        <option value="TEL" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'TEL')) { echo "selected=selected"; } ?>>Telangana</option>
-                                        <option value="TRI" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'TRI')) { echo "selected=selected"; } ?>>Tripura</option>
+                                        <option value="ALH" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='ALH' )) { echo "selected=selected" ; } ?>
+                                            >Allahabad</option>
+                                        <option value="AP" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='AP' )) { echo "selected=selected" ; } ?>>Andhra
+                                            Pradesh</option>
+                                        <option value="GAU" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='GAU' )) { echo "selected=selected" ; } ?>>Gauhati
+                                        </option>
+                                        <option value="CHG" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='CHG' )) { echo "selected=selected" ; } ?>
+                                            >Chhattishgarh</option>
+                                        <option value="DEL" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='DEL' )) { echo "selected=selected" ; } ?>>Delhi
+                                        </option>
+                                        <option value="BOM" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='BOM' )) { echo "selected=selected" ; } ?>>Bombay
+                                        </option>
+                                        <option value="GUJ" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='GUJ' )) { echo "selected=selected" ; } ?>>Gujarat
+                                        </option>
+                                        <option value="P_H" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='P_H' )) { echo "selected=selected" ; } ?>>Punjab &
+                                            Haryana</option>
+                                        <option value="J_K" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='J_K' )) { echo "selected=selected" ; } ?>>Jammu &
+                                            Kashmir</option>
+                                        <option value="JHR" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='JHR' )) { echo "selected=selected" ; } ?>
+                                            >Jharkhand</option>
+                                        <option value="KER" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='KER' )) { echo "selected=selected" ; } ?>>Kerala
+                                        </option>
+                                        <option value="KAR" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='KAR' )) { echo "selected=selected" ; } ?>
+                                            >Karnataka</option>
+                                        <option value="RAJ" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='RAJ' )) { echo "selected=selected" ; } ?>
+                                            >Rajasthan</option>
+                                        <option value="ORI" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='ORI' )) { echo "selected=selected" ; } ?>>Odisha
+                                        </option>
+                                        <option value="MAD" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='MAD' )) { echo "selected=selected" ; } ?>>Madras
+                                        </option>
+                                        <option value="UTR" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='UTR' )) { echo "selected=selected" ; } ?>
+                                            >Uttarakhand</option>
+                                        <option value="CAL" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='CAL' )) { echo "selected=selected" ; } ?>>Calcutta
+                                        </option>
+                                        <option value="MP" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='MP' )) { echo "selected=selected" ; } ?>>Madhya
+                                            Pradesh</option>
+                                        <option value="SIK" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='SIK' )) { echo "selected=selected" ; } ?>>Sikkim
+                                        </option>
+                                        <option value="MEG" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='MEG' )) { echo "selected=selected" ; } ?>
+                                            >Meghalaya</option>
+                                        <option value="HP" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='HP' )) { echo "selected=selected" ; } ?>>Himachal
+                                            Pradesh</option>
+                                        <option value="PAT" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='PAT' )) { echo "selected=selected" ; } ?>>Patna
+                                        </option>
+                                        <option value="ORI" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='ORI' )) { echo "selected=selected" ; } ?>>Orissa
+                                        </option>
+                                        <option value="TEL" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='TEL' )) { echo "selected=selected" ; } ?>
+                                            >Telangana</option>
+                                        <option value="TRI" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCity']=='TRI' )) { echo "selected=selected" ; } ?>>Tripura
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="col-md-16 display" id='tri' style="margin-bottom: 10px;">
-                                    <label class="col-md-6" style="color: #333; font-size: 14px; font-weight: 500;">Bench/City:</label>
+                                    <label class="col-md-6"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Bench/City:</label>
                                     <select id='courtCityTRI' name='courtCity1' class="col-md-7 form-control">
                                         <option value="0">Select City</option>
-                                        <option value="AHM" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'AHM')) { echo "selected=selected"; } ?>>Ahmedabad</option>
-                                        <option value="ALH" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'ALH')) { echo "selected=selected"; } ?>>Allahabad</option>
-                                        <option value="BLR" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'BLR')) { echo "selected=selected"; } ?>>Bangalore</option>
-                                        <option value="CHD" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'CHD')) { echo "selected=selected"; } ?>>Chandigarh</option>
-                                        <option value="CHE" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'CHE')) { echo "selected=selected"; } ?>>Chennai</option>
-                                        <option value="DEL" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'DEL')) { echo "selected=selected"; } ?>>Delhi</option>
-                                        <option value="HYD" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'HYD')) { echo "selected=selected"; } ?>>Hyderabad</option>
-                                        <option value="KOL" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'KOL')) { echo "selected=selected"; } ?>>Kolkata</option>
-                                        <option value="MUM" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == 'MUM')) { echo "selected=selected"; } ?>>Mumbai</option>
+                                        <option value="AHM" <?php if (isset($_REQUEST['courtCity1']) &&
+                                            ($_REQUEST['courtCity1']=='AHM' )) { echo "selected=selected" ; } ?>
+                                            >Ahmedabad</option>
+                                        <option value="ALH" <?php if (isset($_REQUEST['courtCity1']) &&
+                                            ($_REQUEST['courtCity1']=='ALH' )) { echo "selected=selected" ; } ?>
+                                            >Allahabad</option>
+                                        <option value="BLR" <?php if (isset($_REQUEST['courtCity1']) &&
+                                            ($_REQUEST['courtCity1']=='BLR' )) { echo "selected=selected" ; } ?>
+                                            >Bangalore</option>
+                                        <option value="CHD" <?php if (isset($_REQUEST['courtCity1']) &&
+                                            ($_REQUEST['courtCity1']=='CHD' )) { echo "selected=selected" ; } ?>
+                                            >Chandigarh</option>
+                                        <option value="CHE" <?php if (isset($_REQUEST['courtCity1']) &&
+                                            ($_REQUEST['courtCity1']=='CHE' )) { echo "selected=selected" ; } ?>>Chennai
+                                        </option>
+                                        <option value="DEL" <?php if (isset($_REQUEST['courtCity1']) &&
+                                            ($_REQUEST['courtCity1']=='DEL' )) { echo "selected=selected" ; } ?>>Delhi
+                                        </option>
+                                        <option value="HYD" <?php if (isset($_REQUEST['courtCity1']) &&
+                                            ($_REQUEST['courtCity1']=='HYD' )) { echo "selected=selected" ; } ?>
+                                            >Hyderabad</option>
+                                        <option value="KOL" <?php if (isset($_REQUEST['courtCity1']) &&
+                                            ($_REQUEST['courtCity1']=='KOL' )) { echo "selected=selected" ; } ?>>Kolkata
+                                        </option>
+                                        <option value="MUM" <?php if (isset($_REQUEST['courtCity1']) &&
+                                            ($_REQUEST['courtCity1']=='MUM' )) { echo "selected=selected" ; } ?>>Mumbai
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="col-md-16 display" id='aar' style="margin-bottom: 10px;">
-                                    <label class="col-md-6" style="color: #333; font-size: 14px; font-weight: 500;">Bench/City:</label>
-                                    <select id='courtCityAAR' name='courtCityAAR' class="col-md-7 form-control" >
+                                    <label class="col-md-6"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Bench/City:</label>
+                                    <select id='courtCityAAR' name='courtCityAAR' class="col-md-7 form-control">
                                         <option value="0">Select STATE</option>
-                                        <option value="1" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '1')) { echo "selected=selected"; } ?>>Andaman and Nicobar Islands</option>
-                                        <option value="2" <?php  if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '2')) {  echo "selected=selected"; } ?>>Andhra Pradesh</option>
-                                        <option value="3" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '3')) { echo "selected=selected"; } ?>>Arunachal Pradesh</option>
-                                        <option value="4" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '4')) { echo "selected=selected"; } ?>>Assam</option>
-                                        <option value="5" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '5')) { echo "selected=selected"; } ?>>Assam</option>
-                                        <option value="6" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '6')) { echo "selected=selected"; } ?>>Chandigarh</option>
-                                        <option value="7" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '7')) { echo "selected=selected"; } ?>>Chhattisgarh</option>
-                                        <option value="8" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '8')) { echo "selected=selected"; } ?>>Dadra and Nagar Haveli</option>
-                                        <option value="9" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '9')) { echo "selected=selected"; } ?>>Daman and Diu</option>
-                                        <option value="10" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '10')) { echo "selected=selected"; } ?>>Delhi</option>
-                                        <option value="11" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '11')) { echo "selected=selected"; } ?>>Goa</option>
-                                        <option value="12" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '12')) { echo "selected=selected"; } ?>>Gujarat</option>
-                                        <option value="13" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '13')) { echo "selected=selected"; } ?>>Haryana</option>
-                                        <option value="14" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '14')) { echo "selected=selected"; } ?>>Himachal Pradesh</option>
-                                        <option value="15" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '15')) { echo "selected=selected"; } ?>>Jammu and Kashmir</option>
-                                        <option value="16" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '16')) { echo "selected=selected"; } ?>>Jharkhand</option>
-                                        <option value="17" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '17')) { echo "selected=selected"; } ?>>Karnataka</option>
-                                        <option value="18" <?php  if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '18')) { echo "selected=selected"; } ?>>Kerala</option>
-                                        <option value="19" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '19')) { echo "selected=selected"; } ?>>Lakshadweep</option>
-                                        <option value="20" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '20')) { echo "selected=selected"; } ?>>Madhya Pradesh</option>
-                                        <option value="21" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '21')) { echo "selected=selected"; } ?>>Maharashtra</option>
-                                        <option value="22" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '22')) { echo "selected=selected"; } ?>>Manipur</option>
-                                        <option value="23" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '23')) { echo "selected=selected"; } ?>>Meghalaya</option>
-                                        <option value="24" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '24')) { echo "selected=selected"; } ?>>Mizoram</option>
-                                        <option value="25" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '25')) { echo "selected=selected"; } ?>>Nagaland</option>
-                                        <option value="26" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '26')) { echo "selected=selected"; } ?>>Orissa</option>
-                                        <option value="27" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '27')) { echo "selected=selected"; } ?>>Puducherry</option>
-                                        <option value="28" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '28')) { echo "selected=selected"; } ?>>Punjab</option>
-                                        <option value="29" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '29')) { echo "selected=selected"; } ?>>Rajasthan</option>
-                                        <option value="30" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '30')) { echo "selected=selected"; } ?>>Sikkim</option>
-                                        <option value="31" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '31')) { echo "selected=selected"; } ?>>Tamil Nadu</option>
-                                        <option value="32" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '32')) { echo "selected=selected"; } ?>>Tripura</option>
-                                        <option value="33" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '33')) { echo "selected=selected"; } ?>>Uttar Pradesh</option>
-                                        <option value="34" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '34')) { echo "selected=selected"; } ?>>Uttarakhand</option>
-                                        <option value="35" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '35')) { echo "selected=selected"; } ?>>West Bengal</option>
-                                        <option value="36" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '36')) { echo "selected=selected"; } ?>>Telangana</option>
-                                        <option value="37" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '37')) { echo "selected=selected"; } ?>>Central</option>
+                                        <option value="1" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='1' )) { echo "selected=selected" ; } ?>>Andaman
+                                            and Nicobar Islands</option>
+                                        <option value="2" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='2' )) { echo "selected=selected" ; } ?>>Andhra
+                                            Pradesh</option>
+                                        <option value="3" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='3' )) { echo "selected=selected" ; } ?>>Arunachal
+                                            Pradesh</option>
+                                        <option value="4" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='4' )) { echo "selected=selected" ; } ?>>Assam
+                                        </option>
+                                        <option value="5" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='5' )) { echo "selected=selected" ; } ?>>Assam
+                                        </option>
+                                        <option value="6" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='6' )) { echo "selected=selected" ; } ?>>Chandigarh
+                                        </option>
+                                        <option value="7" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='7' )) { echo "selected=selected" ; } ?>
+                                            >Chhattisgarh</option>
+                                        <option value="8" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='8' )) { echo "selected=selected" ; } ?>>Dadra and
+                                            Nagar Haveli</option>
+                                        <option value="9" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='9' )) { echo "selected=selected" ; } ?>>Daman and
+                                            Diu</option>
+                                        <option value="10" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='10' )) { echo "selected=selected" ; } ?>>Delhi
+                                        </option>
+                                        <option value="11" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='11' )) { echo "selected=selected" ; } ?>>Goa
+                                        </option>
+                                        <option value="12" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='12' )) { echo "selected=selected" ; } ?>>Gujarat
+                                        </option>
+                                        <option value="13" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='13' )) { echo "selected=selected" ; } ?>>Haryana
+                                        </option>
+                                        <option value="14" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='14' )) { echo "selected=selected" ; } ?>>Himachal
+                                            Pradesh</option>
+                                        <option value="15" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='15' )) { echo "selected=selected" ; } ?>>Jammu and
+                                            Kashmir</option>
+                                        <option value="16" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='16' )) { echo "selected=selected" ; } ?>>Jharkhand
+                                        </option>
+                                        <option value="17" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='17' )) { echo "selected=selected" ; } ?>>Karnataka
+                                        </option>
+                                        <option value="18" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='18' )) { echo "selected=selected" ; } ?>>Kerala
+                                        </option>
+                                        <option value="19" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='19' )) { echo "selected=selected" ; } ?>
+                                            >Lakshadweep</option>
+                                        <option value="20" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='20' )) { echo "selected=selected" ; } ?>>Madhya
+                                            Pradesh</option>
+                                        <option value="21" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='21' )) { echo "selected=selected" ; } ?>
+                                            >Maharashtra</option>
+                                        <option value="22" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='22' )) { echo "selected=selected" ; } ?>>Manipur
+                                        </option>
+                                        <option value="23" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='23' )) { echo "selected=selected" ; } ?>>Meghalaya
+                                        </option>
+                                        <option value="24" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='24' )) { echo "selected=selected" ; } ?>>Mizoram
+                                        </option>
+                                        <option value="25" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='25' )) { echo "selected=selected" ; } ?>>Nagaland
+                                        </option>
+                                        <option value="26" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='26' )) { echo "selected=selected" ; } ?>>Orissa
+                                        </option>
+                                        <option value="27" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='27' )) { echo "selected=selected" ; } ?>
+                                            >Puducherry</option>
+                                        <option value="28" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='28' )) { echo "selected=selected" ; } ?>>Punjab
+                                        </option>
+                                        <option value="29" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='29' )) { echo "selected=selected" ; } ?>>Rajasthan
+                                        </option>
+                                        <option value="30" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='30' )) { echo "selected=selected" ; } ?>>Sikkim
+                                        </option>
+                                        <option value="31" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='31' )) { echo "selected=selected" ; } ?>>Tamil
+                                            Nadu</option>
+                                        <option value="32" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='32' )) { echo "selected=selected" ; } ?>>Tripura
+                                        </option>
+                                        <option value="33" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='33' )) { echo "selected=selected" ; } ?>>Uttar
+                                            Pradesh</option>
+                                        <option value="34" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='34' )) { echo "selected=selected" ; } ?>
+                                            >Uttarakhand</option>
+                                        <option value="35" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='35' )) { echo "selected=selected" ; } ?>>West
+                                            Bengal</option>
+                                        <option value="36" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='36' )) { echo "selected=selected" ; } ?>>Telangana
+                                        </option>
+                                        <option value="37" <?php if (isset($_REQUEST['courtCityAAR']) &&
+                                            ($_REQUEST['courtCityAAR']=='37' )) { echo "selected=selected" ; } ?>>Central
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="col-md-16 display" id='aaar' style="margin-bottom: 10px;">
-                                    <label class="col-md-6" style="color: #333; font-size: 14px; font-weight: 500;">Bench/City:</label>
-                                    <select id='courtCityAAAR' name='courtCityAAAR' class="col-md-7 form-control" >
+                                    <label class="col-md-6"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Bench/City:</label>
+                                    <select id='courtCityAAAR' name='courtCityAAAR' class="col-md-7 form-control">
                                         <option value="0">Select STATE</option>
-                                        <option value="1" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '1')) { echo "selected=selected"; } ?>>Andaman and Nicobar Islands</option>
-                                        <option value="2" <?php  if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '2')) {  echo "selected=selected"; } ?>>Andhra Pradesh</option>
-                                        <option value="3" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '3')) { echo "selected=selected"; } ?>>Arunachal Pradesh</option>
-                                        <option value="4" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '4')) { echo "selected=selected"; } ?>>Assam</option>
-                                        <option value="5" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '5')) { echo "selected=selected"; } ?>>Assam</option>
-                                        <option value="6" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '6')) { echo "selected=selected"; } ?>>Chandigarh</option>
-                                        <option value="7" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '7')) { echo "selected=selected"; } ?>>Chhattisgarh</option>
-                                        <option value="8" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '8')) { echo "selected=selected"; } ?>>Dadra and Nagar Haveli</option>
-                                        <option value="9" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '9')) { echo "selected=selected"; } ?>>Daman and Diu</option>
-                                        <option value="10" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '10')) { echo "selected=selected"; } ?>>Delhi</option>
-                                        <option value="11" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '11')) { echo "selected=selected"; } ?>>Goa</option>
-                                        <option value="12" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '12')) { echo "selected=selected"; } ?>>Gujarat</option>
-                                        <option value="13" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '13')) { echo "selected=selected"; } ?>>Haryana</option>
-                                        <option value="14" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '14')) { echo "selected=selected"; } ?>>Himachal Pradesh</option>
-                                        <option value="15" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '15')) { echo "selected=selected"; } ?>>Jammu and Kashmir</option>
-                                        <option value="16" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '16')) { echo "selected=selected"; } ?>>Jharkhand</option>
-                                        <option value="17" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '17')) { echo "selected=selected"; } ?>>Karnataka</option>
-                                        <option value="18" <?php  if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '18')) { echo "selected=selected"; } ?>>Kerala</option>
-                                        <option value="19" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '19')) { echo "selected=selected"; } ?>>Lakshadweep</option>
-                                        <option value="20" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '20')) { echo "selected=selected"; } ?>>Madhya Pradesh</option>
-                                        <option value="21" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '21')) { echo "selected=selected"; } ?>>Maharashtra</option>
-                                        <option value="22" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '22')) { echo "selected=selected"; } ?>>Manipur</option>
-                                        <option value="23" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '23')) { echo "selected=selected"; } ?>>Meghalaya</option>
-                                        <option value="24" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '24')) { echo "selected=selected"; } ?>>Mizoram</option>
-                                        <option value="25" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '25')) { echo "selected=selected"; } ?>>Nagaland</option>
-                                        <option value="26" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '26')) { echo "selected=selected"; } ?>>Orissa</option>
-                                        <option value="27" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '27')) { echo "selected=selected"; } ?>>Puducherry</option>
-                                        <option value="28" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '28')) { echo "selected=selected"; } ?>>Punjab</option>
-                                        <option value="29" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '29')) { echo "selected=selected"; } ?>>Rajasthan</option>
-                                        <option value="30" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '30')) { echo "selected=selected"; } ?>>Sikkim</option>
-                                        <option value="31" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '31')) { echo "selected=selected"; } ?>>Tamil Nadu</option>
-                                        <option value="32" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '32')) { echo "selected=selected"; } ?>>Tripura</option>
-                                        <option value="33" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '33')) { echo "selected=selected"; } ?>>Uttar Pradesh</option>
-                                        <option value="34" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '34')) { echo "selected=selected"; } ?>>Uttarakhand</option>
-                                        <option value="35" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '35')) { echo "selected=selected"; } ?>>West Bengal</option>
-                                        <option value="36" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '36')) { echo "selected=selected"; } ?>>Telangana</option>
-                                        <option value="37" <?php if (isset($_REQUEST['courtCity']) && ($_REQUEST['courtCity'] == '37')) { echo "selected=selected"; } ?>>Central</option>
+                                        <option value="1" <?php if (isset($_REQUEST['courtCity']) &&
+                                            ($_REQUEST['courtCityAAAR']=='1' )) { echo "selected=selected" ; } ?>>Andaman
+                                            and Nicobar Islands</option>
+                                        <option value="2" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='2' )) { echo "selected=selected" ; } ?>>Andhra
+                                            Pradesh</option>
+                                        <option value="3" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='3' )) { echo "selected=selected" ; } ?>>Arunachal
+                                            Pradesh</option>
+                                        <option value="4" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='4' )) { echo "selected=selected" ; } ?>>Assam
+                                        </option>
+                                        <option value="5" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='5' )) { echo "selected=selected" ; } ?>>Assam
+                                        </option>
+                                        <option value="6" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='6' )) { echo "selected=selected" ; } ?>>Chandigarh
+                                        </option>
+                                        <option value="7" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='7' )) { echo "selected=selected" ; } ?>
+                                            >Chhattisgarh</option>
+                                        <option value="8" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='8' )) { echo "selected=selected" ; } ?>>Dadra and
+                                            Nagar Haveli</option>
+                                        <option value="9" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='9' )) { echo "selected=selected" ; } ?>>Daman and
+                                            Diu</option>
+                                        <option value="10" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='10' )) { echo "selected=selected" ; } ?>>Delhi
+                                        </option>
+                                        <option value="11" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='11' )) { echo "selected=selected" ; } ?>>Goa
+                                        </option>
+                                        <option value="12" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='12' )) { echo "selected=selected" ; } ?>>Gujarat
+                                        </option>
+                                        <option value="13" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='13' )) { echo "selected=selected" ; } ?>>Haryana
+                                        </option>
+                                        <option value="14" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='14' )) { echo "selected=selected" ; } ?>>Himachal
+                                            Pradesh</option>
+                                        <option value="15" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='15' )) { echo "selected=selected" ; } ?>>Jammu and
+                                            Kashmir</option>
+                                        <option value="16" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='16' )) { echo "selected=selected" ; } ?>>Jharkhand
+                                        </option>
+                                        <option value="17" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='17' )) { echo "selected=selected" ; } ?>>Karnataka
+                                        </option>
+                                        <option value="18" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='18' )) { echo "selected=selected" ; } ?>>Kerala
+                                        </option>
+                                        <option value="19" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='19' )) { echo "selected=selected" ; } ?>
+                                            >Lakshadweep</option>
+                                        <option value="20" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='20' )) { echo "selected=selected" ; } ?>>Madhya
+                                            Pradesh</option>
+                                        <option value="21" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='21' )) { echo "selected=selected" ; } ?>
+                                            >Maharashtra</option>
+                                        <option value="22" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='22' )) { echo "selected=selected" ; } ?>>Manipur
+                                        </option>
+                                        <option value="23" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='23' )) { echo "selected=selected" ; } ?>>Meghalaya
+                                        </option>
+                                        <option value="24" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='24' )) { echo "selected=selected" ; } ?>>Mizoram
+                                        </option>
+                                        <option value="25" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='25' )) { echo "selected=selected" ; } ?>>Nagaland
+                                        </option>
+                                        <option value="26" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='26' )) { echo "selected=selected" ; } ?>>Orissa
+                                        </option>
+                                        <option value="27" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='27' )) { echo "selected=selected" ; } ?>
+                                            >Puducherry</option>
+                                        <option value="28" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='28' )) { echo "selected=selected" ; } ?>>Punjab
+                                        </option>
+                                        <option value="29" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='29' )) { echo "selected=selected" ; } ?>>Rajasthan
+                                        </option>
+                                        <option value="30" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='30' )) { echo "selected=selected" ; } ?>>Sikkim
+                                        </option>
+                                        <option value="31" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='31' )) { echo "selected=selected" ; } ?>>Tamil
+                                            Nadu</option>
+                                        <option value="32" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='32' )) { echo "selected=selected" ; } ?>>Tripura
+                                        </option>
+                                        <option value="33" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='33' )) { echo "selected=selected" ; } ?>>Uttar
+                                            Pradesh</option>
+                                        <option value="34" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='34' )) { echo "selected=selected" ; } ?>
+                                            >Uttarakhand</option>
+                                        <option value="35" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='35' )) { echo "selected=selected" ; } ?>>West
+                                            Bengal</option>
+                                        <option value="36" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='36' )) { echo "selected=selected" ; } ?>>Telangana
+                                        </option>
+                                        <option value="37" <?php if (isset($_REQUEST['courtCityAAAR']) &&
+                                            ($_REQUEST['courtCityAAAR']=='37' )) { echo "selected=selected" ; } ?>>Central
+                                        </option>
                                     </select>
                                 </div>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        function updateDisplay(value) {
+                                            if (value == "HC") {
+                                                $("#hc").css('display', 'block');
+                                                $("#tri, #aar, #aaar").css('display', 'none');
+                                            } else if (value == "TRI") {
+                                                $("#hc, #aar, #aaar").css('display', 'none');
+                                                $("#tri").css('display', 'block');
+                                            } else if (value == "AAR") {
+                                                $("#hc, #tri, #aaar").css('display', 'none');
+                                                $("#aar").css('display', 'block');
+                                            } else if (value == "AAAR") {
+                                                $("#hc, #tri, #aar").css('display', 'none');
+                                                $("#aaar").css('display', 'block');
+                                            } else {
+                                                $("#courtCityHC, #courtCityTRI, #courtCityAAR, #courtCityAAAR").val("0");
+                                                $("#hc, #tri, #aar, #aaar").css('display', 'none');
+                                            }
+                                        }
+
+                                        // Get the value from the URL parameter or the selected option
+                                        const urlParams = new URLSearchParams(window.location.search);
+                                        const paramValue = urlParams.get('court');
+                                        const defaultValue = $("#court").val(); // Assuming #court is the id of your dropdown
+                                        const initialValue = paramValue || defaultValue;
+
+                                        // Initialize display based on the initial value
+                                        updateDisplay(initialValue);
+
+                                        // Handle change event on the #court dropdown
+                                        $("#court").change(function () {
+                                            const selectedValue = $(this).val();
+                                            updateDisplay(selectedValue);
+                                        });
+                                    });
+                                </script>
+
                                 <div class="col-md-16">
-                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">CGST Section:</label>
+                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">CGST
+                                        Section:</label>
                                     <div class="col-md-5">
-                                        <input type="text" class="form-control" id="cgst_section" placeholder="" name="cgst_section" value="<?php if (isset($_REQUEST['cgst_section']) && (!empty($_REQUEST['cgst_section']))) { echo $_REQUEST['cgst_section']; } ?>" onkeypress="return isNumberKey(event)" />
+                                        <input type="text" class="form-control" id="cgst_section" placeholder=""
+                                            name="cgst_section"
+                                            value="<?php if (isset($_REQUEST['cgst_section']) && (!empty($_REQUEST['cgst_section']))) { echo $_REQUEST['cgst_section']; } ?>"
+                                            onkeypress="return isNumberKey(event)" />
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" id="cgst_section" placeholder="" name="cgst_section1" value="<?php if (isset($_REQUEST['cgst_section1']) && (!empty($_REQUEST['cgst_section1']))) { echo $_REQUEST['cgst_section1']; } ?>" />
+                                        <input type="text" class="form-control" id="cgst_section" placeholder=""
+                                            name="cgst_section1"
+                                            value="<?php if (isset($_REQUEST['cgst_section1']) && (!empty($_REQUEST['cgst_section1']))) { echo $_REQUEST['cgst_section1']; } ?>" />
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" id="cgst_section2" placeholder="" name="cgst_section2" value="<?php if (isset($_REQUEST['cgst_section2']) && (!empty($_REQUEST['cgst_section2']))) { echo $_REQUEST['cgst_section2']; } ?>" />
+                                        <input type="text" class="form-control" id="cgst_section2" placeholder=""
+                                            name="cgst_section2"
+                                            value="<?php if (isset($_REQUEST['cgst_section2']) && (!empty($_REQUEST['cgst_section2']))) { echo $_REQUEST['cgst_section2']; } ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-16">
-                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">CGST Rule:</label>
+                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">CGST
+                                        Rule:</label>
                                     <div class="col-md-5">
-                                        <input type="text" class="form-control" id="cgst_rule" placeholder="" name="cgst_rule" value="<?php if (isset($_REQUEST['cgst_rule']) && (!empty($_REQUEST['cgst_rule']))) { echo $_REQUEST['cgst_rule']; } ?>" onkeypress="return isNumberKey(event)" />
+                                        <input type="text" class="form-control" id="cgst_rule" placeholder=""
+                                            name="cgst_rule"
+                                            value="<?php if (isset($_REQUEST['cgst_rule']) && (!empty($_REQUEST['cgst_rule']))) { echo $_REQUEST['cgst_rule']; } ?>"
+                                            onkeypress="return isNumberKey(event)" />
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" id="cgst_rule1" placeholder="" name="cgst_rule1" value="<?php if (isset($_REQUEST['cgst_rule1']) && (!empty($_REQUEST['cgst_rule1']))) { echo $_REQUEST['cgst_rule1']; } ?>" />
+                                        <input type="text" class="form-control" id="cgst_rule1" placeholder=""
+                                            name="cgst_rule1"
+                                            value="<?php if (isset($_REQUEST['cgst_rule1']) && (!empty($_REQUEST['cgst_rule1']))) { echo $_REQUEST['cgst_rule1']; } ?>" />
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" id="cgst_rule2" placeholder="" name="cgst_rule2" value="<?php if (isset($_REQUEST['cgst_rule2']) && (!empty($_REQUEST['cgst_rule2']))) { echo $_REQUEST['cgst_rule2']; } ?>" />
+                                        <input type="text" class="form-control" id="cgst_rule2" placeholder=""
+                                            name="cgst_rule2"
+                                            value="<?php if (isset($_REQUEST['cgst_rule2']) && (!empty($_REQUEST['cgst_rule2']))) { echo $_REQUEST['cgst_rule2']; } ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-16">
-                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">IGST Section:</label>
+                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">IGST
+                                        Section:</label>
                                     <div class="col-md-5">
-                                        <input type="text" class="form-control" id="igst_section" placeholder="" name="igst_section" value="<?php if (isset($_REQUEST['igst_section']) && (!empty($_REQUEST['igst_section']))) { echo $_REQUEST['igst_section']; } ?>" onkeypress="return isNumberKey(event)" />
+                                        <input type="text" class="form-control" id="igst_section" placeholder=""
+                                            name="igst_section"
+                                            value="<?php if (isset($_REQUEST['igst_section']) && (!empty($_REQUEST['igst_section']))) { echo $_REQUEST['igst_section']; } ?>"
+                                            onkeypress="return isNumberKey(event)" />
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" id="igst_section" placeholder="" name="igst_section1" value="<?php if (isset($_REQUEST['igst_section1']) && (!empty($_REQUEST['igst_section1']))) { echo $_REQUEST['igst_section1']; } ?>" />
+                                        <input type="text" class="form-control" id="igst_section" placeholder=""
+                                            name="igst_section1"
+                                            value="<?php if (isset($_REQUEST['igst_section1']) && (!empty($_REQUEST['igst_section1']))) { echo $_REQUEST['igst_section1']; } ?>" />
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" id="igst_section2" placeholder="" name="igst_section2" value="<?php if (isset($_REQUEST['igst_section2']) && (!empty($_REQUEST['igst_section2']))) { echo $_REQUEST['igst_section2']; } ?>" />
+                                        <input type="text" class="form-control" id="igst_section2" placeholder=""
+                                            name="igst_section2"
+                                            value="<?php if (isset($_REQUEST['igst_section2']) && (!empty($_REQUEST['igst_section2']))) { echo $_REQUEST['igst_section2']; } ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-16">
-                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">IGST Rule:</label>
+                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">IGST
+                                        Rule:</label>
                                     <div class="col-md-5">
-                                        <input type="text" class="form-control" id="igst_rule" placeholder="" name="igst_rule" value="<?php if (isset($_REQUEST['igst_rule']) && (!empty($_REQUEST['igst_rule']))) {  echo $_REQUEST['igst_rule']; } ?>" onkeypress="return isNumberKey(event)"/>
+                                        <input type="text" class="form-control" id="igst_rule" placeholder=""
+                                            name="igst_rule"
+                                            value="<?php if (isset($_REQUEST['igst_rule']) && (!empty($_REQUEST['igst_rule']))) {  echo $_REQUEST['igst_rule']; } ?>"
+                                            onkeypress="return isNumberKey(event)" />
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" id="igst_rule1" placeholder="" name="igst_rule1" value="<?php if (isset($_REQUEST['igst_rule1']) && (!empty($_REQUEST['igst_rule1']))) { echo $_REQUEST['igst_rule1']; } ?>" />
+                                        <input type="text" class="form-control" id="igst_rule1" placeholder=""
+                                            name="igst_rule1"
+                                            value="<?php if (isset($_REQUEST['igst_rule1']) && (!empty($_REQUEST['igst_rule1']))) { echo $_REQUEST['igst_rule1']; } ?>" />
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" id="igst_rule2" placeholder="" name="igst_rule2" value="<?php if (isset($_REQUEST['igst_rule2']) && (!empty($_REQUEST['igst_rule2']))) { echo $_REQUEST['igst_rule2']; } ?>" />
+                                        <input type="text" class="form-control" id="igst_rule2" placeholder=""
+                                            name="igst_rule2"
+                                            value="<?php if (isset($_REQUEST['igst_rule2']) && (!empty($_REQUEST['igst_rule2']))) { echo $_REQUEST['igst_rule2']; } ?>" />
                                     </div>
                                 </div>
                                 <!-- <div class="input-group input-group-big">
@@ -776,146 +1237,236 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                     </div>
                                 </div> -->
                                 <div class="col-md-16 input-group" style="padding-left: 4px;">
-                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">Date:</label>
-                                    <input class="col-md-8 input--style-1" type="date" id="date" placeholder="Date" name="date" value="<?php if (isset($_REQUEST['date']) && (!empty($_REQUEST['date']))) { echo $_REQUEST['date']; } ?>" />
+                                    <label class="col-md-3"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Date:</label>
+                                    <input class="col-md-8 input--style-1" type="date" id="date" placeholder="Date"
+                                        name="date"
+                                        value="<?php if (isset($_REQUEST['date']) && (!empty($_REQUEST['date']))) { echo $_REQUEST['date']; } ?>" />
                                 </div>
                                 <div class="col-md-16 input-group" style="padding-left: 4px;">
-                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">From Date:</label>
-                                    <input class="col-md-8 input--style-1" type="date" id="dt_from" placeholder="" name="dt_from" value="<?php if (isset($_REQUEST['dt_from']) && (!empty($_REQUEST['dt_from']))) { echo $_REQUEST['dt_from']; } ?>" />
+                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">From
+                                        Date:</label>
+                                    <input class="col-md-8 input--style-1" type="date" id="dt_from" placeholder=""
+                                        name="dt_from"
+                                        value="<?php if (isset($_REQUEST['dt_from']) && (!empty($_REQUEST['dt_from']))) { echo $_REQUEST['dt_from']; } ?>" />
                                 </div>
                                 <div class="col-md-16 input-group" style="padding-left: 4px;">
-                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">To Date:</label>
-                                    <input class="col-md-8 input--style-1" type="date" id="dt_to" placeholder="" name="dt_to" value="<?php if (isset($_REQUEST['dt_to']) && (!empty($_REQUEST['dt_to']))) { echo $_REQUEST['dt_to']; } ?>" />
-                                </div>    
+                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">To
+                                        Date:</label>
+                                    <input class="col-md-8 input--style-1" type="date" id="dt_to" placeholder=""
+                                        name="dt_to"
+                                        value="<?php if (isset($_REQUEST['dt_to']) && (!empty($_REQUEST['dt_to']))) { echo $_REQUEST['dt_to']; } ?>" />
+                                </div>
                                 <div style="
                                     display: flex;
                                     justify-content: center;
-                                ">   
-                                    <input type="submit" name="searchButton2" id="searchButton2" value="Search" class="btn-submit m-t-35" style="background: linear-gradient(to bottom, #00789e 0%,#00548a 100%);width: 10vw;">
-                                </div>                       
+                                ">
+                                    <input type="submit" name="searchButton2" id="searchButton2" value="Search"
+                                        class="btn-submit m-t-35"
+                                        style="background: linear-gradient(to bottom, #00789e 0%,#00548a 100%);width: 10vw;">
+                                </div>
                                 <!-- </div>
                                 <div id="exclude">test</div> -->
                             </form>
-                    </li><?php } elseif ($_REQUEST['pagename'] == 'Acts and Rules') {?>
-                    <li>
-                        <form name="form2" id="form2" method="GET" class="form padding-b-15">
-                            <input type="hidden" name="pagename" value="Acts and Rules">
-                            <input type="hidden" name="function_name" value="act">
-                            <input type="hidden" id="dbsuffix" name="dbsuffix" value="<?php if (isset($_REQUEST['dbsuffix']) && (!empty($_REQUEST['dbsuffix']))) { echo $_REQUEST['dbsuffix']; } else { echo ""; }
+                        </li>
+                        <?php } elseif ($_REQUEST['pagename'] == 'Acts and Rules') {?>
+                        <li>
+                            <form name="form2" id="form2" method="GET" class="form padding-b-15">
+                                <input type="hidden" name="pagename" value="Acts and Rules">
+                                <input type="hidden" name="function_name" value="act">
+                                <input type="hidden" id="dbsuffix" name="dbsuffix"
+                                    value="<?php if (isset($_REQUEST['dbsuffix']) && (!empty($_REQUEST['dbsuffix']))) { echo $_REQUEST['dbsuffix']; } else { echo ""; }
                             ?>cgst">
 
-                            <div class="input-group input-group-big">
-                                <label class="label">Keyword:</label>
-                                <input type="text" class="form-control" id="keyword" name="keyword" placeholder="Keyword"/>
-                            </div>
-                            <div style="padding-left: 30px;">
-                                <div class="col-md-3">
-                                     <label class="label" style="color: white;">Exact:</label>
-                                 </div>
-                                 <div class="col-md-3">
-                                    <input type="radio" style="margin-top: -6px; margin-left: 20px;" class="form-control" id="exactSearch" <?php if(($_REQUEST['exact_search']=='exact') || ($_REQUEST['exact_search']=='')) { ?> checked    <?php } ?> name="exact_search" value="exact" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                <div class="input-group input-group-big">
+                                    <label class="label">Keyword:</label>
+                                    <input type="text" class="form-control" id="keyword" name="keyword"
+                                        placeholder="Keyword" value="<?php if (isset($_REQUEST['keyword'])) {  echo $_REQUEST['keyword']; } ?>"/>
                                 </div>
-                                <div class="col-md-2">
-                                    <label class="label" style="color: white;">Like:</label>
+                                <div style="padding-left: 30px;">
+                                    <div class="col-md-3">
+                                        <label class="label">Exact:</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="radio" style="margin-top: -6px; margin-left: 20px;"
+                                            class="form-control" id="exactSearch" <?php
+                                            if(($_REQUEST['exact_search']=='exact' ) || ($_REQUEST['exact_search']==''
+                                            )) { ?> checked
+                                        <?php } ?> name="exact_search" value="exact"
+                                        style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="label">Like:</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="radio" style="margin-top: -6px; margin-left: 20px;"
+                                            class="form-control" id="exactSearch" <?php
+                                            if($_REQUEST['exact_search']=='like' ) { ?> checked
+                                        <?php } ?> name="exact_search" value="like"
+                                        style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                    </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="radio" style="margin-top: -6px; margin-left: 20px;" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like') { ?> checked <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
-                                </div>
-                            </div>
-                            <div class="input-group input-group-big">
-                                <label class="label">Search Type:</label>
-                                <select name="type" id="type" class="form-control">
-                                    <option value="">Select Type</option>
-                                        <option value="Acts" <?php if (isset($_REQUEST['type']) && $_REQUEST['type'] == 'Acts') { echo "selected"; } ?>>Acts</option>
-                                        <option value="Rules" <?php if (isset($_REQUEST['type']) && $_REQUEST['type'] == 'Rules') { echo "selected"; } ?>>Rules</option>
+                                <div class="input-group input-group-big">
+                                    <label class="label">Search Type:</label>
+                                    <select name="type" id="type" class="form-control">
+                                        <option value="">Select Type</option>
+                                        <option value="Acts" <?php if (isset($_REQUEST['type']) &&
+                                            $_REQUEST['type']=='Acts' ) { echo "selected" ; } ?>>Acts</option>
+                                        <option value="Rules" <?php if (isset($_REQUEST['type']) &&
+                                            $_REQUEST['type']=='Rules' ) { echo "selected" ; } ?>>Rules</option>
                                         <!-- <option value="Notification" <?php if (isset($_REQUEST['type']) && $_REQUEST['type'] == 'Notification') { echo "selected"; } ?>>Notification</option> -->
-                                        <option value="Policy" <?php if (isset($_REQUEST['type']) && $_REQUEST['type'] == 'Policy') { echo "selected"; } ?>>Policy</option>
-                                        <option value="Policy Circular" <?php if (isset($_REQUEST['type']) && $_REQUEST['type'] == 'Policy Circular') { echo "selected"; } ?>>Policy Circular</option>
-                                        <option value="Procedure" <?php if (isset($_REQUEST['type']) && $_REQUEST['type'] == 'Procedure') { echo "selected"; } ?>>Procedure</option>
-                                        <option value="Public Notice" <?php if (isset($_REQUEST['type']) && $_REQUEST['type'] == 'Public Notice') { echo "selected"; } ?>>Public Notice</option>
-                                        <option value="Trade Notice" <?php if (isset($_REQUEST['type']) && $_REQUEST['type'] == 'Trade Notice') { echo "selected"; } ?>>Trade Notice</option>
-                                </select>
-                            </div>
-                            <div class="input-group input-group-big">
-                                <label class="label">Category:</label>
-                                <select name="prod_id" id="prod_id" class="form-control">
-                                    <option value="0" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "0")) { echo "selected=selected"; } ?> data-dbsuffix="0">Select</option>
-                                    <option value="10" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "10")) { echo "selected=selected"; } ?> data-dbsuffix="cgst">CGST</option>
-                                    <option value="9" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "9")) { echo "selected=selected"; } ?> data-dbsuffix="IGST">IGST</option>
-                                    <option value="7" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "7")) { echo "selected=selected"; } ?> data-dbsuffix="SGST">SGST</option>
-                                    <option value="8" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "8")) { echo "selected=selected"; } ?> data-dbsuffix="UTGST">UTGST</option>
-                                    <option value="5" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "5")) { echo "selected=selected"; } ?> data-dbsuffix="Customs">Customs</option>
-                                    <option value="4" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "4")) { echo "selected=selected"; } ?> data-dbsuffix="ce">Central Excise</option>
-                                    <option value="6" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == "6")) { echo "selected=selected"; } ?> data-dbsuffix="DGFT">DGFT</option>
-                                </select>
-                            </div>
-                            <div class="col-md-16 display" id="section">
-                                <label class="col-md-5" style="color: #333; font-size: 14px; font-weight: 500;">Section No.:</label>
-                                <input type="text" class="col-md-8 form-control" id="section_no" name="section_no" value="<?php if (isset($_REQUEST['section_no']) && !empty($_REQUEST['section_no'])) { echo $_REQUEST['section_no']; } ?>" placeholder="Section No." />
-                            </div>
-                            <div class="col-md-16 display" id="rule">
-                                <label class="col-md-5" style="color: #333; font-size: 14px; font-weight: 500;">Rule No.:</label>
-                                <input type="text" class="col-md-8 form-control" id="rule_no" name="rule_no" value="<?php if (isset($_REQUEST['rule_no']) && !empty($_REQUEST['rule_no'])) { echo $_REQUEST['rule_no']; } ?>" placeholder="Rule No." />
-                            </div>
-                            <!-- <div class="input-group input-group-big display" id="notification">
+                                        <option value="Policy" <?php if (isset($_REQUEST['type']) &&
+                                            $_REQUEST['type']=='Policy' ) { echo "selected" ; } ?>>Policy</option>
+                                        <option value="Policy Circular" <?php if (isset($_REQUEST['type']) &&
+                                            $_REQUEST['type']=='Policy Circular' ) { echo "selected" ; } ?>>Policy
+                                            Circular</option>
+                                        <option value="Procedure" <?php if (isset($_REQUEST['type']) &&
+                                            $_REQUEST['type']=='Procedure' ) { echo "selected" ; } ?>>Procedure</option>
+                                        <option value="Public Notice" <?php if (isset($_REQUEST['type']) &&
+                                            $_REQUEST['type']=='Public Notice' ) { echo "selected" ; } ?>>Public Notice
+                                        </option>
+                                        <option value="Trade Notice" <?php if (isset($_REQUEST['type']) &&
+                                            $_REQUEST['type']=='Trade Notice' ) { echo "selected" ; } ?>>Trade Notice
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="input-group input-group-big">
+                                    <label class="label">Category:</label>
+                                    <select name="prod_id" id="prod_id" class="form-control">
+                                        <option value="0" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="0" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="0">Select</option>
+                                        <option value="10" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="10" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="cgst">CGST</option>
+                                        <option value="9" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="9" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="IGST">IGST</option>
+                                        <option value="7" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="7" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="SGST">SGST</option>
+                                        <option value="8" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="8" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="UTGST">UTGST</option>
+                                        <option value="5" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="5" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="Customs">Customs</option>
+                                        <option value="4" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="4" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="ce">Central Excise</option>
+                                        <option value="6" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=="6" )) { echo "selected=selected" ; } ?>
+                                            data-dbsuffix="DGFT">DGFT</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-16 display" id="section">
+                                    <label class="col-md-5"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Section No.:</label>
+                                    <input type="text" class="col-md-8 form-control" id="section_no" name="section_no"
+                                        value="<?php if (isset($_REQUEST['section_no']) && !empty($_REQUEST['section_no'])) { echo $_REQUEST['section_no']; } ?>"
+                                        placeholder="Section No." />
+                                </div>
+                                <div class="col-md-16 display" id="rule">
+                                    <label class="col-md-5" style="color: #333; font-size: 14px; font-weight: 500;">Rule
+                                        No.:</label>
+                                    <input type="text" class="col-md-8 form-control" id="rule_no" name="rule_no"
+                                        value="<?php if (isset($_REQUEST['rule_no']) && !empty($_REQUEST['rule_no'])) { echo $_REQUEST['rule_no']; } ?>"
+                                        placeholder="Rule No." />
+                                </div>
+                                <!-- <div class="input-group input-group-big display" id="notification">
                                 <label class="label" style="width: 1%;">Notification:</label>
                                 <input style="width: 100%;" type="text" class="form-control" id="notification" name="notification" value="<?php if (isset($_REQUEST['notification']) && !empty($_REQUEST['notification'])) { echo $_REQUEST['notification']; } ?>" placeholder="Notification" />
                             </div> -->
-                            <div class="col-md-16 display" id="policy">
-                                <label class="col-md-5" style="color: #333; font-size: 14px; font-weight: 500;">Policy:</label>
-                                <input type="text" class="col-md-8 form-control" id="policy" name="policy" value="<?php if (isset($_REQUEST['policy']) && !empty($_REQUEST['policy'])) { echo $_REQUEST['policy']; } ?>" placeholder="Policy" />
-                            </div>
-                            <div class="col-md-16 display" id="policy_circular">
-                                <label class="col-md-5" style="color: #333; font-size: 14px; font-weight: 500;">Policy Circular:</label>
-                                <input type="text" class="col-md-8 form-control" id="policy_circular" name="policy_circular" value="<?php if (isset($_REQUEST['policy_circular']) && !empty($_REQUEST['policy_circular'])) { echo $_REQUEST['policy_circular']; } ?>" placeholder="Policy Circular" />
-                            </div>
-                            <div class="col-md-16 display" id="procedure">
-                                <label class="col-md-5" style="color: #333; font-size: 14px; font-weight: 500;">Procedure:</label>
-                                <input type="text" class="col-md-8 form-control" id="procedure" name="procedure" value="<?php if (isset($_REQUEST['procedure']) && !empty($_REQUEST['procedure'])) { echo $_REQUEST['procedure']; } ?>" placeholder="Procedure" />
-                            </div>
-                            <div class="col-md-16 display" id="public_notice">
-                                <label class="col-md-5" style="color: #333; font-size: 14px; font-weight: 500;">Public Notice:</label>
-                                <input type="text" class="col-md-8 form-control" id="public_notice" name="public_notice" value="<?php if (isset($_REQUEST['public_notice']) && !empty($_REQUEST['public_notice'])) { echo $_REQUEST['public_notice']; } ?>" placeholder="Public Notice" />
-                            </div>
-                            <div class="col-md-16 display" id="trade_notice">
-                                <label class="col-md-5" style="color: #333; font-size: 14px; font-weight: 500;">Trade Notice:</label>
-                                <input type="text" class="col-md-8 form-control" id="trade_notice" name="trade_notice" value="<?php if (isset($_REQUEST['trade_notice']) && !empty($_REQUEST['trade_notice'])) { echo $_REQUEST['trade_notice']; } ?>" placeholder="Trade Notice" />
-                            </div>
-                            <input style="margin-top: 10px;" type="submit" name="searchButton2" id="searchButton2" value="Search" class="btn-submit m-t-35"/>
-                        </form>
-                    </li><?php } elseif ($_REQUEST['pagename'] == 'Notification') { ?>
-                    <li>
-                        <form name="form2" id="form2" method="GET" class="form padding-b-15">
-                            <input type="hidden" id="sel_type" name="sel_type" value="<?php if (isset($_REQUEST['type'])) {  echo $_REQUEST['type']; } ?>">
-                            <input type="hidden" id="cat_type" name="cat_type" value="<?php if (isset($_REQUEST['sub_product_id'])) { echo $_REQUEST['sub_product_id']; } ?>">
-                            <input type="hidden" id="st_id" name="st_id" value="<?php if (isset($_REQUEST['state_id'])) {  echo $_REQUEST['state_id']; } ?>">
-                            <input type="hidden" name="pagename" value="Notification">
-                            <input type="hidden" name="function_name" value="notification">
-                            <input type="hidden" id="dbsuffix" name="dbsuffix" value="0">
-                            <!-- for Keyword -->
-                            <div class="input-group input-group-big">
-                                <label class="label">Keyword:</label>
-                                <input type="text" class="form-control" id="keyword" placeholder="Keyword" name="keyword">
-                            </div>
-                            <div style="padding-left: 30px;">
-                                <div class="col-md-3">
-                                     <label class="label" style="color: white;">Exact:</label>
-                                 </div>
-                                 <div class="col-md-3">
-                                    <input type="radio" style="margin-top: -6px; margin-left: 20px;" class="form-control" id="exactSearch" <?php if(($_REQUEST['exact_search']=='exact') || ($_REQUEST['exact_search']=='')) { ?> checked    <?php } ?> name="exact_search" value="exact" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                <div class="col-md-16 display" id="policy">
+                                    <label class="col-md-5"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Policy:</label>
+                                    <input type="text" class="col-md-8 form-control" id="policy" name="policy"
+                                        value="<?php if (isset($_REQUEST['policy']) && !empty($_REQUEST['policy'])) { echo $_REQUEST['policy']; } ?>"
+                                        placeholder="Policy" />
                                 </div>
-                                <div class="col-md-2">
-                                    <label class="label" style="color: white;">Like:</label>
+                                <div class="col-md-16 display" id="policy_circular">
+                                    <label class="col-md-5"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Policy Circular:</label>
+                                    <input type="text" class="col-md-8 form-control" id="policy_circular"
+                                        name="policy_circular"
+                                        value="<?php if (isset($_REQUEST['policy_circular']) && !empty($_REQUEST['policy_circular'])) { echo $_REQUEST['policy_circular']; } ?>"
+                                        placeholder="Policy Circular" />
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="radio" style="margin-top: -6px; margin-left: 20px;" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like') { ?> checked <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                <div class="col-md-16 display" id="procedure">
+                                    <label class="col-md-5"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Procedure:</label>
+                                    <input type="text" class="col-md-8 form-control" id="procedure" name="procedure"
+                                        value="<?php if (isset($_REQUEST['procedure']) && !empty($_REQUEST['procedure'])) { echo $_REQUEST['procedure']; } ?>"
+                                        placeholder="Procedure" />
                                 </div>
-                            </div>
-                            <div class="input-group input-group-big">
-                                <label class="label">Category:</label>
-                                <select name="prod_id" id="product_id" class="form-control">
-                                    <option value="<?php if (isset($_REQUEST['prod_id'])) { echo $_REQUEST['prod_id']; } ?>" data-dbsuffix="<?php echo $_REQUEST['prod_id']; ?>">
-                                        <?php 
+                                <div class="col-md-16 display" id="public_notice">
+                                    <label class="col-md-5"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Public Notice:</label>
+                                    <input type="text" class="col-md-8 form-control" id="public_notice"
+                                        name="public_notice"
+                                        value="<?php if (isset($_REQUEST['public_notice']) && !empty($_REQUEST['public_notice'])) { echo $_REQUEST['public_notice']; } ?>"
+                                        placeholder="Public Notice" />
+                                </div>
+                                <div class="col-md-16 display" id="trade_notice">
+                                    <label class="col-md-5"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Trade Notice:</label>
+                                    <input type="text" class="col-md-8 form-control" id="trade_notice"
+                                        name="trade_notice"
+                                        value="<?php if (isset($_REQUEST['trade_notice']) && !empty($_REQUEST['trade_notice'])) { echo $_REQUEST['trade_notice']; } ?>"
+                                        placeholder="Trade Notice" />
+                                </div>
+                                <input style="margin-top: 10px;" type="submit" name="searchButton2" id="searchButton2"
+                                    value="Search" class="btn-submit m-t-35" />
+                            </form>
+                        </li>
+                        <?php } elseif ($_REQUEST['pagename'] == 'Notification') { ?>
+                        <li>
+                            <form name="form2" id="form2" method="GET" class="form padding-b-15">
+                                <input type="hidden" id="sel_type" name="sel_type"
+                                    value="<?php if (isset($_REQUEST['type'])) {  echo $_REQUEST['type']; } ?>">
+                                <input type="hidden" id="cat_type" name="cat_type"
+                                    value="<?php if (isset($_REQUEST['sub_product_id'])) { echo $_REQUEST['sub_product_id']; } ?>">
+                                <input type="hidden" id="st_id" name="st_id"
+                                    value="<?php if (isset($_REQUEST['state_id'])) {  echo $_REQUEST['state_id']; } ?>">
+                                <input type="hidden" name="pagename" value="Notification">
+                                <input type="hidden" name="function_name" value="notification">
+                                <input type="hidden" id="dbsuffix" name="dbsuffix" value="0">
+                                <!-- for Keyword -->
+                                <div class="input-group input-group-big">
+                                    <label class="label">Keyword:</label>
+                                    <input type="text" class="form-control" id="keyword" placeholder="Keyword"
+                                        name="keyword" value="<?php if (isset($_REQUEST['keyword'])) {  echo $_REQUEST['keyword']; } ?>">
+                                </div>
+                                <div style="padding-left: 30px;">
+                                    <div class="col-md-3">
+                                        <label class="label">Exact:</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="radio" style="margin-top: -6px; margin-left: 20px;"
+                                            class="form-control" id="exactSearch" <?php
+                                            if(($_REQUEST['exact_search']=='exact' ) || ($_REQUEST['exact_search']==''
+                                            )) { ?> checked
+                                        <?php } ?> name="exact_search" value="exact"
+                                        style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="label">Like:</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="radio" style="margin-top: -6px; margin-left: 20px;"
+                                            class="form-control" id="exactSearch" <?php
+                                            if($_REQUEST['exact_search']=='like' ) { ?> checked
+                                        <?php } ?> name="exact_search" value="like"
+                                        style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                    </div>
+                                </div>
+                                <div class="input-group input-group-big">
+                                    <label class="label">Category:</label>
+                                    <select name="prod_id" id="product_id" class="form-control">
+                                        <option
+                                            value="<?php if (isset($_REQUEST['prod_id'])) { echo $_REQUEST['prod_id']; } ?>"
+                                            data-dbsuffix="<?php echo $_REQUEST['prod_id']; ?>">
+                                            <?php 
                                             if ($_REQUEST['prod_id']=="1") {
                                                 echo "VAT";
                                             } elseif ($_REQUEST['prod_id']=="2"){
@@ -934,206 +1485,271 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                                 echo "CGST";
                                             }
                                         ?>
-                                    </option>
-                                </select>
-                            </div>
-                            <div class="col-md-16 display" id="state" style="margin-bottom: 5px;">
-                                <label class="col-md-7" style="color: #333; font-size: 14px; font-weight: 500;">State:</label>
-                                <div class="col-md-9">
-                                    <?php 
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-16 display" id="state" style="margin-bottom: 5px;">
+                                    <label class="col-md-7"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">State:</label>
+                                    <div class="col-md-9">
+                                        <?php 
                                         if (isset($_REQUEST['state_id'])) {
                                             echo getStatDropdown($_REQUEST['state_id'], 'state_id');
                                         } else {
                                             echo getStatDropdown('', 'state_id');
                                         }
                                     ?>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-16 display" id="category_type" style="margin-bottom: 5px;">
-                                <label class="col-md-7" style="color: #333; font-size: 14px; font-weight: 500;">Category Type:</label>
-                                <div class="col-md-9" id="noti_div">
-                                    <select id="sub_product_id" name="sub_product_id" class="form-control required"></select>
+                                <div class="col-md-16 display" id="category_type" style="margin-bottom: 5px;">
+                                    <label class="col-md-7"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Category Type:</label>
+                                    <div class="col-md-9" id="noti_div">
+                                        <select id="sub_product_id" name="sub_product_id"
+                                            class="form-control required"></select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-16 display" id="notification_type">
-                                <label class="col-md-7" style="color: #333; font-size: 14px; font-weight: 500;">Notification Type:</label>
-                                <div class="col-md-9" id="noti_div">
-                                    <select id="not_type" name="type" class="form-control required"></select>
+                                <div class="col-md-16 display" id="notification_type">
+                                    <label class="col-md-7"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Notification
+                                        Type:</label>
+                                    <div class="col-md-9" id="noti_div">
+                                        <select id="not_type" name="type" class="form-control required"></select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="input-group input-group-big">
-                                <label class="label">Notification No.:</label>
-                                <input type="text" class="form-control" id="noti_no" placeholder="Notification No." name="noti_no" value="<?php if (isset($_REQUEST['noti_no']) && (!empty($_REQUEST['noti_no']))) {echo $_REQUEST['noti_no']; } ?>" />
-                            </div>
-                            <div class="col-md-16 input-group">
-                                <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">Date:</label>
-                                <input class="col-md-8 input--style-1" type="date" id="date" placeholder="Notification Date" name="date" value="<?php if (isset($_REQUEST['date']) && (!empty($_REQUEST['date']))) { echo $_REQUEST['date']; } ?>" />
-                            </div>       
-                            <div class="col-md-16 input-group">
-                                <label class="col-md-4" style="color: #333; font-size: 14px; font-weight: 500;">Date Range:</label>
-                                <input class="col-md-7 input--style-1" type="date" id="dt_from" placeholder="" name="dt_from" value="<?php if (isset($_REQUEST['dt_from']) && (!empty($_REQUEST['dt_from']))) { echo $_REQUEST['dt_from']; } ?>" />
-                            </div>
-                        
-                            <div class="col-md-16 input-group">
-                                <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">to:</label>
-                                <input class="col-md-8 input--style-1" type="date" id="dt_to" placeholder="" name="dt_to" value="<?php if (isset($_REQUEST['dt_to']) && (!empty($_REQUEST['dt_to']))) { echo $_REQUEST['dt_to']; } ?>" />
-                            </div>
-                            <input type="submit" name="searchButton2" id="searchButton2" value="Search" class="btn-submit m-t-35"/>
-                        </form>
-                    </li><?php } elseif ($_REQUEST['pagename'] == 'Articles') { ?>
-                    <li>
-                        <form name="form2" id="form2" method="GET" class="form padding-b-15">
-                            <input type="hidden" name="pagename" value="Articles">
-                            <input type="hidden" name="function_name" value="articles">
-                            <input type="hidden" id="" name="dbsuffix" value="articles">
-                            <div class="input-group input-group-big">   
-                                <label class="label">Keywords:</label>
-                                <input type="text" class="form-control" id="text" name="keyword" placeholder="Keyword">
-                            </div>
-                            <div style="padding-left: 30px;">
-                                <div class="col-md-3">
-                                     <label class="label" style="color: white;">Exact:</label>
-                                 </div>
-                                 <div class="col-md-3">
-                                    <input type="radio" style="margin-top: -6px; margin-left: 20px;" class="form-control" id="exactSearch" <?php if(($_REQUEST['exact_search']=='exact') || ($_REQUEST['exact_search']=='')) { ?> checked    <?php } ?> name="exact_search" value="exact" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                <div class="input-group input-group-big">
+                                    <label class="label">Notification No.:</label>
+                                    <input type="text" class="form-control" id="noti_no" placeholder="Notification No."
+                                        name="noti_no"
+                                        value="<?php if (isset($_REQUEST['noti_no']) && (!empty($_REQUEST['noti_no']))) {echo $_REQUEST['noti_no']; } ?>" />
                                 </div>
-                                <div class="col-md-2">
-                                    <label class="label" style="color: white;">Like:</label>
+                                <div class="col-md-16 input-group">
+                                    <label class="col-md-3"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Date:</label>
+                                    <input class="col-md-8 input--style-1" type="date" id="date"
+                                        placeholder="Notification Date" name="date"
+                                        value="<?php if (isset($_REQUEST['date']) && (!empty($_REQUEST['date']))) { echo $_REQUEST['date']; } ?>" />
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="radio" style="margin-top: -6px; margin-left: 20px;" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like') { ?> checked <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                <div class="col-md-16 input-group">
+                                    <label class="col-md-4" style="color: #333; font-size: 14px; font-weight: 500;">Date
+                                        Range:</label>
+                                    <input class="col-md-7 input--style-1" type="date" id="dt_from" placeholder=""
+                                        name="dt_from"
+                                        value="<?php if (isset($_REQUEST['dt_from']) && (!empty($_REQUEST['dt_from']))) { echo $_REQUEST['dt_from']; } ?>" />
                                 </div>
-                            </div>
-                            <div class="input-group input-group-big">
-                                <label class="label">Topic:</label>
-                                <input type="text" class="form-control" id="topic" placeholder="Enter Topic"  name="topic" value="<?php if (isset($_REQUEST['topic']) && (!empty($_REQUEST['topic']))) {
-                                    echo $_REQUEST['topic']; } ?>"/>
-                            </div>
-                            <div class="input-group input-group-big">
-                                <label class="label">Category:</label>
-                                <select id="" name="prod_id" class="form-control">
-                                    <option value="0" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == '0')) { echo "selected=selected"; } ?>>Select</option>
-                                    <option value="GST" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == 'GST')) { echo "selected=selected"; } ?>>GST</option>
-                                    <option value="Others" <?php if (isset($_REQUEST['prod_id']) && ($_REQUEST['prod_id'] == 'Others')) { echo "selected=selected"; } ?>>Others</option>
-                                </select>
-                            </div>
-                            <div class="col-md-16" style="margin-bottom: 5px;">
-                                <label class="col-md-4" style="color: #333; font-size: 14px; font-weight: 500;">Author:</label>
-                                <div class="col-md-12">
-                                    <?php echo getAuthor('articles'); ?>      
+
+                                <div class="col-md-16 input-group">
+                                    <label class="col-md-3"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">to:</label>
+                                    <input class="col-md-8 input--style-1" type="date" id="dt_to" placeholder=""
+                                        name="dt_to"
+                                        value="<?php if (isset($_REQUEST['dt_to']) && (!empty($_REQUEST['dt_to']))) { echo $_REQUEST['dt_to']; } ?>" />
                                 </div>
-                            </div>
-                            <div class="col-md-16 input-group">
-                                <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">From Date:</label>
-                                <input class="col-md-8 input--style-1" type="date" name="check-in" placeholder="From Date" id="fromDate" name="fromDate" value="<?php if (isset($_REQUEST['fromDate']) && (!empty($_REQUEST['fromDate']))) { echo $_REQUEST['fromDate']; } ?>"/>
-                            </div>
-                            <div class="col-md-16 input-group">
-                                <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">To Date:</label>
-                                <input class="col-md-8 input--style-1" type="date" name="check-out" placeholder="To Date" id="toDate"  name="toDate" value="<?php if (isset($_REQUEST['toDate']) && (!empty($_REQUEST['toDate']))) { echo $_REQUEST['toDate']; } ?>"/>
-                            </div>
-                            <input type="submit" name="searchButton2" id="searchButton2" value="Search" class="btn-submit m-t-35"/>
-                        </form>
-                    </li><?php } elseif ($_REQUEST['pagename'] == 'tax vista') { ?>
-                    <li>
-                        <form name="form2" id="form2" method="GET" class="form padding-b-15">
-                            <input type="hidden" name="pagename" value="tax vista">
-                            <input type="hidden" name="function_name" value="tax_vista">
-                            <input type="hidden" id="" name="dbsuffix" value="taxvista">
-                            <div class="input-group input-group-big">   
-                                <label class="label">Keywords:</label>
-                                <input type="text" class="form-control" id="text" name="keyword" placeholder="Keyword">
-                            </div>
-                            <div style="padding-left: 30px;">
-                                <div class="col-md-3">
-                                     <label class="label" style="color: white;">Exact:</label>
-                                 </div>
-                                 <div class="col-md-3">
-                                    <input type="radio" style="margin-top: -6px; margin-left: 20px;" class="form-control" id="exactSearch" <?php if(($_REQUEST['exact_search']=='exact') || ($_REQUEST['exact_search']=='')) { ?> checked    <?php } ?> name="exact_search" value="exact" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                <input type="submit" name="searchButton2" id="searchButton2" value="Search"
+                                    class="btn-submit m-t-35" />
+                            </form>
+                        </li>
+                        <?php } elseif ($_REQUEST['pagename'] == 'Articles') { ?>
+                        <li>
+                            <form name="form2" id="form2" method="GET" class="form padding-b-15">
+                                <input type="hidden" name="pagename" value="Articles">
+                                <input type="hidden" name="function_name" value="articles">
+                                <input type="hidden" id="" name="dbsuffix" value="articles">
+                                <div class="input-group input-group-big">
+                                    <label class="label">Keywords:</label>
+                                    <input type="text" class="form-control" id="text" name="keyword"
+                                        placeholder="Keyword">
                                 </div>
-                                <div class="col-md-2">
-                                    <label class="label" style="color: white;">Like:</label>
+                                <div style="padding-left: 30px;">
+                                    <div class="col-md-3">
+                                        <label class="label">Exact:</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="radio" style="margin-top: -6px; margin-left: 20px;"
+                                            class="form-control" id="exactSearch" <?php
+                                            if(($_REQUEST['exact_search']=='exact' ) || ($_REQUEST['exact_search']==''
+                                            )) { ?> checked
+                                        <?php } ?> name="exact_search" value="exact"
+                                        style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="label">Like:</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="radio" style="margin-top: -6px; margin-left: 20px;"
+                                            class="form-control" id="exactSearch" <?php
+                                            if($_REQUEST['exact_search']=='like' ) { ?> checked
+                                        <?php } ?> name="exact_search" value="like"
+                                        style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                    </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="radio" style="margin-top: -6px; margin-left: 20px;" class="form-control" id="exactSearch" <?php if($_REQUEST['exact_search']=='like') { ?> checked <?php } ?> name="exact_search" value="like" style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                <div class="input-group input-group-big">
+                                    <label class="label">Topic:</label>
+                                    <input type="text" class="form-control" id="topic" placeholder="Enter Topic"
+                                        name="topic" value="<?php if (isset($_REQUEST['topic']) && (!empty($_REQUEST['topic']))) {
+                                    echo $_REQUEST['topic']; } ?>" />
                                 </div>
-                            </div>
-                            <div class="col-md-16 input-group">
-                                <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">From Date:</label>
-                                <input class="col-md-8 input--style-1" type="date" name="check-in" placeholder="From Date" id="fromDate" name="fromDate" value="<?php if (isset($_REQUEST['fromDate']) && (!empty($_REQUEST['fromDate']))) { echo $_REQUEST['fromDate']; } ?>"/>
-                            </div>
-                            <div class="col-md-16 input-group">
-                                <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">To Date:</label>
-                                <input class="col-md-8 input--style-1" type="date" name="check-out" placeholder="To Date" id="toDate"  name="toDate" value="<?php if (isset($_REQUEST['toDate']) && (!empty($_REQUEST['toDate']))) { echo $_REQUEST['toDate']; } ?>"/>
-                            </div>
-                            <input type="submit" name="searchButton2" id="searchButton2" value="Search" class="btn-submit m-t-35"/>
-                        </form>
-                    </li><?php } ?> 
-                </ul>
+                                <div class="input-group input-group-big">
+                                    <label class="label">Category:</label>
+                                    <select id="" name="prod_id" class="form-control">
+                                        <option value="0" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=='0' )) { echo "selected=selected" ; } ?>>Select
+                                        </option>
+                                        <option value="GST" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=='GST' )) { echo "selected=selected" ; } ?>>GST
+                                        </option>
+                                        <option value="Others" <?php if (isset($_REQUEST['prod_id']) &&
+                                            ($_REQUEST['prod_id']=='Others' )) { echo "selected=selected" ; } ?>>Others
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-16" style="margin-bottom: 5px;">
+                                    <label class="col-md-4"
+                                        style="color: #333; font-size: 14px; font-weight: 500;">Author:</label>
+                                    <div class="col-md-12">
+                                        <?php echo getAuthor('articles'); ?>
+                                    </div>
+                                </div>
+                                <div class="col-md-16 input-group">
+                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">From
+                                        Date:</label>
+                                    <input class="col-md-8 input--style-1" type="date" name="check-in"
+                                        placeholder="From Date" id="fromDate" name="fromDate"
+                                        value="<?php if (isset($_REQUEST['fromDate']) && (!empty($_REQUEST['fromDate']))) { echo $_REQUEST['fromDate']; } ?>" />
+                                </div>
+                                <div class="col-md-16 input-group">
+                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">To
+                                        Date:</label>
+                                    <input class="col-md-8 input--style-1" type="date" name="check-out"
+                                        placeholder="To Date" id="toDate" name="toDate"
+                                        value="<?php if (isset($_REQUEST['toDate']) && (!empty($_REQUEST['toDate']))) { echo $_REQUEST['toDate']; } ?>" />
+                                </div>
+                                <input type="submit" name="searchButton2" id="searchButton2" value="Search"
+                                    class="btn-submit m-t-35" />
+                            </form>
+                        </li>
+                        <?php } elseif ($_REQUEST['pagename'] == 'tax vista') { ?>
+                        <li>
+                            <form name="form2" id="form2" method="GET" class="form padding-b-15">
+                                <input type="hidden" name="pagename" value="tax vista">
+                                <input type="hidden" name="function_name" value="tax_vista">
+                                <input type="hidden" id="" name="dbsuffix" value="taxvista">
+                                <div class="input-group input-group-big">
+                                    <label class="label">Keywords:</label>
+                                    <input type="text" class="form-control" id="text" name="keyword"
+                                        placeholder="Keyword">
+                                </div>
+                                <div style="padding-left: 30px;">
+                                    <div class="col-md-3">
+                                        <label class="label">Exact:</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="radio" style="margin-top: -6px; margin-left: 20px;"
+                                            class="form-control" id="exactSearch" <?php
+                                            if(($_REQUEST['exact_search']=='exact' ) || ($_REQUEST['exact_search']==''
+                                            )) { ?> checked
+                                        <?php } ?> name="exact_search" value="exact"
+                                        style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="label">Like:</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="radio" style="margin-top: -6px; margin-left: 20px;"
+                                            class="form-control" id="exactSearch" <?php
+                                            if($_REQUEST['exact_search']=='like' ) { ?> checked
+                                        <?php } ?> name="exact_search" value="like"
+                                        style="height:20px;border:0px;margin-top:-1px;box-shadow: 0 0 0 0;">
+                                    </div>
+                                </div>
+                                <div class="col-md-16 input-group">
+                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">From
+                                        Date:</label>
+                                    <input class="col-md-8 input--style-1" type="date" name="check-in"
+                                        placeholder="From Date" id="fromDate" name="fromDate"
+                                        value="<?php if (isset($_REQUEST['fromDate']) && (!empty($_REQUEST['fromDate']))) { echo $_REQUEST['fromDate']; } ?>" />
+                                </div>
+                                <div class="col-md-16 input-group">
+                                    <label class="col-md-3" style="color: #333; font-size: 14px; font-weight: 500;">To
+                                        Date:</label>
+                                    <input class="col-md-8 input--style-1" type="date" name="check-out"
+                                        placeholder="To Date" id="toDate" name="toDate"
+                                        value="<?php if (isset($_REQUEST['toDate']) && (!empty($_REQUEST['toDate']))) { echo $_REQUEST['toDate']; } ?>" />
+                                </div>
+                                <input type="submit" name="searchButton2" id="searchButton2" value="Search"
+                                    class="btn-submit m-t-35" />
+                            </form>
+                        </li>
+                        <?php } ?>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">
-            <?php 
+        </nav>
+        <div id="content" class="p-4 p-md-5 pt-5">
+            <h2 class="mb-4">
+                <?php 
                 if (isset($_REQUEST['searchButton'])) {
                     echo $_REQUEST['pagename'] . ' - Advance Search';
                 } else {
                     echo $_REQUEST['pagename'] . ' - Advance Search';
                 }
             ?>
-            <ol class="breadcrumb">
-                <li>
-                    <a href="<?php echo $getBaseUrl; ?>">Home</a>
-                </li>
-                <li class="active">
-                    <?php
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="<?php echo $getBaseUrl; ?>">Home</a>
+                    </li>
+                    <li class="active">
+                        <?php
                         if (isset($_REQUEST['searchButton'])) {
                             echo $_REQUEST['pagename'] . ' - Advance Search';
                         } else {
                             echo $_REQUEST['pagename'] . ' - Advance Search';
                         }
                     ?>
-                </li>
-            </ol>
-        </h2>
-        <h4 style="color: #045854;">
-            <?php 
+                    </li>
+                </ol>
+            </h2>
+            <h4 style="color: #045854;">
+                <?php 
                 $key = $_SESSION['key'];
                 if ($_REQUEST['keyword']) {?>
-                    Showing Results For: <span style="color: #021147;"> <?php echo $key;
+                Showing Results For: <span style="color: #021147;">
+                    <?php echo $key;
                     if (isset($_REQUEST['searchButton2'])) {
                         if ($_REQUEST['keyword']) {
                             echo "/".$_REQUEST['keyword'];
                         }
-                    }?> </span>
-            <?php } ?>
-            
-        </h4>
-        <!--<h4 style="float: right;">-->
-        <!--    <button class="btn btn-primary btn-lg" onclick="goBack()">Back</button>-->
-        <!--    <script>-->
-        <!--        function goBack() {-->
-        <!--          window.history.back();-->
-        <!--        }-->
-        <!--    </script>-->
-        <!--    <button class="btn btn-primary btn-lg" onclick="goForward()">Forward</button>-->
-        <!--    <script>-->
-        <!--        function goForward() {-->
-        <!--            window.history.forward();-->
-        <!--        }-->
-        <!--    </script>-->
-        <!--</h4>-->
-        <div class="btn btn-primary tool" style="background: #ff7808; float: left; position: relative;top: 10px;left: 10px;">
-            <a style="color: white;" href="#caselawForm" class="open-popup-link" data-effect="mfp-zoom-in">
-                &nbsp;&nbsp;CRF&nbsp;&nbsp;
-            </a>
-            <span class="tooltiptext">Didn’t find desired Caselaws? Please submit CRF.</span>
-        </div>
-        <div style="float: right; font-size: 16px; background: #ff7808; border-radius: 6px; padding: 8px;">
-            <a href="AdvancedSearch.php" style="color: white;">New Search</a>
-        </div>
-        <div class="card-body">
-            <?php
+                    }?>
+                </span>
+                <?php } ?>
+
+            </h4>
+            <!--<h4 style="float: right;">-->
+            <!--    <button class="btn btn-primary btn-lg" onclick="goBack()">Back</button>-->
+            <!--    <script>-->
+            <!--        function goBack() {-->
+            <!--          window.history.back();-->
+            <!--        }-->
+            <!--    </script>-->
+            <!--    <button class="btn btn-primary btn-lg" onclick="goForward()">Forward</button>-->
+            <!--    <script>-->
+            <!--        function goForward() {-->
+            <!--            window.history.forward();-->
+            <!--        }-->
+            <!--    </script>-->
+            <!--</h4>-->
+            <div class="btn btn-primary tool"
+                style="background: #ff7808; float: left; position: relative;top: 10px;left: 10px;">
+                <a style="color: white;" href="#caselawForm" class="open-popup-link" data-effect="mfp-zoom-in">
+                    &nbsp;&nbsp;CRF&nbsp;&nbsp;
+                </a>
+                <span class="tooltiptext">Didn’t find desired Caselaws? Please submit CRF.</span>
+            </div>
+            <div style="float: right; font-size: 16px; background: #ff7808; border-radius: 6px; padding: 8px;">
+                <a href="AdvancedSearch.php" style="color: white;">New Search</a>
+            </div>
+            <div class="card-body">
+                <?php
                 if (isset($_REQUEST['searchButton'])) {
                     $seoTitle = $_REQUEST['pagename'] . '- Advanced Search';
                     $seoKeywords = $_REQUEST['pagename'] . '- Advanced Search';
@@ -1141,6 +1757,8 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
 
                 // Acts and Rules Page Search //
                     if ($_REQUEST['pagename'] == 'Acts and Rules') {
+                        global $con;
+
                         $row_count = $_SESSION['row_count'];
                         $text = mysqli_real_escape_string($con,$_REQUEST['keyword']);
                         $user_id = $_SESSION["id"];
@@ -1254,7 +1872,7 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                 $string = trim($sect);
                                 $variable = explode(",", $string);
                                 foreach ($variable as $v) {
-                                    $conditions[] = "(a.file_data LIKE ' %" .'section '. $v . " %')";
+                                    $conditions[] = "(a.file_data LIKE '%" .'section '. $v . "%')";
                                 }
                             }
 
@@ -1265,7 +1883,7 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                 $sub_prod = [];
                                 if (mysqli_num_rows($result) > 0) {
                                     while ($data = mysqli_fetch_array($result)) {
-                                        $sub_prod[] = "a.sub_prod_id = '" . $data['sub_prod_id'] . "'";
+                                        $sub_prod[] = "a.sub_prod_id = " . $data['sub_prod_id'];
                                         $data_db = $data['dbsuffix'];
                                     }
                                 }
@@ -1313,6 +1931,8 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                         );
                         dbRowInsert('search_history', $search_form_data);
                         function notification() {
+                            global $con;
+
                             $conditions = array();
                             $conditions[] = "a.active_flag = 'Y'";
                             // for keyword
@@ -1386,16 +2006,16 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                         $conditions[] = "a.sub_subprod_id = '" . $_REQUEST['type'] . "'"; //sub product type
                                     }
                                     if (!empty($conditions)) {
-                                        $where_subprod = "AND a.sub_prod_id = '" . $_REQUEST['sub_product_id'] . "'"; //sub product id
+                                        $where_subprod = "AND a.sub_prod_id = " . $_REQUEST['sub_product_id']; //sub product id
                                     } else {
-                                        $where_subprod = "a.sub_prod_id = '" . $_REQUEST['sub_product_id'] . "'"; //sub product id
+                                        $where_subprod = "a.sub_prod_id = " . $_REQUEST['sub_product_id']; //sub product id
                                     }
                                 } else {
                                     $result = mysqli_query($GLOBALS['con'],"SELECT p.prod_id,p.dbsuffix,sp.sub_prod_id FROM product as p LEFT JOIN sub_product as sp ON p.prod_id=sp.prod_id WHERE p.prod_id= '" . $_REQUEST['prod_id'] . "' AND (sp.sub_prod_name='Circular' OR sp.sub_prod_name='Notification')") or die(mysqli_error());
                                     $sub_prod = [];
                                     if (mysqli_num_rows($result) > 0) {
                                         while ($data = mysqli_fetch_array($result)) {
-                                            $sub_prod[] = "a.sub_prod_id = '" . $data['sub_prod_id'] . "'";
+                                            $sub_prod[] = "a.sub_prod_id = " . $data['sub_prod_id'];
                                             $data_db = $data['dbsuffix'];
                                         }
                                     }
@@ -1461,7 +2081,7 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                         if($_REQUEST['exact_search']=='exact'){
                                             $variable1 = explode(",", $keyword);
                                             foreach ($variable1 as $v1) {
-                                                $conditions[] = "(a.cir_subject LIKE '% " . $v1 . " %' OR a.cir_subject LIKE '% " . $rep_data[0] . " %')";
+                                                $conditions[] = "(a.cir_subject LIKE '%" . $v1 . "%' OR a.cir_subject LIKE '%" . $rep_data[0] . "%')";
                                             }
                                         } else {
                                             $variable2 = explode(" ", $keyword);
@@ -1473,9 +2093,9 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                         if($_REQUEST['exact_search']=='exact'){
                                             $variable3 = explode(",", $string);
                                             foreach ($variable3 as $v3) {
-                                                $conditions[] = "(a.cir_subject LIKE '% " . $v3 . " %' OR 
-                                                    a.file_data LIKE '% " . $v3 . " %' OR a.cir_subject LIKE '% " . $rep_data[0] . " %' OR 
-                                                    a.file_data LIKE '% " . $rep_data[0] . " %')";
+                                                $conditions[] = "(a.cir_subject LIKE '%" . $v3 . "%' OR 
+                                                    a.file_data LIKE '%" . $v3 . "%' OR a.cir_subject LIKE '%" . $rep_data[0] . "%' OR 
+                                                    a.file_data LIKE '%" . $rep_data[0] . "%')";
                                             }
                                         } else {
                                             $variable4 = explode(" ", $string);
@@ -1489,9 +2109,9 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                         if($_REQUEST['exact_search']=='exact'){
                                             $variable5 = explode(",", $string);
                                             foreach ($variable5 as $v5) {
-                                                $conditions[] = "(a.cir_subject LIKE '% " . $v5 . " %' OR 
-                                                    a.file_data LIKE '% " . $v5 . " %' OR a.cir_subject LIKE '% " . $rep_data[0] . " %' OR 
-                                                    a.file_data LIKE '% " . $rep_data[0] . " %')";
+                                                $conditions[] = "(a.cir_subject LIKE '%" . $v5 . "%' OR 
+                                                    a.file_data LIKE '%" . $v5 . "%' OR a.cir_subject LIKE '%" . $rep_data[0] . "%' OR 
+                                                    a.file_data LIKE '%" . $rep_data[0] . "%')";
                                             }
                                         } else {
                                             $variable6 = explode(",", $_REQUEST['keyword']);
@@ -1743,7 +2363,7 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                     } else if ($_REQUEST['court'] == "AAAR") {
                                         $courtType = " AND (sp.sub_prod_name LIKE 'AAAR')";
                                         if ($_REQUEST['courtCityAAAR'] != '0') {
-                                            $conditions[] = "a.state_id LIKE = " . $_REQUEST['courtCityAAAR'] . "";
+                                            $conditions[] = "a.state_id = " . $_REQUEST['courtCityAAAR'] . "";
                                         }
                                     } else if ($_REQUEST['court'] == "NAA") {
                                         $courtType = " AND (sp.sub_prod_name LIKE 'National Anti-Profiteering Authority')";
@@ -1761,7 +2381,7 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
 
                                     if (mysqli_num_rows($result) > 0) {
                                         while ($data = mysqli_fetch_array($result)) {
-                                            $sub_prod[] = "a.sub_prod_id = '" . $data['sub_prod_id'] . "'";
+                                            $sub_prod[] = "a.sub_prod_id = " . $data['sub_prod_id'];
                                             $data_db = $data['dbsuffix'];
                                         }
                                     }else{
@@ -2043,7 +2663,7 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                 $sub_prod = [];
                                 if (mysqli_num_rows($result) > 0) {
                                     while ($data = mysqli_fetch_array($result)) {
-                                        $sub_prod[] = "a.sub_prod_id = '" . $data['sub_prod_id'] . "'";
+                                        $sub_prod[] = "a.sub_prod_id = " . $data['sub_prod_id'];
                                         $data_db = $data['dbsuffix'];
                                     }
                                 }
@@ -2163,16 +2783,16 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                         $conditions[] = "a.sub_subprod_id = '" . $_REQUEST['type'] . "'"; //sub product type
                                     }
                                     if (!empty($conditions)) {
-                                        $where_subprod = "AND a.sub_prod_id = '" . $_REQUEST['sub_product_id'] . "'"; //sub product id
+                                        $where_subprod = "AND a.sub_prod_id = " . $_REQUEST['sub_product_id']; //sub product id
                                     } else {
-                                        $where_subprod = "a.sub_prod_id = '" . $_REQUEST['sub_product_id'] . "'"; //sub product id
+                                        $where_subprod = "a.sub_prod_id = " . $_REQUEST['sub_product_id']; //sub product id
                                     }
                                 } else {
                                     $result = mysqli_query($GLOBALS['con'],"SELECT p.prod_id,p.dbsuffix,sp.sub_prod_id FROM product as p LEFT JOIN sub_product as sp ON p.prod_id=sp.prod_id WHERE p.prod_id= '" . $_REQUEST['prod_id'] . "' AND (sp.sub_prod_name='Circular' OR sp.sub_prod_name='Notification')") or die(mysqli_error());
                                     $sub_prod = [];
                                     if (mysqli_num_rows($result) > 0) {
                                         while ($data = mysqli_fetch_array($result)) {
-                                            $sub_prod[] = "a.sub_prod_id = '" . $data['sub_prod_id'] . "'";
+                                            $sub_prod[] = "a.sub_prod_id = " . $data['sub_prod_id'];
                                             $data_db = $data['dbsuffix'];
                                         }
                                     }
@@ -2385,7 +3005,7 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                     if($_REQUEST['exact_search']=='exact'){
                                         $variable1 = explode(",", $keyword);
                                         foreach ($variable1 as $v1) {
-                                            $conditions[] = "(a.cir_subject LIKE '% " . $v1 . " %' OR a.cir_subject LIKE '% " . $rep_data[0] . " %')";
+                                            $conditions[] = "(a.cir_subject LIKE '%" . $v1 . "%' OR a.cir_subject LIKE '%" . $rep_data[0] . "%')";
                                         }
                                     } else {
                                         $variable2 = explode(" ", $keyword);
@@ -2397,9 +3017,9 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                     if($_REQUEST['exact_search']=='exact'){
                                         $variable3 = explode(",", $string);
                                         foreach ($variable3 as $v3) {
-                                            $conditions[] = "(a.cir_subject LIKE '% " . $v3 . " %' OR 
-                                                a.file_data LIKE '% " . $v3 . " %' OR a.cir_subject LIKE '% " . $rep_data[0] . " %' OR 
-                                                a.file_data LIKE '% " . $rep_data[0] . " %')";
+                                            $conditions[] = "(a.cir_subject LIKE '%" . $v3 . "%' OR 
+                                                a.file_data LIKE '%" . $v3 . "%' OR a.cir_subject LIKE '%" . $rep_data[0] . "%' OR 
+                                                a.file_data LIKE '%" . $rep_data[0] . "%')";
                                         }
                                     } else {
                                         $variable4 = explode(" ", $string);
@@ -2413,9 +3033,9 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                     if($_REQUEST['exact_search']=='exact'){
                                         $variable5 = explode(",", $string);
                                         foreach ($variable5 as $v5) {
-                                            $conditions[] = "(a.cir_subject LIKE '% " . $v5 . " %' OR 
-                                                a.file_data LIKE '% " . $v5 . " %' OR a.cir_subject LIKE '% " . $rep_data[0] . " %' OR 
-                                                a.file_data LIKE '% " . $rep_data[0] . " %')";
+                                            $conditions[] = "(a.cir_subject LIKE '%" . $v5 . "%' OR 
+                                                a.file_data LIKE '%" . $v5 . "%' OR a.cir_subject LIKE '%" . $rep_data[0] . "%' OR 
+                                                a.file_data LIKE '%" . $rep_data[0] . "%')";
                                         }
                                     } else {
                                         $variable6 = explode(" ", $string);
@@ -2680,7 +3300,7 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
 
                                 if (mysqli_num_rows($result) > 0) {
                                     while ($data = mysqli_fetch_array($result)) {
-                                        $sub_prod[] = "a.sub_prod_id = '" . $data['sub_prod_id'] . "'";
+                                        $sub_prod[] = "a.sub_prod_id = " . $data['sub_prod_id'];
                                         $data_db = $data['dbsuffix'];
                                     }
                                 }else{
@@ -2919,8 +3539,8 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                 $res1 = mysqli_query($GLOBALS['con'],$query . " LIMIT $startFrom, $showRecordPerPage") or die(mysqli_error());
                 $tocount = mysqli_num_rows($res1);
             ?>
-            
-            <?php
+
+                <?php
                 $rec_count = $count;
                 $rec_limit = 19;
                 $from = $startFrom + 1;
@@ -2963,23 +3583,25 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                 echo "href='#.' style='color:black;'>Showing $from to $to of <b>$rec_count Records</b></a>";
                                 echo "</div><div class='clear'></div>";
                                 ?>
-                                    <nav class="navigation pagination pagination1 fontNeuron" role="navigation">
-                                        <ul class="pagination">
-                                            <li class="page-item active">
-                                                <a class="page-link" href="<?php echo getNewPageUrl('page',$firstPage); ?>" tabindex="-1" aria-label="Previous">
-                                                    <span aria-hidden="true">First</span>
-                                                </a>        
-                                            </li>
-                                                   
-                                    <?php
+                <nav class="navigation pagination pagination1 fontNeuron" role="navigation">
+                    <ul class="pagination">
+                        <li class="page-item active">
+                            <a class="page-link" href="<?php echo getNewPageUrl('page',$firstPage); ?>" tabindex="-1"
+                                aria-label="Previous">
+                                <span aria-hidden="true">First</span>
+                            </a>
+                        </li>
+
+                        <?php
                                         if ($currentPage >= 2 && $previousPage != 1) {
                                     ?>
-                                            <li class="page-item">
-                                                    <a class="page-numbers" href="<?php echo getNewPageUrl('page',$previousPage); ?>" tabindex="-1" aria-label="Previous">
-                                                        <span aria-hidden="true">Previous</span>
-                                                    </a>
-                                            </li>
-                                    <?php
+                        <li class="page-item">
+                            <a class="page-numbers" href="<?php echo getNewPageUrl('page',$previousPage); ?>"
+                                tabindex="-1" aria-label="Previous">
+                                <span aria-hidden="true">Previous</span>
+                            </a>
+                        </li>
+                        <?php
                                         }
                                     $c_page = $currentPage;
                                     for ($i = 1; $i <= 10; $i++) {
@@ -2989,33 +3611,37 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                                 $c_page++;
                                             } 
                                             else { ?>
-                                            <li class="page-item <?php if ($c_page == $currentPage) {
-                                                echo "active"; } ?>">
-                                                <a class="page-numbers" href="<?php echo getNewPageUrl('page',$c_page); ?>"><?php echo $c_page++; ?></a>
-                                            </li>
-                                            <?php
+                        <li class="page-item <?php if ($c_page == $currentPage) {
+                                                echo " active"; } ?>">
+                            <a class="page-numbers" href="<?php echo getNewPageUrl('page',$c_page); ?>">
+                                <?php echo $c_page++; ?>
+                            </a>
+                        </li>
+                        <?php
                                             }
                                         }
                                     }
                                     ?>
-                                    <?php
+                        <?php
                                         if ($nextPage && $currentPage < $lastPage) {
                                     ?>
-                                            <li class="page-item">
-                                                    <a class="page-numbers" href="<?php echo getNewPageUrl('page',$nextPage); ?>" tabindex="-1" aria-label="Next">
-                                                        <span aria-hidden="true">Next</span>
-                                                    </a>
-                                            </li>
-                                    <?php
-                                        }?>
-                                            <li class="page-item">
-                                                <a class="page-numbers" href="<?php echo getNewPageUrl('page',$lastPage); ?>" aria-label="Next">
-                                                    <span aria-hidden="true">Last</span>
-                                                </a>
-                                            </li>   
-                                        </ul>
-                                    </nav>
+                        <li class="page-item">
+                            <a class="page-numbers" href="<?php echo getNewPageUrl('page',$nextPage); ?>" tabindex="-1"
+                                aria-label="Next">
+                                <span aria-hidden="true">Next</span>
+                            </a>
+                        </li>
                         <?php
+                                        }?>
+                        <li class="page-item">
+                            <a class="page-numbers" href="<?php echo getNewPageUrl('page',$lastPage); ?>"
+                                aria-label="Next">
+                                <span aria-hidden="true">Last</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <?php
                         echo "<div style='margin-bottom: 15px;'></div>";
                         if ($_REQUEST['pagename'] == "Articles" || $_REQUEST['pagename'] == "News") {
                             while ($row = mysqli_fetch_array($res1)) {
@@ -3159,20 +3785,23 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                             }
                         }
                         ?>
-                        <nav class="navigation pagination pagination1 fontNeuron" role="navigation">
-                            <ul class="pagination">
-                                <li class="page-item active">
-                                    <a class="page-link" href="<?php echo getNewPageUrl('page',$firstPage); ?>" tabindex="-1" aria-label="Previous">
-                                        <span aria-hidden="true">First</span>
-                                    </a>        
-                                </li>
+                <nav class="navigation pagination pagination1 fontNeuron" role="navigation">
+                    <ul class="pagination">
+                        <li class="page-item active">
+                            <a class="page-link" href="<?php echo getNewPageUrl('page',$firstPage); ?>" tabindex="-1"
+                                aria-label="Previous">
+                                <span aria-hidden="true">First</span>
+                            </a>
+                        </li>
                         <?php
                         if ($currentPage >= 2 && $previousPage != 1) {
                             ?>
-                                <li class="page-item">
-                                    <a class="page-numbers" href="<?php echo getNewPageUrl('page',$previousPage); ?>"><?php echo $previousPage ?></a>
-                                </li>
-                            <?php
+                        <li class="page-item">
+                            <a class="page-numbers" href="<?php echo getNewPageUrl('page',$previousPage); ?>">
+                                <?php echo $previousPage ?>
+                            </a>
+                        </li>
+                        <?php
                         }
                         $c_page = $currentPage;
                         for ($i = 1; $i <= 10; $i++) {
@@ -3182,12 +3811,13 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                                     $c_page++;
                                 } else {
                                     ?>
-                                <li class="page-item <?php if ($c_page == $currentPage) {
-                                echo "active";
-                            } ?>">
-                                    <a class="page-numbers" href="<?php echo getNewPageUrl('page',$c_page); ?>"><?php echo $c_page++; ?></a>
-                                </li>
-                                    <?php
+                        <li class="page-item <?php if ($c_page == $currentPage) {
+                                echo " active"; } ?>">
+                            <a class="page-numbers" href="<?php echo getNewPageUrl('page',$c_page); ?>">
+                                <?php echo $c_page++; ?>
+                            </a>
+                        </li>
+                        <?php
                                 }
                             }
                         }
@@ -3195,22 +3825,24 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                         <?php
                             if ($nextPage && $currentPage < $lastPage) {
                         ?>
-                                <li class="page-item">
-                                        <a class="page-numbers" href="<?php echo getNewPageUrl('page',$nextPage); ?>" tabindex="-1" aria-label="Next">
-                                            <span aria-hidden="true">Next</span>
-                                        </a>
-                                </li>
+                        <li class="page-item">
+                            <a class="page-numbers" href="<?php echo getNewPageUrl('page',$nextPage); ?>" tabindex="-1"
+                                aria-label="Next">
+                                <span aria-hidden="true">Next</span>
+                            </a>
+                        </li>
                         <?php
                             }?>
-                                <li class="page-item">
-                                    <a class="page-numbers" href="<?php echo getNewPageUrl('page',$lastPage); ?>" aria-label="Next">
-                                        <span aria-hidden="true">Last</span>
-                                    </a>
-                                </li>   
-                            </ul>
-                        </nav>
+                        <li class="page-item">
+                            <a class="page-numbers" href="<?php echo getNewPageUrl('page',$lastPage); ?>"
+                                aria-label="Next">
+                                <span aria-hidden="true">Last</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
 
-                        <?php
+                <?php
                     } else {
                         echo '<div class="alert alert-danger always-show" style="margin-top: 50px;" >
                                 <h3> <strong>No Record Found</strong> - Please try again with different combination</h3>
@@ -3218,15 +3850,17 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
                             </div>';
 
                             if ($_REQUEST['pagename'] == "CaseLaws") { ?>
-                                <div class="alert alert-danger always-show">
-                                    <h4>
-                                        <strong style="color: #8d3400;">OR</strong>
-                                        <p>Didn’t find what you are searching for? No worries, please give us the following details and VIL will email you the desired Caselaws at the earliest:</p>
-                                        <p>Please Click Form Button</p>
-                                        <strong><b><a href='#caselawForm' class='open-popup-link' data-effect="mfp-zoom-in" id='arrange'>Form</a></b></strong>
-                                    </h4>
-                                </div>
-                    <?php   }
+                <div class="alert alert-danger always-show">
+                    <h4>
+                        <strong style="color: #8d3400;">OR</strong>
+                        <p>Didn’t find what you are searching for? No worries, please give us the following details and
+                            VIL will email you the desired Caselaws at the earliest:</p>
+                        <p>Please Click Form Button</p>
+                        <strong><b><a href='#caselawForm' class='open-popup-link' data-effect="mfp-zoom-in"
+                                    id='arrange'>Form</a></b></strong>
+                    </h4>
+                </div>
+                <?php   }
                     }
                 } else {
                     include('tempUsererror.php');
@@ -3236,39 +3870,47 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
             include('loggedInError.php');
         }
         ?>
-        </div>
-        <?php 
+            </div>
+            <?php 
         $isPDFLink = "isPdf=0";
         if ($file_extn == 'pdf') { 
             $isPDFLink =  "isPdf=1";
         }?>
-        <div style="display: none;">
-            <iframe onLoad="calcHeight();" <?php echo $isPDFLink ; ?>   id='iFramePopupFrame' name='iFramePopupFrame' <?php
+            <div style="display: none;">
+                <iframe onLoad="calcHeight();" <?php echo $isPDFLink ; ?> id='iFramePopupFrame' name='iFramePopupFrame'
+                    <?php
                 if ($file_extn == 'pdf') {
-                    ?> src='<?php echo $getBaseUrl . $file_path; ?>' <?php
+                    ?> src='
+                    <?php echo $getBaseUrl . $file_path; ?>'
+                    <?php
                 } else {
-                    ?> src='<?php echo "-?ll=" . encrypt_url($getBaseUrl . $file_path); ?>' <?php
+                    ?> src='
+                    <?php echo "-?ll=" . encrypt_url($getBaseUrl . $file_path); ?>'
+                    <?php
                 }
                 ?> frameborder='0' allowtransparency='true' scrolling='no' width="100%" >
-            </iframe>
+                </iframe>
+            </div>
         </div>
     </div>
-</div>
 </body>
 <?php include('footer.php') ?>
 
 <!-- Logout Modal-->
-<div class="modal fade" id="recordInfoModal" tabindex="-1" role="dialog" aria-labelledby="recordInfoModal" aria-hidden="true">
+<div class="modal fade" id="recordInfoModal" tabindex="-1" role="dialog" aria-labelledby="recordInfoModal"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <a class="btn btn-primary btn_open_new_window" target="_blank" href="" >Open in New Window</a>
+                <a class="btn btn-primary btn_open_new_window" target="_blank" href="">Open in New Window</a>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"> X </span>
                 </button>
             </div>
             <div class="modal-body" style='height:600px;'>
-                <iframe id="iFramePreviewFrame" name="iFramePreviewFrame" src="-?l=ocq1xJlgYZ%2BjmJejoKjJtYPVmp6ap6llZpyayqKDooB7Ypedl6esnsigs8CjppyXoZuWa2e%2BtcE%3D" frameborder="0" allowtransparency="false" scrolling="yes" width="100%"></iframe>
+                <iframe id="iFramePreviewFrame" name="iFramePreviewFrame"
+                    src="-?l=ocq1xJlgYZ%2BjmJejoKjJtYPVmp6ap6llZpyayqKDooB7Ypedl6esnsigs8CjppyXoZuWa2e%2BtcE%3D"
+                    frameborder="0" allowtransparency="false" scrolling="yes" width="100%"></iframe>
             </div>
             <div class="modal-footer d-block float-left">
                 <div class="pull-right text-right b-margin-10">
@@ -3279,7 +3921,7 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
     </div>
 </div>
 
- <!-- Jquery JS-->
+<!-- Jquery JS-->
 <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
 <!-- Vendor JS-->
 <!-- <script src="vendor/select2/select2.min.js"></script>
@@ -3298,23 +3940,21 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
 <script src="js/adv_js/main.js"></script>
 
 <script type="text/javascript">
-    function isNumberKey(evt)
-    {
+    function isNumberKey(evt) {
         //debugger;
         var charCode = (evt.which) ? evt.which : evt.keyCode;
         if (charCode != 46 && charCode > 31
-                && (charCode < 48 || charCode > 57))
+            && (charCode < 48 || charCode > 57))
             return false;
 
         return true;
     }
 
-    function isAlfaKey(evt)
-    {
+    function isAlfaKey(evt) {
         //debugger;
         var charCode = (evt.which) ? evt.which : evt.keyCode;
         if (charCode != 46 && charCode > 31
-                && (charCode < 96 || charCode > 123))
+            && (charCode < 96 || charCode > 123))
             return false;
 
         return true;
@@ -3357,7 +3997,7 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
         $("#exclude").css("display", "block");
     }
 </script> -->
-<script>
+<!-- <script>
     function reloadIt() {
         if (window.location.href.substr(-1) !== "&") {
             window.location = window.location.href + "&";
@@ -3369,109 +4009,102 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
     }, 500);
 
     // setTimeout('', 500)();
-</script>
+</script> -->
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         //for Notification
         // $("#product_id").change(function() {
-            var val = $(this).val();
-            var dbsuffix = $("#product_id").find('option:selected').attr('data-dbsuffix');
-            $("#dbsuffix").val(dbsuffix);
+        var val = $(this).val();
+        var dbsuffix = $("#product_id").find('option:selected').attr('data-dbsuffix');
+        $("#dbsuffix").val(dbsuffix);
 
-            if (dbsuffix == '7') {
-                $("#state").css("display", "block");
-                $('#category_type').css("display", "block");
-            } else {
-                $("#state").css("display", "none");
-            }
-            if (dbsuffix != '0') {
-                var table = 'casedata_' + dbsuffix;
-            } else {
-                $('#category_type').css("display", "none");
-                return false;
-            }
-
-            if (dbsuffix == '1' || dbsuffix == '2' || dbsuffix == '4' || dbsuffix == '5' || dbsuffix == '6' || dbsuffix == '7' || dbsuffix == '8' || dbsuffix == '9' || dbsuffix == '10') {
-                $.ajax({
-                    data: {id: dbsuffix, table: table},
-                    url: "adv_search_notification_type.php", //php page URL where we post this data to view from database
-                    type: 'POST',
-                    dataType: 'html',
-                    success: function(data) {
-                        //debugger;
-                        //alert(data);
-                        if (data != "no") {
-                            $('#category_type').css("display", "block");
-                            $("#sub_product_id").html(data);
-                        } else {
-                            $('#category_type').css("display", "none");
-                        }
-                    }
-                });
-                return false;
-            }
+        if (dbsuffix == '7') {
+            $("#state").css("display", "block");
+            $('#category_type').css("display", "block");
+        } else {
+            $("#state").css("display", "none");
+        }
+        if (dbsuffix != '0') {
+            var table = 'casedata_' + dbsuffix;
+        } else {
             $('#category_type').css("display", "none");
+            return false;
+        }
+
+        if (dbsuffix == '1' || dbsuffix == '2' || dbsuffix == '4' || dbsuffix == '5' || dbsuffix == '6' || dbsuffix == '7' || dbsuffix == '8' || dbsuffix == '9' || dbsuffix == '10') {
+            $.ajax({
+                data: { id: dbsuffix, table: table },
+                url: "adv_search_notification_type.php", //php page URL where we post this data to view from database
+                type: 'POST',
+                dataType: 'html',
+                success: function (data) {
+                    //debugger;
+                    //alert(data);
+                    if (data != "no") {
+                        $('#category_type').css("display", "block");
+                        $("#sub_product_id").html(data);
+                    } else {
+                        $('#category_type').css("display", "none");
+                    }
+                }
+            });
+            return false;
+        }
+        $('#category_type').css("display", "none");
         //});
-        $("#sub_product_id").change(function() {
+        $("#sub_product_id").change(function () {
             var val = $("#product_id option:selected").val();
             var type = $(this).val();
             $('#not_type').find('option').remove();
-            if (val == '7' || val == '8' || val == '9' || val == '10')
-            {   
+            if (val == '7' || val == '8' || val == '9' || val == '10') {
                 //$("#notification_type").css('display', 'block');
-                if (type == "Circular")
-                {
+                if (type == "Circular") {
                     $("#notification_type").css('display', 'none');
                     //$(".not_type_label").text('Circular Type');
                 } else {
                     $("#notification_type").css('display', 'block');
                     $(".not_type_label").text('Notification Type');
                     $("#not_type").append('<option value="0">Select</option>' + '<option value="Notification">Notification</option>' +
-                            '<option value="Rate Notification">Rate Notification</option>');
+                        '<option value="Rate Notification">Rate Notification</option>');
                 }
             }
 
-            if (val == '5')
-            {
+            if (val == '5') {
                 $("#notification_type").css('display', 'block');
-                if (type == "Notification")
-                {
+                if (type == "Notification") {
                     $(".not_type_label").text('Notification Type');
                     $("#not_type").append('<option value="0">Select</option>' + '<option value="Tariff">Tariff</option>' +
-                            '<option value="Non-Tariff">Non-Tariff</option>' + '<option value="Safeguards">Safeguards</option>' +
-                            '<option value="Anti Dumping Duty">Anti Dumping Duty</option>' +
-                            '<option value="Others">Others</option>');
+                        '<option value="Non-Tariff">Non-Tariff</option>' + '<option value="Safeguards">Safeguards</option>' +
+                        '<option value="Anti Dumping Duty">Anti Dumping Duty</option>' +
+                        '<option value="Others">Others</option>');
                 }
-                else
-                {
+                else {
                     $(".not_type_label").text('Circular Type');
                     $("#not_type").append('<option value="0">Select</option>' + '<option value="Circulars">Circulars</option>' +
-                            '<option value="Instructions">Instructions</option>');
+                        '<option value="Instructions">Instructions</option>');
                 }
             }
 
-            if (val == '4')
-            {
+            if (val == '4') {
                 $("#notification_type").css('display', 'block');
-                if (type == "Notification")
-                {
+                if (type == "Notification") {
                     $(".not_type_label").text('Notification Type');
                     $("#not_type").append('<option value="0">Select</option>' + '<option value="Tariff">Tariff</option>' +
-                            '<option value="Non-Tariff">Non-Tariff</option>');
+                        '<option value="Non-Tariff">Non-Tariff</option>');
                 }
-                else
-                {
+                else {
                     $(".not_type_label").text('Circular Type');
                     $("#not_type").append('<option value="0">Select</option>' + '<option value="Circulars">Circulars</option>' +
-                            '<option value="Instructions">Instructions</option>');
+                        '<option value="Instructions">Instructions</option>');
                 }
             }
         });
     });
 </script>
 <script>
+
     // for act and rule
-    $("#type").change(function() {
+    $("#type").change(function () {
         var value = $(this).val();
         if (value == "Acts") {
             $("#section_no").val("");
@@ -3483,7 +4116,7 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
             $("#procedure").css("display", "none");
             $("#public_notice").css("display", "none");
             $("#trade_notice").css("display", "none");
-        } 
+        }
         else if (value == "Notification") {
             $("#notification").val("");
             $("#notification").css("display", "block");
@@ -3564,45 +4197,40 @@ function tableUnion2($conditions, $table, $ids, $sub_prod_name, $search_id) {
     });
 </script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        //debugger;
+    $(document).ready(function () {
         var dbsuffix = $("#prod_id").find('option:selected').attr('data-dbsuffix');
-        $("#dbsuffix").val(dbsuffix);
+    $("#dbsuffix").val(dbsuffix);
 
-        //for case law
-        $("#court").change(function() {
-            var value = $(this).val();
-            //var value = $("#court").find('option:selected').attr('data-dbsuffix');
-            if (value == "HC") {
-                $("#hc").css('display', 'block');
-                $("#tri").css('display', 'none');
-                $("#aar").css('display', 'none');
-                $("#aaar").css('display', 'none');
+    var value = $(this).val() || $_REQUEST['court'] ;
+    if (value == "HC") {
+        $("#hc").css('display', 'block');
+    $("#tri").css('display', 'none');
+    $("#aar").css('display', 'none');
+    $("#aaar").css('display', 'none');
             } else if (value == "TRI") {
-                $("#hc").css('display', 'none');
-                $("#tri").css('display', 'block');
-                $("#aar").css('display', 'none');
-                $("#aaar").css('display', 'none');
+        $("#hc").css('display', 'none');
+    $("#tri").css('display', 'block');
+    $("#aar").css('display', 'none');
+    $("#aaar").css('display', 'none');
             } else if (value == "AAR") {
-                $("#hc").css('display', 'none');
-                $("#tri").css('display', 'none');
-                $("#aar").css('display', 'block');
-                $("#aaar").css('display', 'none');
+        $("#hc").css('display', 'none');
+    $("#tri").css('display', 'none');
+    $("#aar").css('display', 'block');
+    $("#aaar").css('display', 'none');
             } else if (value == "AAAR") {
-                $("#hc").css('display', 'none');
-                $("#tri").css('display', 'none');
-                $("#aar").css('display', 'none');
-                $("#aaar").css('display', 'block');
+        $("#hc").css('display', 'none');
+    $("#tri").css('display', 'none');
+    $("#aar").css('display', 'none');
+    $("#aaar").css('display', 'block');
             } else {
-                $("#courtCityHC").val("0");
-                $("#courtCityTRI").val("0");
-                $("#courtCityAAR").val("0");
-                $("#courtCityAAAR").val("0");
-                $("#hc").css('display', 'none');
-                $("#tri").css('display', 'none');
-                $("#aar").css('display', 'none');
-                $("#aaar").css('display', 'none');
+        $("#courtCityHC").val("0");
+    $("#courtCityTRI").val("0");
+    $("#courtCityAAR").val("0");
+    $("#courtCityAAAR").val("0");
+    $("#hc").css('display', 'none');
+    $("#tri").css('display', 'none');
+    $("#aar").css('display', 'none');
+    $("#aaar").css('display', 'none');
             }
-        });
     });
 </script>

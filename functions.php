@@ -2,9 +2,11 @@
  
   //$getBaseUrl = 'https://localhost/vatinfoline/';
   // $getBaseUrl = 'https://www.vatinfoline.com/';
-   $getBaseUrl = 'https://vilgst.com/';
-   $getBaseUrl_org='https://vilgst.com/';
-    $currentUrl = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+   //$getBaseUrl = 'https://www.vilgst.com/';
+   //$getBaseUrl_org='https://vilgst.com/';
+  $getBaseUrl = 'http://vilgst.local/';
+  $getBaseUrl_org='http://vilgst.local/';
+  // $currentUrl = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
  $loginInErrorMsg = 'This is <strong>Member Area </strong>- Please <a class="open-popup-link" href="#log-in" data-effect="mfp-zoom-in">Login</a> to view this page.';
 

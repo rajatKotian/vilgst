@@ -1,7 +1,7 @@
 <?php session_start();
 ob_start(); 
 ini_set('display_errors',0);
-$db_host = 'localhost';
+$db_host = '127.0.0.1';
 include_once('mysql2i.class.php');
 // include_once 'header.php';
 
@@ -19,7 +19,13 @@ $database = 'vilgstnewmay_vilgstprod';
 
 
 $con=mysqli_connect($db_host, $db_user, $db_pwd,$database);
+if (mysqli_connect_errno()) {
+	echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	exit();
+  }
 if (!$con) {
+	echo "Failed to connect to MySQL: " . $con -> connect_error;
+	exit();
 	die("Can't connect to database");
 }   
 

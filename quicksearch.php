@@ -163,6 +163,50 @@
 							</div>
 						</div>
 
+						<div class="form-group">
+						<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
+						<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css"> 
+						<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+						<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
+						
+						<label>Select Forum </label>
+						<style>
+							.dropdown-menu span{
+								color: black;
+							}
+							.btn {
+								background:#fff;
+								color: black;
+								border: 1px solid lightgrey;
+								text-transform: capitalize;
+								
+							}
+							.btn span{
+								font-size: 14px;
+							}
+							.btn-group{
+								width: 53% !important;
+							}
+							.btn:hover{
+								background:#fff;
+								color: black;
+								border: 1px solid lightgrey;
+							}
+							
+						</style>
+								<div class="form-group">
+									<select name="court[]" id="forum" data-style="btn-default"  class="selectpicker form-control" multiple title="Select" >
+									<option value="SC" <?php if (isset($_REQUEST['court']) && in_array("SC", (array)$_REQUEST['court'])) { echo "selected=selected"; } ?> data-dbsuffix="0">Supreme Court</option>
+										<option value="HC" <?php if (isset($_REQUEST['court']) && in_array("HC", (array)$_REQUEST['court'])) { echo "selected=selected"; } ?> data-dbsuffix="0">High Court</option>
+										<option value="TRI" <?php if (isset($_REQUEST['court']) && in_array("TRI", (array)$_REQUEST['court'])) { echo "selected=selected"; } ?> data-dbsuffix="0">CESTAT Cases</option>
+										<option value="AAR" <?php if (isset($_REQUEST['court']) && in_array("AAR", (array)$_REQUEST['court'])) { echo "selected=selected"; } ?> data-dbsuffix="0">AAR</option>
+										<option value="NAA" <?php if (isset($_REQUEST['court']) && in_array("NAA", (array)$_REQUEST['court'])) { echo "selected=selected"; } ?> data-dbsuffix="0">NAA</option>
+										<option value="AAAR" <?php if (isset($_REQUEST['court']) && in_array("AAAR", (array)$_REQUEST['court'])) { echo "selected=selected"; } ?> data-dbsuffix="0">AAAR</option>
+									</select>
+								</div>
+						
+					</div>
 
 						<div class="form-group">
 							<label>Select Type</label>
@@ -222,12 +266,12 @@
 				             	</div>
 				          	</div>
 					    </div>
-						<!-- <div class="form-group" id="year_range" style="display: block;">
+						<div class="form-group" id="year_range" style="display: block;">
 							<label id="searchTypeLabel">Year Range</label> 
 							<input style ='border: 1px solid #ccc;' type="date" id="yearFrom" placeholder="Notification Date" name="yearFrom" value="<?php if (isset($_REQUEST['yearFrom']) && (!empty($_REQUEST['yearFrom']))) { echo $_REQUEST['yearFrom']; } ?>" />
 							<input style ='border: 1px solid #ccc;' type="date" id="yearTo" placeholder="" name="yearTo" value="<?php if (isset($_REQUEST['yearTo']) && (!empty($_REQUEST['yearTo']))) { echo $_REQUEST['yearTo']; } ?>" />
 
-				 		</div> -->
+				 		</div>
 
 					    <div class="form-group text-center" >
 							<input type="submit" name="searchButton" id="search_case_btn" value="Search" class="btn"/>

