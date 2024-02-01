@@ -1065,9 +1065,7 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                                     echo "</ul>";
                                                 }
                                                 ?>
-                <div id="editor">
-                    <p>This is some sample content.</p>
-                </div>
+                
                 <div class='cited-in-block'>
                     <div class="expanding-blocks-header" data-block='citedin'>CITED IN</div>
                     <?php
@@ -1252,12 +1250,14 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                                 ?>
 
             </div>
-
             <?php
                         }
                         //end of left navigation panel
                         ?>
             <div id='rightDisplayBordered' class="bordered" style="width:<?php echo $bordered_width; ?>;float:right">
+                <div id="editor">
+                    <!-- <p>This is some sample content.</p> -->
+                </div>
                 <div class="col-md-8">
                     <?php if ($PrevPageUrl != '') { ?>
                     <a href="<?php echo $PrevPageUrl; ?>" class="coi-article-nav-btn-prev">
@@ -1669,7 +1669,38 @@ include('footer.php');
     }
 </script>
 
-<script>
+ <script>
+     // Asynchronous function to save content
+    async function fetchContentAsync(content) {
+        try {
+          const response = await fetch('fetchUserNotes.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'content=' + encodeURIComponent(content),
+          });
+          const responseData = await response.json();
+          return responseData
+        } catch (error) {
+          console.error('Error:', error);
+        }
+    }
+    async function updateContentAsync(content) {
+        try {
+          const response = await fetch('fetchUserNotes.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'content=' + encodeURIComponent(content),
+          });
+          const responseData = await response.json();
+          return responseData
+        } catch (error) {
+          console.error('Error:', error);
+        }
+    }
     ClassicEditor
         .create(document.querySelector('#editor'))
         .then(editor => {
@@ -1677,7 +1708,10 @@ include('footer.php');
             editor.model.document.on('change:data', () => {
                 console.log('Editor data changed:', editor.getData());
             });
-
+            fetchContentAsync().then((res=>{
+                console.log(res)
+                editor.setData(`<p>${res.message}</p>`);
+            }))
             editor.ui.view.document.on('click', (event, data) => {
                 console.log('Clicked on:', data.domTarget);
             });
