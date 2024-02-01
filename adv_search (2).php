@@ -933,27 +933,27 @@
 <?php include('footer.php') ?>
 <script type="text/javascript">
 	$("#advance_search").click(function(){
-		//debugger;
+		debugger;
 		$("#accordion").slideToggle();
 		$(".searchbody").toggle();
 	});		
 </script>
 <script type="text/javascript">
 	$("#refine_search").click(function(){
-		//debugger;
+		debugger;
 		$(".refine_search_body").slideToggle();
 		//$(".searchbody").toggle();
 	});		
 </script>
 <script type="text/javascript">
 	var searchBody=function(data){
-		//debugger;
+		debugger;
 		window.location='searchBody?search='+data;
 	}
 </script>
 
 <script type="text/javascript">
-	//debugger;
+	debugger;
 
 	var value="<?php echo $_REQUEST['pagename'];?>";
 	var query="<?php echo str_replace('+',' ',$_SERVER['QUERY_STRING']);?>";
@@ -968,7 +968,7 @@
             	if(html!=""){
             		//alert(html);
             		$(html).find('.searchbody').appendTo('.refine_search_body');
-            		//debugger;
+            		debugger;
 
             		//-----------------This Script for Notification search when category already selected---------------------
             		if(value == "Notification"){
@@ -1025,7 +1025,7 @@
 			    	}
 
 			    	$(".refine_search_body").find("#courtType").change(function(){
-						//debugger;
+						debugger;
 						var type=$(this).val();
 						if(type=='High Court Cases'){
 							$("#tri option:first").attr('selected','selected');
@@ -1051,7 +1051,7 @@
 
 					//-----------------This Script for Acts and Rules search---------------------
 					$("#type").change(function(){
-						//debugger;
+						debugger;
 						var value=$(this).val();
 						if(value=="Acts"){
 							$(".vat").html("Section No.");
@@ -1064,7 +1064,7 @@
 					//-----------------Ending  Script for Acts and Rules search---------------------
 
 					$("#prod_id").change(function(){
-						//debugger;
+						debugger;
 						var val=$(this).val();
 						var dbsuffix=$(this).find('option:selected').attr('data-dbsuffix');
 						$("#dbsuffix").val(dbsuffix);
@@ -1100,7 +1100,7 @@
 <!-- when back to advance search page this script will show selected value -->
 <!-- <script type="text/javascript">
 	$(document).ready(function(){
-		//debugger;
+		debugger;
 		var dbsuffix = $("#prod_id").find('option:selected').attr('data-dbsuffix');
 		$("#dbsuffix").val(dbsuffix);
 
@@ -1121,7 +1121,7 @@
 </script> -->
 <!-- <script type="text/javascript">
 	$(".refine_search_body").find("#courtType").change(function(){
-		//debugger;
+		debugger;
 		var type=$(this).val();
 		if(type=='High Court Cases'){
 			$("#tri option:first").attr('selected','selected');
@@ -1144,7 +1144,7 @@
 </script> -->
 <!-- <script type="text/javascript">
 	$(document).ready(function(){
-		//debugger;
+		debugger;
 		var dbsuffix = $("#prod_id").find('option:selected').attr('data-dbsuffix');
 		$("#dbsuffix").val(dbsuffix);
 

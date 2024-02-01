@@ -92,7 +92,7 @@ if(isset($_SESSION['id']) && isset($_GET['l'])) {
 // 		}
 		
 // 		$strContent = my_curl_fun($url);
-// 		$fileUrl = str_replace("https://www.vilgst.com/","/home/vilgst12/public_html/",$url);	
+// 		$fileUrl = str_replace("http://vilgst.local/","/home/vilgst12/public_html/",$url);	
 // 		$strContent = file_get_contents($fileUrl, false, stream_context_create($arrContextOptions));
 // 		$strContent = file_get_contents($fileUrl);
 // 		$strContent = file_get_content($fileUrl, false);

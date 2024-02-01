@@ -270,7 +270,7 @@ function getCategory($table, $value) {
 
 </style>
 <?php 
-if (isLogeedIn()) { 
+// if (isLogeedIn()) { 
     ?>
     <div class="page-wrapper col-md-16">
         <div class="wrapper--w900">
@@ -353,10 +353,10 @@ if (isLogeedIn()) {
                                 <div class="input-group input-group-big">
                                     <div class="label"><label>Party Name:</label></div>
                                     
-                                    <div class="search-party">
-                                        <input type="text" style="text-transform:uppercase;" onkeyup="javascript:load_data(this.value)" onfocus="javascript:load_search_history()" onblur="javascript:lose_focus()" id="party_name" placeholder="Type to Search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="party_name" value="<?php if (isset($_REQUEST['party_name']) && (!empty($_REQUEST['party_name']))) { echo $_REQUEST['party_name']; } ?>" />
+                                    <div class="form-control">
+                                        <input type="text" style="text-transform:uppercase;" onkeyup="javascript:load_data(this.value)" onfocus="javascript:load_search_history()" onblur="javascript:lose_focus()" id="party_name" placeholder="Type to Search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="party_name" value="">
                                         <div id="search_result"></div>
-                                    </div>                                    
+                                    </div>                                   
                                 </div>
                             <!--                                 
                                 <div class="input-group input-group-big">
@@ -1132,9 +1132,9 @@ if (isLogeedIn()) {
             </div>
         </div>
     </div><?php
-} else {
-    include('loggedInError.php');
-}
+// } else {
+//     include('loggedInError.php');
+// }
 
 include('footer.php');
 ?>
@@ -1550,5 +1550,12 @@ include('footer.php');
                 }
             }
         });
+    });
+</script>
+
+<script>
+    $(document).on('click', function (e) {
+        console.log('CLICKED')
+        // document.getElementById('search_result').innerHTML = '';
     });
 </script>

@@ -2,8 +2,9 @@
  
   // $getBaseUrl = 'http://localhost/vilgst-invoice/';
   // $getBaseUrl = 'http://www.vatinfoline.com/';
-   $getBaseUrl = 'http://www.vilgst.com/';
-    $currentUrl = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+  $getBaseUrl = 'http://vilgst.local/';
+  $getBaseUrl_org='http://vilgst.local/';
+  $currentUrl = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
  $loginInErrorMsg = 'This is <strong>Member Area </strong>- Please <a class="open-popup-link" href="#log-in" data-effect="mfp-zoom-in">Login</a> to view this page.';
 

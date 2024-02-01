@@ -1,4 +1,6 @@
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="custom.js"></script>
+
 <!-- right sec start -->
 <style>
     /*.adv-serch{*/
@@ -182,11 +184,8 @@
                     <span class="fa fa-search srch"></span>
                 </div>
                 <div class="col-md-7" onclick="searchFileName('quicksearch')">
-                    <a href="quicksearch.php">
-                        <h2 class="quicksearch">Quick Search</h2>
-                    </a>
-                    <!-- <h2 class="quicksearch">Quick Search</h2>
-                    <span class="span"> /</span> -->
+                    <h2 class="quicksearch">Quick Search</h2>
+                    <span class="span"> /</span>
                 </div>
                 <!--<div class="col-md-7" onclick="searchFileName('advancesearch')">-->
                 <!--    <h2 class="advancesearch">Advance Search</h2>-->
@@ -209,7 +208,7 @@
                         <h2 class="gstResources">GST Resources</h2>
                         <span class="span1"> /</span>
                 </a>
-                <a id="gst_rate" href="https://www.vilgst.com/gst-finder.php">
+                <a id="gst_rate" href="http://vilgst.local/gst-finder.php">
                         <h2 class="gst-finder">Gst Rate Finder</h2>
                 </a>
                 </div>
@@ -218,7 +217,7 @@
         
         <!--<div class="adv-serch">-->
         <!--    <div class="row">-->
-        <!--        <a id="gst_rate" href="https://www.vilgst.com/gst-finder.php">-->
+        <!--        <a id="gst_rate" href="http://vilgst.local/gst-finder.php">-->
 
         <!--            <div class="col-md-2">-->
 
@@ -236,7 +235,7 @@
 
     <!--<div class="adv-serch">-->
     <!--  <div class="row">-->
-    <!--    <a id="gst_rate" href='https://www.vilgst.com/gst-finder.php'>-->
+    <!--    <a id="gst_rate" href='http://vilgst.local/gst-finder.php'>-->
 
     <!--    <div class="col-md-2">-->
 
@@ -457,14 +456,14 @@
                 <div class="sidebar-heading">
                    
                     <h2 class="gst-videos">VIL Video</h2>
-                    <div class='author' style='margin: 0px 0px;color: white;text-align: left;float: left;font-size: 12px'>Service of Notices/Orders under GST…<br>CA Vivek Jalan</div>
+                    <div class='author' style='margin: 0px 0px;color: white;text-align: left;float: left;font-size: 12px'>No interest under GST on...<br>CA Vivek Jalan</div>
                
                     <!--<a href="<?php echo $getBaseUrl; ?>showMoreData?data=<?php echo $tableName; ?>">VIEW ALL</a>-->
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane active">               
                         <div class="vert-carousel-container" style="padding:5px 0;max-height:240px">
-                            <iframe width="340" height="191" src="https://www.youtube.com/embed/hh554ZYG_r0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="340" height="191" src="https://www.youtube.com/embed/0Um4i5HXehY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             <!--<iframe width="340" height="191" src="https://youtu.be/lC9FTFC8gZQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
                         </div>
                     </div>

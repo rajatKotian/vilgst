@@ -37,6 +37,7 @@
             ";
             
             $result = $connect->query($query);
+
             // $replace_string = '<b>'.$condition.'</b>';
 
             $replace_string = '<b style="text-transform:uppercase;" >'.$userText.'</b>';

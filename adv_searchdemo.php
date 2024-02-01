@@ -1140,21 +1140,21 @@
 <?php include('footer.php') ?>
 <script type="text/javascript">
 	$("#advance_search").click(function(){
-		//debugger;
+		debugger;
 		$("#accordion").slideToggle();
 		//$(".searchbody").toggle();
 	});		
 </script>
 <script type="text/javascript">
 	$("#refine_search").click(function(){
-		//debugger;
+		debugger;
 		$(".refine_search_body").slideToggle();
 		//$(".searchbody").toggle();
 	});		
 </script>
 <script type="text/javascript">
 	var searchBody=function(data){
-		//debugger;
+		debugger;
 		window.location='searchBody?search='+data;
 	}
 </script>
@@ -1162,7 +1162,7 @@
 <script type="text/javascript">
 	
 $(document).ready(function(){
-	//debugger;
+	debugger;
 	var value="<?php echo $_REQUEST['pagename'];?>";
 	var query="<?php echo str_replace('+',' ',$_SERVER['QUERY_STRING']);?>";
 	var query1="searchBodydemo.php?search="+value+"&"+query;
@@ -1173,7 +1173,7 @@ $(document).ready(function(){
         type :'POST',
         dataType: 'html', 
         success: function(html){
-        		//debugger;
+        		debugger;
             	if(html!=""){
             		//alert(html);
             		$(html).find('.searchbody').appendTo('.refine_search_body');
@@ -1204,7 +1204,7 @@ $(document).ready(function(){
 					            	type :'POST',
 					            	dataType: 'html',  
 					            	success: function(data){
-					            		//debugger;
+					            		debugger;
 					            		//alert(data);
 						            	if(data!="no"){
 
@@ -1318,7 +1318,7 @@ $(document).ready(function(){
 					
 					
 	                $("#prod_id").change(function(){
-		//debugger;
+		debugger;
 		var val=$(this).val();
 		var dbsuffix=$(this).find('option:selected').attr('data-dbsuffix');
 		$("#dbsuffix").val(dbsuffix);
@@ -1342,7 +1342,7 @@ $(document).ready(function(){
             	type :'POST',
             	dataType: 'html',  
             	success: function(data){
-            		//debugger;
+            		debugger;
             		//alert(data);
 	            	if(data!="no"){
 
@@ -1359,7 +1359,7 @@ $(document).ready(function(){
 	});
 	
 	                $("#sub_product_id").change(function(){
-						//debugger;
+						debugger;
 						var val=$("#prod_id option:selected").val();
 						var type=$("#sub_product_id option:selected").text();
 						$('#not_type').find('option').remove();
@@ -1423,13 +1423,13 @@ $(document).ready(function(){
 
 <script type="text/javascript">
 	// $("#advance_search").click(function(){
-	// 	//debugger;
+	// 	debugger;
 	// 	$("#accordion").slideToggle();
 	// 	$(".searchbody").toggle();
 	// });	
 
 	var searchBody=function(data){
-		//debugger;
+		debugger;
 		window.location='searchBodydemo?search='+data;
 	}
 

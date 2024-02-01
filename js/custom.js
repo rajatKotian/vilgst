@@ -189,10 +189,11 @@ function printData(divName) {
 }
 
 var searchFileName = function(val) {
+  console.log('val:::', val)
   if(val !== 0 && val!=='customsearch') {
     window.location.href=val;
   }else{
-    $($("#searchFile").parents("div")[0]).append("<form action='https://www.vilgst.com/customsearch.php'><input type='text' name='q' placeholder='Enter Search Query'/><input type='submit'/> </form>")
+    $($("#searchFile").parents("div")[0]).append("<form action='http://www.vilgst.local/customsearch.php'><input type='text' name='q' placeholder='Enter Search Query'/><input type='submit'/> </form>")
   }
 }//<form action='http://localhost/harry/Vligst Download/customsearch'>
 
@@ -213,15 +214,15 @@ var showFrame = function(id,page,dataTable) {
   if(page!==null) {
 
     if(page == 'recent') {
-      window.location.href = "https://www.vilgst.com/showiframe?V1Zaa1VsQlJQVDA9="+id+"&page="+page;
+      window.location.href = "http://www.vilgst.local/showiframe?V1Zaa1VsQlJQVDA9=" + id + "&page=" + page;
     } else if(page == 'emptypath'){
-      window.open("https://www.vilgst.com/showdata?V1Zaa1VsQlJQVDA9="+id+"&datatable="+dataTable, '_blank');
+      window.open("http://www.vilgst.local/showdata?V1Zaa1VsQlJQVDA9=" + id + "&datatable=" + dataTable, '_blank');
     } else{
-      window.open("https://www.vilgst.com/showiframe?V1Zaa1VsQlJQVDA9="+id+"&page="+page, '_blank');
+      window.open("http://www.vilgst.local/showiframe?V1Zaa1VsQlJQVDA9=" + id + "&page=" + page, '_blank');
     }  
 
   } else {
-    window.open("https://www.vilgst.com/showiframe?V1Zaa1VsQlJQVDA9="+id+"&datatable="+dataTable, '_blank');  
+    window.open("http://www.vilgst.local/showiframe?V1Zaa1VsQlJQVDA9=" + id + "&datatable=" + dataTable, '_blank');  
   }  
 
 }
