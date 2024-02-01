@@ -64,80 +64,87 @@ include('SocialMedia.php');
 //     error_reporting(E_ALL);
 ?>
 <style type="text/css">
-    html, body {
+    html,
+    body {
         overflow: auto !important;
     }
+
     .data-summary {
         background: #fafafa;
         border: 1px solid #eee;
-        border-radius: 4px;		
-        -moz-border-radius: 4px;		
-        -webkit-border-radius: 4px;		
-        border-radius: 4px;		
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
         font-size: 13px;
 
-        font-style: italic;	    
+        font-style: italic;
 
         padding: 5px 10px;
 
     }
+
     .caseData-summary {
         background: #dd1934;
         border: 1px solid #eee;
-        border-radius: 5px;     
-        -moz-border-radius: 5px;        
-        -webkit-border-radius: 5px;     
-        font-size: 14px;     
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        font-size: 14px;
         padding: 10px 20px;
         color: #fff;
         margin-bottom: 10px;
     }
-    .coi-article-nav-btn-prev, .coi-article-nav-btn-next{
+
+    .coi-article-nav-btn-prev,
+    .coi-article-nav-btn-next {
         font-weight: bold;
         font-size: 18px;
-        color:orange;
-        padding:2px;
+        color: orange;
+        padding: 2px;
     }
 
-    .coi-article-nav-btn-next{
-        float:right;
-    }
-    .coi-article-nav-btn-prev{
-        float:left;
+    .coi-article-nav-btn-next {
+        float: right;
     }
 
-    .btn-orange{
-        background: linear-gradient(to bottom, #FF9933 0%,#FF5733 100%);
+    .coi-article-nav-btn-prev {
+        float: left;
     }
 
-    .btn-orange:hover{
-        background: linear-gradient(to bottom, #FF5733 0%,#FF9933 100%);
+    .btn-orange {
+        background: linear-gradient(to bottom, #FF9933 0%, #FF5733 100%);
+    }
+
+    .btn-orange:hover {
+        background: linear-gradient(to bottom, #FF5733 0%, #FF9933 100%);
         box-shadow: inset 1px 1px 1px #FF5733;
     }
 
-    #navigation-left{
-        width:20%;float:left;
-        font-family:'calibri';
-        font-size:14px;
+    #navigation-left {
+        width: 20%;
+        float: left;
+        font-family: 'calibri';
+        font-size: 14px;
         /*margin-top:25px;*/
         /*display:table;*/
-        display:none;
+        display: none;
     }
 
-    #navigation-left .expanding-blocks{
+    #navigation-left .expanding-blocks {
         /*width:95%;*/
-        padding:10px 5px 10px 5px;
-        border:1px solid gray;
-        background:#e0e0e0;
+        padding: 10px 5px 10px 5px;
+        border: 1px solid gray;
+        background: #e0e0e0;
         /*margin-bottom: 5px;*/
         cursor: pointer;
         font-weight: bold;
-        font-size:15px;
-        border-bottom:0px;
+        font-size: 15px;
+        border-bottom: 0px;
     }
 
-    #navigation-left .expanding-blocks:last-child{
-        border-bottom:1px solid gray;
+    #navigation-left .expanding-blocks:last-child {
+        border-bottom: 1px solid gray;
     }
 
     /*    #navigation-left .cited-in-block {
@@ -148,77 +155,82 @@ include('SocialMedia.php');
             width:95%;
             margin-left: 2.5%;
         }*/
-    #navigation-left .expanding-blocks-header{
+    #navigation-left .expanding-blocks-header {
         /*        background: #8ba6bf;
                 padding:5px 0px;*/
         text-align: left;
-        color:#FFF;
+        color: #FFF;
         font-weight: bold;
-        margin:15px 0 0px 0px;
+        margin: 15px 0 0px 0px;
         /*margin-bottom: 10px;*/
-        background-color:#ff7808;
-        padding:10px 10px;
+        background-color: #ff7808;
+        padding: 10px 10px;
     }
 
-    #navigation-left .expanding-blocks .expand{
-        width:20px;
-        float:right;
+    #navigation-left .expanding-blocks .expand {
+        width: 20px;
+        float: right;
     }
-    #navigation-left .listing-blocks{
-        display:none;
-        padding-left:0px;     
-        list-style-type:none;
+
+    #navigation-left .listing-blocks {
+        display: none;
+        padding-left: 0px;
+        list-style-type: none;
         max-height: 500px;
         overflow: auto;
         /*width: 95%;*/
-        border:1px solid gray;
-    }
-    #navigation-left .listing-blocks li{
-        margin:2px 0px;
-        border-bottom:1px dashed #ccc;
-        padding:3px;
-
+        border: 1px solid gray;
     }
 
-    #navigation-left .listing-blocks li:last-child{
-        margin:2px 0px;
-        border-bottom:0px;
-        padding:3px;
+    #navigation-left .listing-blocks li {
+        margin: 2px 0px;
+        border-bottom: 1px dashed #ccc;
+        padding: 3px;
 
     }
 
-    #navigation-left .listing-blocks li:hover{
+    #navigation-left .listing-blocks li:last-child {
+        margin: 2px 0px;
+        border-bottom: 0px;
+        padding: 3px;
+
+    }
+
+    #navigation-left .listing-blocks li:hover {
         /*background: #CCC; */
     }
 
-    .bordered{
+    .bordered {
         border: 1px orange solid;
     }
 
     /* Tooltip */
-    #navigation-left .listing-blocks li a:hover{
-        color:orange;
+    #navigation-left .listing-blocks li a:hover {
+        color: orange;
         /*font-weight:bold;*/
     }
-    #navigation-left .listing-blocks li a{
-        font-size:14px;
+
+    #navigation-left .listing-blocks li a {
+        font-size: 14px;
     }
 
-    #navigation-left .tooltip{
-        max-width:500px;
-        opacity:1;
+    #navigation-left .tooltip {
+        max-width: 500px;
+        opacity: 1;
     }
-    #navigation-left .tooltip > .tooltip-inner {
-        background-color: #F1F1f1 !important; 
-        color: #000; 
-        border: 1px solid green; 
+
+    #navigation-left .tooltip>.tooltip-inner {
+        background-color: #F1F1f1 !important;
+        color: #000;
+        border: 1px solid green;
         padding: 5px 10px;
         font-size: 15px;
         max-width: 500px;
-        opacity:1 !important;
-        text-align:left;
+        opacity: 1 !important;
+        text-align: left;
         /*text-transform:;*/
     }
+
     /*   Tooltip on top 
       #navigation-left .tooltip.top > .tooltip-arrow {
         border-top: 5px solid green;
@@ -232,15 +244,16 @@ include('SocialMedia.php');
         border-left: 5px solid red;
       }*/
     /* Tooltip on right */
-    #navigation-left .tooltip.right > .tooltip-arrow {
+    #navigation-left .tooltip.right>.tooltip-arrow {
         border-right: 5px solid green;
     }
-    #navigation-left .border-bottom{
-        border:1px solid gray;
+
+    #navigation-left .border-bottom {
+        border: 1px solid gray;
     }
 
-    .left-section h1{
-        font-size:15px !important;
+    .left-section h1 {
+        font-size: 15px !important;
     }
 
     .related-search {
@@ -252,11 +265,12 @@ include('SocialMedia.php');
         width: 90%;
     }
 </style>
+<script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
 
 <script type="text/javascript">
     var isReloaded = false;
 
-    var calcHeight = function() {
+    var calcHeight = function () {
 
         if (isReloaded) {
 
@@ -269,9 +283,9 @@ include('SocialMedia.php');
             }
 
 
-//        document.getElementById('navigation-left').height = the_height;
+            //        document.getElementById('navigation-left').height = the_height;
             $('#navigation-left').css('height', the_height + 'px');
-            $('.expanding-blocks').click(function() {
+            $('.expanding-blocks').click(function () {
                 if ($(this).find('.expand').html() == '+') {
                     $('.expand').html('+');
                     $('.listing-blocks').hide();
@@ -284,7 +298,7 @@ include('SocialMedia.php');
                 }
             });
 
-            $('.listing-blocks a').click(function(e) {
+            $('.listing-blocks a').click(function (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 e.stopImmediatePropagation();
@@ -296,7 +310,7 @@ include('SocialMedia.php');
                 $('#iFramePreviewFrame').attr('src', linktoopen);
                 var the_height2 = document.getElementById('iFramePreviewFrame').contentWindow.document.body.scrollHeight + 50;
                 $('#iFramePreviewFrame').height('580px');
-//            iFramePreviewFrame
+                //            iFramePreviewFrame
                 $('#recordInfoModal').modal('show');
 
 
@@ -311,7 +325,7 @@ include('SocialMedia.php');
                 $('#navigation-left').css('display', 'table');
             }
 
-        }else{
+        } else {
             isReloaded = true;
             document.getElementById('iFramePopupFrame').contentDocument.location.reload(true);
         }
@@ -421,65 +435,68 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
 
 
 
-    <!-- left sec start <div class="col-md-16 col-sm-16"> -->
+<!-- left sec start <div class="col-md-16 col-sm-16"> -->
 
-    <div class="col-md-16 col-sm-16 left-section">
+<div class="col-md-16 col-sm-16 left-section">
 
-        <h1>      	
+    <h1>
 
-            <ol class="breadcrumb">
+        <ol class="breadcrumb">
 
-                <li><a href="<?php echo $getBaseUrl; ?>">Home</a></li>
+            <li><a href="<?php echo $getBaseUrl; ?>">Home</a></li>
 
-                <li class="active"></li>
+            <li class="active"></li>
 
-            </ol>
+        </ol>
 
-        </h1>
+    </h1>
 
-        <div class="col-md-16">
-
-
-
-            <h2>Highlights of 122nd Constitutional Amendment Bill - CA Bimal Jain</h2>
+    <div class="col-md-16">
 
 
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Is0QySCmcDc" style="margin:20px auto" frameborder="0" allowfullscreen></iframe>
-
-            <hr />
+        <h2>Highlights of 122nd Constitutional Amendment Bill - CA Bimal Jain</h2>
 
 
 
-            <h2>Overview of Dual GST Model - CA Bimal Jain</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Is0QySCmcDc" style="margin:20px auto"
+            frameborder="0" allowfullscreen></iframe>
+
+        <hr />
 
 
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ASuOr5sud94" style="margin:20px auto" frameborder="0" allowfullscreen></iframe>
-
-            <hr />
+        <h2>Overview of Dual GST Model - CA Bimal Jain</h2>
 
 
 
-            <h2>Goods and Services Tax (GST) - Need and Necessity - CA Bimal Jain</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ASuOr5sud94" style="margin:20px auto"
+            frameborder="0" allowfullscreen></iframe>
+
+        <hr />
 
 
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/apM_HDGynoc" style="margin:20px auto" frameborder="0" allowfullscreen></iframe>
+        <h2>Goods and Services Tax (GST) - Need and Necessity - CA Bimal Jain</h2>
 
 
 
-        </div> 
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/apM_HDGynoc" style="margin:20px auto"
+            frameborder="0" allowfullscreen></iframe>
 
 
 
     </div>
 
-    <!-- left sec end -->  
+
+
+</div>
+
+<!-- left sec end -->
 
 
 
-    <?php
+<?php
 } else {
 
     //V1Zaa1VsQlJQVDA9 = echo base64_encode(base64_encode(base64_encode(base64_encode('id'))));
@@ -586,15 +603,15 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
             $sub_prod_result = mysqli_fetch_assoc(mysqli_query($GLOBALS['con'],"SELECT sub_prod_type FROM sub_product WHERE sub_prod_id = $sub_prod_id  LIMIT 1"));
             ?>
 
-            <!-- left sec start <div class="col-md-16 col-sm-16"> -->
+<!-- left sec start <div class="col-md-16 col-sm-16"> -->
 
-            <div class="col-md-16 col-sm-16 left-section">
+<div class="col-md-16 col-sm-16 left-section">
 
-                <form method="post" action="" id="formDownload" name="formDownload">
+    <form method="post" action="" id="formDownload" name="formDownload">
 
-                    <h1>
+        <h1>
 
-                        <?php
+            <?php
                         if ((isset($_GET['page']) && $_GET['page'] == "recent") || (isset($_GET['datatable']) && $_GET['datatable'] != 'undefined')) {
 
 
@@ -618,7 +635,7 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                         }
                         ?>
 
-                        <?php
+            <?php
                         // echo $row['circular_no'];
 
                         if ($_GET['page'] == "taxvista") {
@@ -631,123 +648,141 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                         }
                         ?>
 
-                        <ol class="breadcrumb">
+            <ol class="breadcrumb">
 
-                            <li><a href="<?php echo $getBaseUrl; ?>">Home</a></li>
+                <li><a href="<?php echo $getBaseUrl; ?>">Home</a></li>
 
-                            <?php if ($_GET['page'] == "taxvista") { ?>
-                                <li class="active">Tax Vista</li>
-                            <?php } else { ?>
-                                <li class="active"><?php echo $row['circular_no']; ?></li>
-                            <?php } ?>
+                <?php if ($_GET['page'] == "taxvista") { ?>
+                <li class="active">Tax Vista</li>
+                <?php } else { ?>
+                <li class="active">
+                    <?php echo $row['circular_no']; ?>
+                </li>
+                <?php } ?>
 
-                        </ol>
+            </ol>
 
-                    </h1>
+        </h1>
 
-                    <div class="col-md-16">
+        <div class="col-md-16">
 
-                        <?php if ($case_status == "inactive") { ?>
-                            <div class="caseData-summary">
-                                <?php echo $case_status_summary; ?>
-                            </div><?php
+            <?php if ($case_status == "inactive") { ?>
+            <div class="caseData-summary">
+                <?php echo $case_status_summary; ?>
+            </div>
+            <?php
                             }
                             ?>
 
-                        <?php
+            <?php
                         if (isset($_GET['page']) && ($_GET['page'] == "articles" || $_GET['page'] == "taxvista" || $_GET['page'] == "highlights" || $_GET['page'] == "features" || $_GET['page'] == "budgets_analysis" || $_GET['page'] == "unionBudget" || $_GET['page'] == "stateBudget")) {
                             ?>
 
 
 
-                            <div class="pull-right text-right b-margin-10">
+            <div class="pull-right text-right b-margin-10">
 
-                                <ul class="list-inline" >
-                                    <?php
+                <ul class="list-inline">
+                    <?php
                                     if ($_GET['page'] == "taxvista") {
                                         ?>
-                                        <li><a href="#taxvistafeedback" class="ion-email  btn btn-orange open-popup-link" data-effect="mfp-zoom-in" title="Submit your feedback">Share Feedback</a></li>
-                                        <?php
+                    <li><a href="#taxvistafeedback" class="ion-email  btn btn-orange open-popup-link"
+                            data-effect="mfp-zoom-in" title="Submit your feedback">Share Feedback</a></li>
+                    <?php
                                     }
                                     ?>
 
-                                    <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in" title="Email this page">Email this page</a></li>
+                    <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
+                            title="Email this page">Email this page</a></li>
 
-                                    <li><a href="javascript:void(0)" class="ion-printer btn " onclick="printIframe('iFramePopupFrame')" title="Print this page">Print this page </a></li>
+                    <li><a href="javascript:void(0)" class="ion-printer btn " onclick="printIframe('iFramePopupFrame')"
+                            title="Print this page">Print this page </a></li>
 
-                                    <li><button type="submit" class="btn" name="downloadFile" ><i class="ion-android-archive"></i> Download File</button></li>
+                    <li><button type="submit" class="btn" name="downloadFile"><i class="ion-android-archive"></i>
+                            Download File</button></li>
 
-                                </ul>
+                </ul>
 
-                                <?php if ($file_extn != 'pdf') { ?>
+                <?php if ($file_extn != 'pdf') { ?>
 
-                                    <em>To download file as PDF, use PDF writer/printer. </em>
+                <em>To download file as PDF, use PDF writer/printer. </em>
 
-                                <?php } ?>
+                <?php } ?>
 
-                            </div>
+            </div>
 
-                            <div class="clear"></div>
+            <div class="clear"></div>
 
-                            <input type="hidden" value="<?php echo encrypt_url($file_path); ?>" name="file_path" id="file_path" />
+            <input type="hidden" value="<?php echo encrypt_url($file_path); ?>" name="file_path" id="file_path" />
 
-                            <div class="bordered">
+            <div class="bordered">
 
-                                <?php
+                <?php
                                 $isPDFLink = "isPdf=0";
                                 if ($file_extn == 'pdf') {
                                     $isPDFLink = "isPdf=1";
                                 }
                                 ?>
-                                <iframe onLoad="calcHeight();" <?php echo $isPDFLink; ?>   id='iFramePopupFrame' name='iFramePopupFrame' <?php
+                <iframe onLoad="calcHeight();" <?php echo $isPDFLink; ?> id='iFramePopupFrame' name='iFramePopupFrame'
+                    <?php
                                 if ($file_extn == 'pdf') {
-                                    ?> src='<?php echo $getBaseUrl . $file_path; ?>' <?php
+                                    ?> src='
+                    <?php echo $getBaseUrl . $file_path; ?>'
+                    <?php
                                         } else {
-                                            ?> src='<?php echo "-?ll=" . encrypt_url($getBaseUrl . $file_path); ?>' <?php
+                                            ?> src='
+                    <?php echo "-?ll=" . encrypt_url($getBaseUrl . $file_path); ?>'
+                    <?php
                                         }
-                                        ?> frameborder='0' allowtransparency='true' scrolling='no' width="100%" <?php
+                                        ?> frameborder='0' allowtransparency='true' scrolling='no' width="100%"
+                    <?php
                                         if ($file_extn == 'pdf') {
                                             echo " height='1130' ";
                                         }
-                                        ?> ></iframe>
+                                        ?> >
+                </iframe>
 
 
 
-                            </div>
+            </div>
 
-                            <div class="clear"></div>
+            <div class="clear"></div>
 
-                            <div class="pull-right text-right t-margin-10">
+            <div class="pull-right text-right t-margin-10">
 
-                                <ul class="list-inline" >
+                <ul class="list-inline">
 
-                                    <?php
+                    <?php
                                     if ($_GET['page'] == "taxvista") {
                                         ?>
-                                        <li><a href="#taxvistafeedback" class="ion-email  btn btn-orange open-popup-link" data-effect="mfp-zoom-in" title="Submit your feedback">Share Feedback</a></li>
-                                        <?php
+                    <li><a href="#taxvistafeedback" class="ion-email  btn btn-orange open-popup-link"
+                            data-effect="mfp-zoom-in" title="Submit your feedback">Share Feedback</a></li>
+                    <?php
                                     }
                                     ?>
 
-                                    <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in" title="Email this page">Email this page</a></li>
+                    <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
+                            title="Email this page">Email this page</a></li>
 
-                                    <li><a href="javascript:void(0)" class="ion-printer btn " onclick="printIframe('iFramePopupFrame')" title="Print this page">Print this page </a></li>
+                    <li><a href="javascript:void(0)" class="ion-printer btn " onclick="printIframe('iFramePopupFrame')"
+                            title="Print this page">Print this page </a></li>
 
-                                    <li><button type="submit" class="btn" name="downloadFile" ><i class="ion-android-archive"></i> Download File</button></li>
+                    <li><button type="submit" class="btn" name="downloadFile"><i class="ion-android-archive"></i>
+                            Download File</button></li>
 
-                                </ul>
+                </ul>
 
-                                <?php if ($file_extn != 'pdf') { ?>
+                <?php if ($file_extn != 'pdf') { ?>
 
-                                    <em>To download file as PDF, use PDF writer/printer. </em>
+                <em>To download file as PDF, use PDF writer/printer. </em>
 
-                                <?php } ?>
+                <?php } ?>
 
-                            </div>
+            </div>
 
 
 
-                            <?php
+            <?php
                         } else {
 
 
@@ -853,35 +888,38 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                 } else {
                                     ?>
 
-                                    <?php
+            <?php
                                     if ($sub_prod_result['sub_prod_type'] != 'Judgements') {
 
                                         echo '<p class="data-summary">' . $summary . '</p>';
                                     }
                                     ?>
 
-                                    <div class="pull-right text-right b-margin-10">
+            <div class="pull-right text-right b-margin-10">
 
-                                        <ul class="list-inline" >
+                <ul class="list-inline">
 
-                                            <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in" title="Email this page">Email this page</a></li>
+                    <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
+                            title="Email this page">Email this page</a></li>
 
-                                            <li><a href="javascript:void(0)" class="ion-printer btn " onclick="printIframe('iFramePopupFrame')" title="Print this page">Print this page </a></li>
+                    <li><a href="javascript:void(0)" class="ion-printer btn " onclick="printIframe('iFramePopupFrame')"
+                            title="Print this page">Print this page </a></li>
 
-                                            <li><button type="submit" class="btn" name="downloadFile" ><i class="ion-android-archive"></i> Download File</button></li>
+                    <li><button type="submit" class="btn" name="downloadFile"><i class="ion-android-archive"></i>
+                            Download File</button></li>
 
-                                        </ul>
+                </ul>
 
-                                        <?php if ($file_extn != 'pdf') { ?>
+                <?php if ($file_extn != 'pdf') { ?>
 
-                                            <em>To download file as PDF, use PDF writer/printer. </em>
+                <em>To download file as PDF, use PDF writer/printer. </em>
 
-                                        <?php } ?>
+                <?php } ?>
 
-                                    </div>
+            </div>
 
-                                    <div class="clear"></div>
-                                    <?php
+            <div class="clear"></div>
+            <?php
                                     $bordered_width = "100%";
 //                                    echo $rowProduct['ProductName'];die;
                                     if (isset($rowProduct['ProductName']) && $rowProduct['ProductName'] != '' && $rowProduct['ProductName'] != 'COI') {
@@ -898,16 +936,20 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                         $bordered_width = "80%";
                                         ?>
 
-                                        <div id="navigation-left">
-                                            <div class="expanding-blocks-header" data-block='citedin'>VIEW RELATED RECORDS</div>
-                                            <!--<div class="expanding-blocks" data-block='section'>Section (<?php echo $section_count; ?>)<span class="expand">+</span></div>-->
-                                            <?php
+            <div id="navigation-left">
+                <div class="expanding-blocks-header" data-block='citedin'>VIEW RELATED RECORDS</div>
+                <!--<div class="expanding-blocks" data-block='section'>Section (<?php echo $section_count; ?>)<span class="expand">+</span></div>-->
+                <?php
                                             if ($section_count > 0) {
                                                 ?>
-                                                <div class="expanding-blocks" data-block='section'>Section (<?php echo $section_count; ?>)<span class="expand">+</span>
-                                                    <?php if ($section_count > 10) { ?><input type="text" class="related-search" id="myInput001" onkeyup="myFunction001()" placeholder="Search.."> <?php } ?></div>
+                <div class="expanding-blocks" data-block='section'>Section (
+                    <?php echo $section_count; ?>)<span class="expand">+</span>
+                    <?php if ($section_count > 10) { ?><input type="text" class="related-search" id="myInput001"
+                        onkeyup="myFunction001()" placeholder="Search..">
+                    <?php } ?>
+                </div>
 
-                                                <?php
+                <?php
                                                 echo "<ul id='listing-section' class='listing-blocks'>";
                                                 foreach ($mapping_data['Acts'] as $circular_map) {
                                                     echo "<li>";
@@ -923,12 +965,16 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                             }
                                             ?>
 
-                                            <?php
+                <?php
                                             if ($rule_count > 0) {
                                                 ?>
-                                                <div class="expanding-blocks" data-block='rule'>Rules (<?php echo $rule_count; ?>)<span class="expand">+</span>
-                                                    <?php if ($rule_count > 10) { ?><input type="text" class="related-search" id="myInput002" onkeyup="myFunction002()" placeholder="Search.."> <?php } ?></div>
-                                                    <?php
+                <div class="expanding-blocks" data-block='rule'>Rules (
+                    <?php echo $rule_count; ?>)<span class="expand">+</span>
+                    <?php if ($rule_count > 10) { ?><input type="text" class="related-search" id="myInput002"
+                        onkeyup="myFunction002()" placeholder="Search..">
+                    <?php } ?>
+                </div>
+                <?php
                                                     echo "<ul id='listing-rule' class='listing-blocks'>";
                                                     foreach ($mapping_data['Rules'] as $circular_map) {
                                                         echo "<li>";
@@ -944,12 +990,16 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                                 }
                                                 ?>
 
-                                            <?php
+                <?php
                                             if ($notifications_count > 0) {
                                                 ?>
-                                                <div class="expanding-blocks" data-block='notification'>Notifications (<?php echo $notifications_count; ?>) <span class="expand">+</span>
-                                                    <?php if ($notifications_count > 10) { ?><input type="text" class="related-search" id="myInput003" onkeyup="myFunction003()" placeholder="Search.."> <?php } ?></div>
-                                                    <?php
+                <div class="expanding-blocks" data-block='notification'>Notifications (
+                    <?php echo $notifications_count; ?>) <span class="expand">+</span>
+                    <?php if ($notifications_count > 10) { ?><input type="text" class="related-search" id="myInput003"
+                        onkeyup="myFunction003()" placeholder="Search..">
+                    <?php } ?>
+                </div>
+                <?php
                                                     echo "<ul id='listing-notification' class='listing-blocks'>";
                                                     foreach ($mapping_data['Notifications'] as $circular_map) {
                                                         echo "<li>";
@@ -965,13 +1015,17 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                                 }
                                                 ?>
 
-                                            <?php
+                <?php
                                             if ($ciculars_count > 0) {
                                                 ?>
-                                                <div class="expanding-blocks" data-block='circular'>Circular /Order/ROD (<?php echo $ciculars_count; ?>)<span class="expand">+</span>
-                                                    <?php if ($ciculars_count > 10) { ?><input type="text" class="related-search" id="myInput004" onkeyup="myFunction004()" placeholder="Search.."> <?php } ?></div>
+                <div class="expanding-blocks" data-block='circular'>Circular /Order/ROD (
+                    <?php echo $ciculars_count; ?>)<span class="expand">+</span>
+                    <?php if ($ciculars_count > 10) { ?><input type="text" class="related-search" id="myInput004"
+                        onkeyup="myFunction004()" placeholder="Search..">
+                    <?php } ?>
+                </div>
 
-                                                <?php
+                <?php
                                                 echo "<ul id='listing-circular' class='listing-blocks'>";
                                                 foreach ($mapping_data['Circular'] as $circular_map) {
                                                     echo "<li>";
@@ -987,12 +1041,16 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                             }
                                             ?>
 
-                                            <?php
+                <?php
                                             if ($cites_count > 0) {
                                                 ?>
-                                                <div class="expanding-blocks border-bottom" data-block='cites'>Cites (<?php echo $cites_count; ?>) <span class="expand">+</span>
-                                                    <?php if ($cites_count > 10) { ?><input type="text" class="related-search" id="myInput005" onkeyup="myFunction005()" placeholder="Search.."> <?php } ?></div>
-                                                    <?php
+                <div class="expanding-blocks border-bottom" data-block='cites'>Cites (
+                    <?php echo $cites_count; ?>) <span class="expand">+</span>
+                    <?php if ($cites_count > 10) { ?><input type="text" class="related-search" id="myInput005"
+                        onkeyup="myFunction005()" placeholder="Search..">
+                    <?php } ?>
+                </div>
+                <?php
                                                     echo "<ul id='listing-cites' class='listing-blocks'>";
                                                     foreach ($mapping_data['Judgements'] as $judgement_map) {
                                                         echo "<li>";
@@ -1007,20 +1065,27 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                                     echo "</ul>";
                                                 }
                                                 ?>
-                                            <div class='cited-in-block'>
-                                                <div class="expanding-blocks-header" data-block='citedin'>CITED IN</div>
-                                                <?php
+                <div id="editor">
+                    <p>This is some sample content.</p>
+                </div>
+                <div class='cited-in-block'>
+                    <div class="expanding-blocks-header" data-block='citedin'>CITED IN</div>
+                    <?php
                                                 $citedin_count = 10;
                                                 if ($citedin_count > 0) {
                                                     ?>
 
-                                                    <?php
+                    <?php
                                                     if (count($citeIn['Case']) > 0) {
                                                         ?>
-                                                        <div class="expanding-blocks" data-block='citedin-judgements'>Caselaws (<?php echo count($citeIn['Case']); ?>)<span class="expand">+</span>
-                                                            <?php if (count($citeIn['Case']) > 10) { ?>
-                                                                <input type="text" class="related-search" id="myInput01" onkeyup="myFunction01()" placeholder="Search.."> <?php } ?></div>
-                                                        <?php
+                    <div class="expanding-blocks" data-block='citedin-judgements'>Caselaws (
+                        <?php echo count($citeIn['Case']); ?>)<span class="expand">+</span>
+                        <?php if (count($citeIn['Case']) > 10) { ?>
+                        <input type="text" class="related-search" id="myInput01" onkeyup="myFunction01()"
+                            placeholder="Search..">
+                        <?php } ?>
+                    </div>
+                    <?php
                                                         echo "<ul id='listing-citedin-judgements' class='listing-blocks'>";
                                                         foreach ($citeIn['Case'] as $judgement_map) {
                                                             echo "<li>";
@@ -1036,13 +1101,17 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                                     }
                                                     ?>
 
-                                                    <?php
+                    <?php
                                                     if (count($citeIn['Notification']) > 0) {
                                                         ?>
-                                                        <div class="expanding-blocks" data-block='citedin-notifications'>Notifications (<?php echo count($citeIn['Notification']); ?>)<span class="expand">+</span>
-                                                            <?php if (count($citeIn['Notification']) > 10) { ?>
-                                                                <input type="text" class="related-search" id="myInput02" onkeyup="myFunction02()" placeholder="Search.."> <?php } ?></div>
-                                                        <?php
+                    <div class="expanding-blocks" data-block='citedin-notifications'>Notifications (
+                        <?php echo count($citeIn['Notification']); ?>)<span class="expand">+</span>
+                        <?php if (count($citeIn['Notification']) > 10) { ?>
+                        <input type="text" class="related-search" id="myInput02" onkeyup="myFunction02()"
+                            placeholder="Search..">
+                        <?php } ?>
+                    </div>
+                    <?php
                                                         echo "<ul id='listing-citedin-notifications' class='listing-blocks'>";
                                                         foreach ($citeIn['Notification'] as $judgement_map) {
                                                             echo "<li>";
@@ -1058,13 +1127,17 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                                     }
                                                     ?>
 
-                                                    <?php
+                    <?php
                                                     if (count($citeIn['Circular']) > 0) {
                                                         ?>
-                                                        <div class="expanding-blocks" data-block='citedin-circular'>Circular /Order/ROD (<?php echo count($citeIn['Circular']); ?>)<span class="expand">+</span>
-                                                            <?php if (count($citeIn['Circular']) > 10) { ?>
-                                                                <input type="text" class="related-search" id="myInput03" onkeyup="myFunction03()" placeholder="Search.."> <?php } ?></div>
-                                                        <?php
+                    <div class="expanding-blocks" data-block='citedin-circular'>Circular /Order/ROD (
+                        <?php echo count($citeIn['Circular']); ?>)<span class="expand">+</span>
+                        <?php if (count($citeIn['Circular']) > 10) { ?>
+                        <input type="text" class="related-search" id="myInput03" onkeyup="myFunction03()"
+                            placeholder="Search..">
+                        <?php } ?>
+                    </div>
+                    <?php
                                                         echo "<ul id='listing-citedin-circular' class='listing-blocks'>";
                                                         foreach ($citeIn['Circular'] as $judgement_map) {
                                                             echo "<li>";
@@ -1081,13 +1154,17 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                                     ?>
 
 
-                                                    <?php
+                    <?php
                                                     if (count($citeIn['Section']) > 0) {
                                                         ?>
-                                                        <div class="expanding-blocks" data-block='citedin-section'>Sections (<?php echo count($citeIn['Section']); ?>)<span class="expand">+</span>
-                                                            <?php if (count($citeIn['Section']) > 10) { ?>
-                                                                <input type="text" class="related-search" id="myInput04" onkeyup="myFunction04()" placeholder="Search.."> <?php } ?></div>
-                                                        <?php
+                    <div class="expanding-blocks" data-block='citedin-section'>Sections (
+                        <?php echo count($citeIn['Section']); ?>)<span class="expand">+</span>
+                        <?php if (count($citeIn['Section']) > 10) { ?>
+                        <input type="text" class="related-search" id="myInput04" onkeyup="myFunction04()"
+                            placeholder="Search..">
+                        <?php } ?>
+                    </div>
+                    <?php
                                                         echo "<ul id='listing-citedin-section' class='listing-blocks'>";
                                                         foreach ($citeIn['Section'] as $judgement_map) {
                                                             echo "<li>";
@@ -1103,13 +1180,17 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                                     }
                                                     ?>
 
-                                                    <?php
+                    <?php
                                                     if (count($citeIn['Rule']) > 0) {
                                                         ?>
-                                                        <div class="expanding-blocks border-bottom" data-block='citedin-rule'>Rules (<?php echo count($citeIn['Rule']); ?>)<span class="expand">+</span>
-                                                            <?php if (count($citeIn['Rule']) > 10) { ?>
-                                                                <input type="text" class="related-search" id="myInput05" onkeyup="myFunction05()" placeholder="Search.."> <?php } ?></div>
-                                                        <?php
+                    <div class="expanding-blocks border-bottom" data-block='citedin-rule'>Rules (
+                        <?php echo count($citeIn['Rule']); ?>)<span class="expand">+</span>
+                        <?php if (count($citeIn['Rule']) > 10) { ?>
+                        <input type="text" class="related-search" id="myInput05" onkeyup="myFunction05()"
+                            placeholder="Search..">
+                        <?php } ?>
+                    </div>
+                    <?php
                                                         echo "<ul id='listing-citedin-rule' class='listing-blocks'>";
                                                         foreach ($citeIn['Rule'] as $judgement_map) {
                                                             echo "<li>";
@@ -1125,15 +1206,17 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                                     }
                                                     ?>
 
-                                                <?php } ?>
-                                            </div>
-                                            <!--<div class="expanding-blocks">SIMILAR CASES <span class="expand">+</span></div>-->
-                                            <?php
+                    <?php } ?>
+                </div>
+                <!--<div class="expanding-blocks">SIMILAR CASES <span class="expand">+</span></div>-->
+                <?php
                                             if (count($similar_cases['bySection']) > 0) {
                                                 ?>
-                                                <div class='similar-cases-block'>
-                                                    <div class="expanding-blocks-header" data-block='similar-cases'><?php echo $similar_cases['headerSectionName']; ?></div>
-                                <?php
+                <div class='similar-cases-block'>
+                    <div class="expanding-blocks-header" data-block='similar-cases'>
+                        <?php echo $similar_cases['headerSectionName']; ?>
+                    </div>
+                    <?php
                                 $bysectionCntr = 0;
                                 foreach ($similar_cases['bySection'] as $sim_section => $blockData) {
                                     $bysectionCntr++;
@@ -1163,80 +1246,97 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                     echo "</ul>";
                                 }
                                 ?>
-                                                </div>
-                                                    <?php
+                </div>
+                <?php
                                                 }
                                                 ?>
 
-                                        </div>
+            </div>
 
-                            <?php
+            <?php
                         }
                         //end of left navigation panel
                         ?>
-                                    <div id='rightDisplayBordered' class="bordered" style="width:<?php echo $bordered_width; ?>;float:right">
-                                        <div class="col-md-8" >
-                                    <?php if ($PrevPageUrl != '') { ?>
-                                                <a href="<?php echo $PrevPageUrl; ?>"  class="coi-article-nav-btn-prev"><< Prev</a>
-                                            <?php } ?>
-                                        </div>
-                                        <div class="col-md-8" >
-                                            <?php if ($NextPageUrl != '') { ?>
-                                                <a href="<?php echo $NextPageUrl; ?>" class="coi-article-nav-btn-next">Next >></a>
-                                            <?php } ?>
-                                        </div>
+            <div id='rightDisplayBordered' class="bordered" style="width:<?php echo $bordered_width; ?>;float:right">
+                <div class="col-md-8">
+                    <?php if ($PrevPageUrl != '') { ?>
+                    <a href="<?php echo $PrevPageUrl; ?>" class="coi-article-nav-btn-prev">
+                        << Prev</a>
+                            <?php } ?>
+                </div>
+                <div class="col-md-8">
+                    <?php if ($NextPageUrl != '') { ?>
+                    <a href="<?php echo $NextPageUrl; ?>" class="coi-article-nav-btn-next">Next >></a>
+                    <?php } ?>
+                </div>
 
 
-                        <?php
+                <?php
                         $isPDFLink = "isPdf=0";
                         if ($file_extn == 'pdf') {
                             $isPDFLink = "isPdf=1";
                         }
                         // echo $getBaseUrl . $destination_Path . $file_path;
                                  // src='<?php echo "-?l=" . encrypt_url($getBaseUrl . $destination_Path . $file_path); 
-                                    /* ?> src='<?php echo  $getBaseUrl . $destination_Path . $file_path;?>' <?php  */
+                                    /* ?> src='
+                <?php echo  $getBaseUrl . $destination_Path . $file_path;?>'
+                <?php  */
                         ?>
-                                        <iframe onLoad="calcHeight();" <?php echo $isPDFLink; ?>   id='iFramePopupFrame' name='iFramePopupFrame' <?php
+
+
+                <iframe onLoad="calcHeight();" <?php echo $isPDFLink; ?> id='iFramePopupFrame' name='iFramePopupFrame'
+                    <?php
                                         if ($file_extn == 'pdf') {
-                                            ?> src='<?php echo $getBaseUrl . $file_path; ?>' <?php
+                                            ?> src='
+                    <?php echo $getBaseUrl . $file_path; ?>'
+                    <?php
                                         } else {
                                    
-                                            ?> src='<?php echo "-?l=" . encrypt_url($getBaseUrl . $destination_Path . $file_path);?>' <?php
+                                            ?> src='
+                    <?php echo "-?l=" . encrypt_url($getBaseUrl . $destination_Path . $file_path);?>'
+                    <?php
                                         }
-                                        ?> frameborder='0' allowtransparency='true' scrolling='no' width="100%" <?php
+                                        ?> frameborder='0' allowtransparency='true' scrolling='no' width="100%"
+                    <?php
                                                 if ($file_extn == 'pdf') {
                                                     echo " height='1130' ";
                                                 }
-                                                ?> ></iframe>
-                                    </div>
+                                                ?> >
+                </iframe>
+            </div>
 
-                                    <div class="clear"></div>
+            <div class="clear"></div>
 
-                                    <div class="pull-right text-right t-margin-10">
+            <div class="pull-right text-right t-margin-10">
 
-                                        <ul class="list-inline" >
+                <ul class="list-inline">
 
-                                            <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in" title="Email this page">Email this page</a></li>
+                    <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
+                            title="Email this page">Email this page</a></li>
 
-                                            <li><a href="javascript:void(0)" class="ion-printer btn " onclick="printIframe('iFramePopupFrame')" title="Print this page">Print this page </a></li>
+                    <li><a href="javascript:void(0)" class="ion-printer btn " onclick="printIframe('iFramePopupFrame')"
+                            title="Print this page">Print this page </a></li>
 
-                                            <li><input type="hidden" value="<?php echo encrypt_url($destination_Path . $file_path); ?>" name="file_path" id="file_path" />
+                    <li><input type="hidden" value="<?php echo encrypt_url($destination_Path . $file_path); ?>"
+                            name="file_path" id="file_path" />
 
-                                                <button type="submit" class="btn" name="downloadFile" ><i class="ion-android-archive"></i> Download File</button></li>
+                        <button type="submit" class="btn" name="downloadFile"><i class="ion-android-archive"></i>
+                            Download File</button>
+                    </li>
 
-                                        </ul>
+                </ul>
 
-                        <?php if ($file_extn != 'pdf') { ?>
+                <?php if ($file_extn != 'pdf') { ?>
 
-                                            <em>To download file as PDF, use PDF writer/printer. </em>
+                <em>To download file as PDF, use PDF writer/printer. </em>
 
-                                        <?php } ?>
+                <?php } ?>
 
-                                    </div>
+            </div>
 
 
 
-                        <?php
+            <?php
                     }
                 } else {
                     include('loggedInError.php');
@@ -1248,15 +1348,15 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
 
 
 
-            </div> 
+        </div>
 
-        </form>
+    </form>
 
 
 
-    </div> 
+</div>
 
-<?php } ?> 
+<?php } ?>
 
 
 
@@ -1265,19 +1365,23 @@ include('footer.php');
 ?>
 
 <!-- Logout Modal-->
-<div class="modal fade" id="recordInfoModal" tabindex="-1" role="dialog" aria-labelledby="recordInfoModal" aria-hidden="true">
+<div class="modal fade" id="recordInfoModal" tabindex="-1" role="dialog" aria-labelledby="recordInfoModal"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <!--                <h5 class="modal-title float-left" id="exampleModalLabel">Section 1</h5>-->
 
-                <a class="btn btn-primary btn_open_new_window" target="_blank" >Open in New Window to view related records</a>
+                <a class="btn btn-primary btn_open_new_window" target="_blank">Open in New Window to view related
+                    records</a>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"> X </span>
                 </button>
             </div>
             <div class="modal-body" style='height:600px;'>
-                <iframe id="iFramePreviewFrame" name="iFramePreviewFrame" src="-?l=ocq1xJlgYZ%2BjmJejoKjJtYPVmp6ap6llZpyayqKDooB7Ypedl6esnsigs8CjppyXoZuWa2e%2BtcE%3D" frameborder="0" allowtransparency="false" scrolling="yes" width="100%"></iframe>
+                <iframe id="iFramePreviewFrame" name="iFramePreviewFrame"
+                    src="-?l=ocq1xJlgYZ%2BjmJejoKjJtYPVmp6ap6llZpyayqKDooB7Ypedl6esnsigs8CjppyXoZuWa2e%2BtcE%3D"
+                    frameborder="0" allowtransparency="false" scrolling="yes" width="100%"></iframe>
             </div>
             <div class="modal-footer d-block float-left">
                 <!--                <a href="#" class="btn btn-primary btn-icon-split bg-info float-left" id='modal-btn-reprocess'>
@@ -1563,4 +1667,22 @@ include('footer.php');
             }
         }
     }
+</script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .then(editor => {
+            // Attach event listeners
+            editor.model.document.on('change:data', () => {
+                console.log('Editor data changed:', editor.getData());
+            });
+
+            editor.ui.view.document.on('click', (event, data) => {
+                console.log('Clicked on:', data.domTarget);
+            });
+        })
+        .catch(error => {
+            console.error(error)
+        });
 </script>
