@@ -1,0 +1,203 @@
+<style>
+    #GSTExplorerDiv{
+        display: none;
+        background: #fffff0;
+        position: fixed;
+        left: 0;
+        top: 100px;
+        color: orange;
+        height:650px;
+        width: 500px;
+        border-radius: 0 20px 20px 0px;
+        /*padding: 20px;*/
+        border:5px orange solid;
+        border-left:0px;
+        font-family:'calibri';
+        font-size:14px;
+        z-index: 12000;
+    }
+
+    #ExplorerPinDiv{
+        width: 50px;
+        height: 200px;
+        display: block;
+        background: orange;
+        position: fixed;
+        left: 0px;
+        top: 200px;
+        color: #FFF;
+        border-radius: 0 20px 20px 0px;
+        padding: 20px;
+        writing-mode: vertical-rl;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        letter-spacing: 5px;
+        z-index: 12000;
+    }
+
+    #GSTExplorerDiv .explorer-header{
+        text-align:left;
+        width:100%;
+        /*font-weight:bold;*/
+        cursor: pointer;
+        font-size: 20px;
+        clear:both;
+        border-bottom: 1px solid orange;
+        margin-bottom: 10px;
+        background: orange;
+        color:#FFF;
+        padding: 10px 20px;
+    }
+
+    #GSTExplorerDiv .explorer-hide{
+        text-align:right;
+        width:50%;
+        font-weight:normal;
+        cursor: pointer;
+        float:right;
+        font-size: 12px;
+        color:#FFF;
+    }
+
+    #GSTExplorerDiv .explorer-pane{
+        width:48%;
+        float:left;
+        padding-left: 10px;
+        /*border-right:1px solid orange;*/
+    }
+
+    #GSTExplorerDiv .explorer-expanding-blocks{
+        padding: 5px;
+        border: 1px solid gray;
+        background: #e0e0e0;
+        cursor: pointer;
+        /* font-weight: bold; */
+        font-size: 15px;
+        border-bottom: 0px;
+        color: black;
+        width: 228px;
+
+    }
+
+    #GSTExplorerDiv .explorer-expanding-blocks:last-child{
+        border-bottom:1px solid gray;
+    }
+
+    #GSTExplorerDiv .explorer-expanding-blocks-header{
+        text-align: left;
+        color: #000;
+        /* font-weight: bold; */
+        margin: 15px 0px 10px 0px;
+        background-color: #e0e0e0;
+        padding: 5px;
+        width: 228px;
+    }
+    #GSTExplorerDiv .explorer-expanding-blocks-header > option{
+        padding:10px;
+    }
+    #GSTExplorerDiv .explorer-expanding-blocks .expand{
+        width:20px;
+        float:right;
+    }
+    #GSTExplorerDiv .listing-blocks{
+        display:none;
+        padding-left:0px;     
+        list-style-type:none;
+        max-height: 200px;
+        overflow: auto;
+        /*width: 95%;*/
+        color:black;
+        border:1px solid gray;
+    }
+    #GSTExplorerDiv .listing-blocks li{
+        margin:2px 0px;
+        border-bottom:1px dashed #ccc;
+        padding:3px;
+        color:black;
+        font-weight: normal;
+
+    }
+
+    #GSTExplorerDiv .listing-blocks li:last-child{
+        margin:2px 0px;
+        border-bottom:0px;
+        padding:3px;
+    }
+
+    #GSTExplorerDiv .listing-blocks li:hover{
+    }
+
+    .bordered{
+        border: 1px orange solid;
+    }
+
+    #GSTExplorerDiv .listing-blocks li a:hover{
+        color:orange;
+    }
+    #GSTExplorerDiv .listing-blocks li a{
+        font-size:14px;
+    }
+
+    #GSTExplorerDiv .tooltip{
+        max-width:500px;
+        opacity:1;
+    }
+    #GSTExplorerDiv .tooltip > .tooltip-inner {
+        background-color: #F1F1f1 !important; 
+        color: #000; 
+        border: 1px solid green; 
+        padding: 5px 10px;
+        font-size: 15px;
+        max-width: 500px;
+        opacity:1 !important;
+        text-align:left;    
+    }
+    #GSTExplorerDiv .tooltip.right > .tooltip-arrow {
+        border-right: 5px solid green;
+    }
+    #GSTExplorerDiv .border-bottom{
+        border:1px solid gray;
+    }
+
+</style>
+
+<div id='ExplorerPinDiv'>
+    GST&nbsp;&nbsp;EXPLORER
+</div>
+
+<div id='GSTExplorerDiv'>
+    <div id='csrf-token_explorer' style='display:none'> <?php
+        $getUniqueCSRFToken = uniqid('explorer');
+        $_SESSION['explorer_csrf_token'] = $getUniqueCSRFToken;
+        echo $getUniqueCSRFToken;
+        ?>
+    </div>
+    <div class='explorer-header'>GST EXPLORER <div class='explorer-hide'> << Hide Explorer</div></div>
+    <div class='explorer-pane'>
+        <!--<div class="expanding-blocks-header">-->
+        <select class="explorer-expanding-blocks-header">
+            <option value='cgst'>CGST</option>
+            <option value='igst'>IGST</option>
+            <!--<option value='ccess'>CCESS</option>-->
+            <!--<option value='caselaws'>GST CASELAWS</option>-->
+        </select>
+        <!--</div>-->
+        <div class="explorer-expanding-blocks" data-block='sections'>Section<span class="expand">+</span></div>
+        <ul id='explorer-listing-sections' class='listing-blocks'></UL>
+        
+        <div class="explorer-expanding-blocks" data-block='rules'>Rules<span class="expand">+</span></div>
+        <ul id='explorer-listing-rules' class='listing-blocks'></UL>
+        
+        <div class="explorer-expanding-blocks" data-block='notifications'>Notifications<span class="expand">+</span></div>
+        <ul id='explorer-listing-notifications' class='listing-blocks'></UL>
+        
+        
+        <div class="explorer-expanding-blocks" data-block='circulars'>Circulars<span class="expand">+</span></div>
+        <ul id='explorer-listing-circulars' class='listing-blocks'></UL>
+        
+    </div>
+    <div class='explorer-pane'>
+
+    </div>
+</div>
