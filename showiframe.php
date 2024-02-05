@@ -1678,7 +1678,7 @@ include('footer.php');
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: 'prod_id=' + encodeURIComponent(8) + '&sub_prod_id=' + encodeURIComponent(68),
+            body: 'prod_id=' + encodeURIComponent(8) + '&sub_prod_id=' + encodeURIComponent(68) + '&data=' + encodeURIComponent('Heelojksnfksdvndvj '),
           });
           const responseData = await response.json();
           return responseData
@@ -1693,7 +1693,7 @@ include('footer.php');
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: 'prod_id=' + encodeURIComponent(8) + '&sub_prod_id=' + encodeURIComponent(68),
+            body: 'prod_id=' + encodeURIComponent(8) + '&sub_prod_id=' + encodeURIComponent(68) + '&data=' + encodeURIComponent('Heelojksnfksdvndvj'),
           });
           const responseData = await response.json();
           return responseData
@@ -1708,10 +1708,11 @@ include('footer.php');
             editor.model.document.on('change:data', () => {
                 console.log('Editor data changed:', editor.getData());
             });
-            fetchContentAsync().then((res=>{
-                console.log(res)
+            updateContentAsync().then((res=>{
+                console.log('TEST',res)
                 // debugger;
-                editor.setData(res?.message?.input_data);
+                editor.setData(res?.message);
+                // editor.setData(res?.message?.input_data);
             }))
             editor.ui.view.document.on('click', (event, data) => {
                 console.log('Clicked on:', data.domTarget);
