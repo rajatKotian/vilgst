@@ -1,24 +1,27 @@
 <?php
-      ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-session_start();
-// ajax-partyName-search.php
-$user_id = $_SESSION["id"];
-$prod_id = isset($_POST['prod_id']) ? $_POST['prod_id'] : '8';
-$sub_prod_id = isset($_POST['sub_prod_id']) ? $_POST['sub_prod_id'] : '68';
 
-$content = $_POST['content'];
-$cond =  "(user_id = '" . $user_id . "' AND prod_id = '" . $prod_id . "' AND sub_prod_id = '" . $sub_prod_id . "')";
+include('conn.php');
 
-$query = "
-SELECT * FROM user_notes
-    WHERE $cond
-    LIMIT 1
-";
+$subProdCollection = getSubProducts($_POST['prod_id']);
+$response = array('message' => $subProdCollection[0]);
 
-
-$response = array('message' => 'Content saved successfully '.$user_id." ".$query);
 echo json_encode($response);
-?>
 
+function getSubProducts($prod_id) {
+    $subProdCollection = [];
+  	$statement = mysqli_prepare($GLOBALS['con'], "SELECT * FROM user_notes");
+  
+    mysqli_stmt_bind_param($statement, 'i', $prod_id);
+    mysqli_stmt_execute($statement);
+
+    $result = mysqli_stmt_get_result($statement);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $subProdCollection[] = $row;
+    }
+
+    mysqli_stmt_close($statement);
+
+    return $subProdCollection;
+}
+?>

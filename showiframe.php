@@ -1710,7 +1710,8 @@ include('footer.php');
             });
             fetchContentAsync().then((res=>{
                 console.log(res)
-                editor.setData(`<p>${res.message}</p>`);
+                // debugger;
+                editor.setData(res?.message?.input_data);
             }))
             editor.ui.view.document.on('click', (event, data) => {
                 console.log('Clicked on:', data.domTarget);
