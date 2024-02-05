@@ -2,11 +2,15 @@
 
 include('conn.php');
 
-if(isset($_POST['prod_id']) && isset($_POST['sub_prod_id'])){
+if(isset($_POST['data']) && isset($_POST['prod_id']) && isset($_POST['sub_prod_id'])){
+  $response = array('message' => 'Update Successful');
+  echo json_encode($response);
+}
+else if(isset($_POST['prod_id']) && isset($_POST['sub_prod_id'])){
   $prod_id = filter_var($_POST['prod_id'], FILTER_SANITIZE_STRING);
   $sub_prod_id = filter_var($_POST['sub_prod_id'], FILTER_SANITIZE_STRING);
   
-  $subProdCollection = getSubProducts(
+  $subProdCollection = getUserNotes(
     $prod_id,
     $sub_prod_id,
     $_SESSION["id"]
@@ -17,7 +21,26 @@ if(isset($_POST['prod_id']) && isset($_POST['sub_prod_id'])){
 }
 
 
-function getSubProducts($prod_id,$sub_prod_id,$user_id) {
+function getUserNotes($prod_id,$sub_prod_id,$user_id) {
+    $subProdCollection = [];
+    $cond = "(prod_id = '".$prod_id."' AND sub_prod_id = '".$sub_prod_id."' AND user_id = '".$user_id."')";
+    $query= "SELECT * FROM user_notes WHERE ".$cond." LIMIT 1";
+
+  	$statement = mysqli_prepare($GLOBALS['con'], $query);  
+    mysqli_stmt_execute($statement);
+
+    $result = mysqli_stmt_get_result($statement);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $subProdCollection[] = $row;
+    }
+
+    mysqli_stmt_close($statement);
+
+    return $subProdCollection;
+};
+
+function updateUserNotes($prod_id,$sub_prod_id,$user_id) {
     $subProdCollection = [];
     $cond = "(prod_id = '".$prod_id."' AND sub_prod_id = '".$sub_prod_id."' AND user_id = '".$user_id."')";
     $query= "SELECT * FROM user_notes WHERE ".$cond." LIMIT 1";
