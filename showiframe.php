@@ -1678,7 +1678,7 @@ include('footer.php');
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: 'content=' + encodeURIComponent(content),
+            body: 'prod_id=' + encodeURIComponent(8) + '&sub_prod_id=' + encodeURIComponent(68),
           });
           const responseData = await response.json();
           return responseData
@@ -1693,7 +1693,7 @@ include('footer.php');
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: 'content=' + encodeURIComponent(content),
+            body: 'prod_id=' + encodeURIComponent(8) + '&sub_prod_id=' + encodeURIComponent(68),
           });
           const responseData = await response.json();
           return responseData
