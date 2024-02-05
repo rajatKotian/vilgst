@@ -77,14 +77,14 @@ function updateUserNotes($prod_id, $sub_prod_id, $user_id, $data) {
                           SET input_data = '$data', updated_at = '$timestamp' 
                           WHERE prod_id = '$prod_id' AND sub_prod_id = '$sub_prod_id' AND user_id = '$user_id'";
           mysqli_query($GLOBALS['con'], $query);
-          $myObject->message = "Record updated successfully";
+          $myObject->data = "Record updated successfully";
       
           
       } else {
           $query = "INSERT INTO user_notes (prod_id, sub_prod_id, user_id, input_data, created_at, updated_at) 
                           VALUES ('$prod_id', '$sub_prod_id', '$user_id', '$data', '$timestamp', '$timestamp')";
           mysqli_query($GLOBALS['con'], $query);
-          $myObject->message = "Record updated successfully";
+          $myObject->data = "Record updated successfully";
       }
       $myObject->success = true;
       $response = array('message' => $myObject);
@@ -92,10 +92,9 @@ function updateUserNotes($prod_id, $sub_prod_id, $user_id, $data) {
 
   } else {
       $myObject->success = false;
-      $myObject->message = "Error: " . mysqli_error($GLOBALS['con']);
+      $myObject->data = "Error: " . mysqli_error($GLOBALS['con']);
       $response = array('message' => $myObject);
       return $response; 
-      // Handle the query error, if any
   }
 }
 ?>
