@@ -1678,7 +1678,7 @@ include('footer.php');
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: 'prod_id=' + encodeURIComponent(8) + '&sub_prod_id=' + encodeURIComponent(68) + '&data=' + encodeURIComponent('Heelojksnfksdvndvj '),
+            body: 'prod_id=' + encodeURIComponent(8) + '&sub_prod_id=' + encodeURIComponent(68)
           });
           const responseData = await response.json();
           return responseData
@@ -1688,15 +1688,17 @@ include('footer.php');
     }
     async function updateContentAsync(content) {
         try {
-          const response = await fetch('fetchUserNotes.php', {
+        const body ='prod_id=' + encodeURIComponent(8) + '&sub_prod_id=' + encodeURIComponent(68) + '&data=' + encodeURIComponent(content)
+        
+        const response = await fetch('fetchUserNotes.php', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: 'prod_id=' + encodeURIComponent(8) + '&sub_prod_id=' + encodeURIComponent(68) + '&data=' + encodeURIComponent('Heelojksnfksdvndvj'),
+            body,
           });
-          const responseData = await response.json();
-          return responseData
+         
+          return await response.json();
         } catch (error) {
           console.error('Error:', error);
         }
@@ -1706,13 +1708,17 @@ include('footer.php');
         .then(editor => {
             // Attach event listeners
             editor.model.document.on('change:data', () => {
-                console.log('Editor data changed:', editor.getData());
+                console.log('editor.getData():::',editor.getData())
+                if(editor.getData()){
+                    updateContentAsync(editor.getData()).then(res=>{
+                        console.log('res:::',res?.message)
+                    })                    
+                }
+                
+               
             });
-            updateContentAsync().then((res=>{
-                console.log('TEST',res)
-                // debugger;
-                editor.setData(res?.message);
-                // editor.setData(res?.message?.input_data);
+            fetchContentAsync().then((res=>{
+                editor.setData(res?.message?.input_data);
             }))
             editor.ui.view.document.on('click', (event, data) => {
                 console.log('Clicked on:', data.domTarget);
