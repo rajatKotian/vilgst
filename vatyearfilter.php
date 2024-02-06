@@ -375,7 +375,8 @@ error_reporting(E_ALL);
     	</nav>
 	<?php
 
-		
+		$prod_id = $_GET["prod_id"];
+		$sub_prod_id = $_GET["sub_prod_id"];
 		while($row = mysqli_fetch_array($result)) {
 
 		$file_path = $row['Path'];
@@ -391,7 +392,7 @@ error_reporting(E_ALL);
 			if(empty($file_path)){
 	        	echo getEmptyCircularLink($encryptID, $dataType, $circular_no);
 	        }else{
-	        	echo getCircularLink($encryptID, $dataType, $circular_no);
+	        	echo getCircularLink($encryptID, $dataType, $circular_no,$prod_id, $sub_prod_id);
 	        }			 
 			echo getDownloadIcon($encryptID, $dataType);		         	 
 			

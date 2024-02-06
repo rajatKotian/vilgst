@@ -1,5 +1,7 @@
 <?php
-    // ini_set('display_errors', 1);
+$prod_id = $_GET['prod_id'];
+$sub_prod_id = $_GET['sub_prod_id']; 
+// ini_set('display_errors', 1);
     // ini_set('display_startup_errors', 1);
     // error_reporting(E_ALL);
   
@@ -1670,6 +1672,8 @@ include('footer.php');
 </script>
 
  <script>
+    const prodId = "<?php echo $prod_id; ?>";
+    const subProdId = "<?php echo $sub_prod_id; ?>";
      // Asynchronous function to save content
     async function fetchContentAsync(content) {
         try {
@@ -1678,7 +1682,7 @@ include('footer.php');
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: 'prod_id=' + encodeURIComponent(8) + '&sub_prod_id=' + encodeURIComponent(68)
+            body: 'prod_id=' + encodeURIComponent(prodId) + '&sub_prod_id=' + encodeURIComponent(subProdId)
           });
           const responseData = await response.json();
           return responseData
@@ -1688,7 +1692,7 @@ include('footer.php');
     }
     async function updateContentAsync(content) {
         try {
-        const body ='prod_id=' + encodeURIComponent(8) + '&sub_prod_id=' + encodeURIComponent(68) + '&data=' + encodeURIComponent(content)
+        const body ='prod_id=' + encodeURIComponent(prodId) + '&sub_prod_id=' + encodeURIComponent(subProdId) + '&data=' + encodeURIComponent(content)
         
         const response = await fetch('fetchUserNotes.php', {
             method: 'POST',

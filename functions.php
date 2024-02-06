@@ -849,7 +849,7 @@ function getDownloadIcon($encryptID, $dataType) {
  
 }
 
-function getCircularLink($encryptID, $dataType, $circular_no) {
+function getCircularLink($encryptID, $dataType, $circular_no, $prod_id=null, $sub_prod_id=null) {
   $moduleAccess = false;
   if(isLogeedIn()) {   
  
@@ -872,7 +872,7 @@ function getCircularLink($encryptID, $dataType, $circular_no) {
       } 
 
       if($moduleAccess) {
-        echo "<p><a class='clip' style='display : none;' href='showiframe?V1Zaa1VsQlJQVDA9=".$encryptID."&datatable=".$dataType."'>".$circular_no."</a><button data-id='$encryptID' data-type='$dataType' data-val='$circular_no' class='copy-file-link  bg-navy' style='cursor: pointer;' ><i class='fa fa-link' aria-hidden='true' data-toggle='tooltip' title='Copy Link'></i></button>&nbsp;&nbsp;<strong><a href='javascript:void(0)' title='Click here to download the file' onclick='showFrame(\"$encryptID\",null,\"".$dataType."\")'  >".$circular_no."</a></strong>  ";
+        echo "<p><a class='clip' style='display : none;' href='showiframe?V1Zaa1VsQlJQVDA9=".$encryptID."&datatable=".$dataType."&prod_id=".$prod_id."&sub_prod_id=".$sub_prod_id."'>".$circular_no."</a><button data-id='$encryptID' data-type='$dataType' data-val='$circular_no' class='copy-file-link  bg-navy' style='cursor: pointer;' ><i class='fa fa-link' aria-hidden='true' data-toggle='tooltip' title='Copy Link'></i></button>&nbsp;&nbsp;<strong><a href='javascript:void(0)' title='Click here to download the file' onclick='showFrame(\"$encryptID\",null,\"".$dataType."\")'  >".$circular_no."</a></strong>  ";
       } else {
         echo "<strong onClick='reqAccess()' >".$circular_no."</strong>";  
       }

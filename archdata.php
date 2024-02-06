@@ -262,13 +262,14 @@
 		    		</ul>
 		    	</nav>
 		    	<?php
-
+				$prod_id = $_GET["prod_id"];
+				$sub_prod_id = $_GET["sub_prod_id"];
 				while($row = mysqli_fetch_array($result)) {
 					$file_path = $row['Path'];
 					$file_extn = strtolower(substr($file_path,-3));
 					$CatgoryClass = preg_replace('/\s+/', '', $row['Statute'])."section";
 					$encryptID = base64_encode(base64_encode($row['data_id']));
-
+					
 					echo "<div class='widget-box $CatgoryClass'>";	
 						echo "<h4>";
 
@@ -277,7 +278,8 @@
 							if(empty($file_path)){
 					        	echo getEmptyCircularLink($encryptID, $dataType, $circular_no);
 					        }else{
-					        	echo getCircularLink($encryptID, $dataType, $circular_no);
+								$link = getCircularLink($encryptID, $dataType, $circular_no, $prod_id, $sub_prod_id);
+					        	echo $link;
 					        }	
 
 							echo getDownloadIcon($encryptID, $dataType);			         	 
