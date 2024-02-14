@@ -193,7 +193,7 @@ var searchFileName = function(val) {
   if(val !== 0 && val!=='customsearch') {
     window.location.href=val;
   }else{
-    $($("#searchFile").parents("div")[0]).append("<form action='http://www.vilgst.local/customsearch.php'><input type='text' name='q' placeholder='Enter Search Query'/><input type='submit'/> </form>")
+    $($("#searchFile").parents("div")[0]).append("<form action='https://www.vilgst.com/customsearch.php'><input type='text' name='q' placeholder='Enter Search Query'/><input type='submit'/> </form>")
   }
 }//<form action='http://localhost/harry/Vligst Download/customsearch'>
 
@@ -210,22 +210,60 @@ var reqAccess = function() {
 
 
 
-var showFrame = function(id,page,dataTable) {
+var showFrame = function (id, page, dataTable, prodId, subprodId) {
   if(page!==null) {
-
-    if(page == 'recent') {
-      window.location.href = "http://www.vilgst.local/showiframe?V1Zaa1VsQlJQVDA9=" + id + "&page=" + page;
-    } else if(page == 'emptypath'){
-      window.open("http://www.vilgst.local/showdata?V1Zaa1VsQlJQVDA9=" + id + "&datatable=" + dataTable, '_blank');
-    } else{
-      window.open("http://www.vilgst.local/showiframe?V1Zaa1VsQlJQVDA9=" + id + "&page=" + page, '_blank');
-    }  
+    if (prodId && subprodId) {
+      if (page == 'recent') {
+        window.location.href = "https://www.vilgst.com/showiframe?V1Zaa1VsQlJQVDA9=" + id + "&page=" + page + " &prod_id=" + prodId + " &sub_prod_id=" + subprodId;
+      } else if (page == 'emptypath') {
+        window.open("https://www.vilgst.com/showdata?V1Zaa1VsQlJQVDA9=" + id + "&datatable=" + dataTable + " &prod_id=" + prodId + " &sub_prod_id=" + subprodId, '_blank');
+      } else {
+        window.open("https://www.vilgst.com/showiframe?V1Zaa1VsQlJQVDA9=" + id + "&page=" + page + " &prod_id=" + prodId + " &sub_prod_id=" + subprodId, '_blank');
+      }
+    } else {
+      if (page == 'recent') {
+        window.location.href = "https://www.vilgst.com/showiframe?V1Zaa1VsQlJQVDA9=" + id + "&page=" + page;
+      } else if (page == 'emptypath') {
+        window.open("https://www.vilgst.com/showdata?V1Zaa1VsQlJQVDA9=" + id + "&datatable=" + dataTable, '_blank');
+      } else {
+        window.open("https://www.vilgst.com/showiframe?V1Zaa1VsQlJQVDA9=" + id + "&page=" + page, '_blank');
+      }
+    }
 
   } else {
-    window.open("http://www.vilgst.local/showiframe?V1Zaa1VsQlJQVDA9=" + id + "&datatable=" + dataTable, '_blank');  
+    if (prodId && subprodId) {
+      window.open("https://www.vilgst.com/showiframe?V1Zaa1VsQlJQVDA9=" + id + " & datatable=" + dataTable + " &prod_id=" + prodId + " &sub_prod_id=" + subprodId, '_blank');
+    } else {
+      window.open("https://www.vilgst.com/showiframe?V1Zaa1VsQlJQVDA9=" + id + "&datatable=" + dataTable, '_blank');
+    }
   }  
 
 }
+
+// var showFrame = function (id, page, dataTable, prodId, subprodId) {
+//   var baseUrl = "http://www.vilgst.local/showiframe?V1Zaa1VsQlJQVDA9=" + id;
+
+//   if (page !== null) {
+//     if (prodId && subprodId) {
+//       baseUrl += "&prod_id=" + prodId + "&sub_prod_id=" + subprodId;
+//     }
+
+//     if (page === 'recent') {
+//       window.location.href = baseUrl + "&page=" + page;
+//     } else if (page === 'emptypath') {
+//       window.open(baseUrl + "&datatable=" + dataTable, '_blank');
+//     } else {
+//       window.open(baseUrl + "&page=" + page, '_blank');
+//     }
+//   } else {
+//     if (prodId && subprodId) {
+//       baseUrl += "&datatable=" + dataTable + "&prod_id=" + prodId + "&sub_prod_id=" + subprodId;
+//     } else {
+//       baseUrl += "&datatable=" + dataTable;
+//     }
+//     window.open(baseUrl, '_blank');
+//   }
+// }
   
 /* -------------------------------------------------------------------------*
  * GO TO TOP

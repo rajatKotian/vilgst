@@ -177,7 +177,7 @@ var reqAccess = function() {
 
 
 
-var showFrame = function(id,page,dataTable) {
+var showFrame = function (id, page, dataTable, prodId, subprodId) {
   if(page!=null) {
 
     if(page == 'recent') {
@@ -187,7 +187,11 @@ var showFrame = function(id,page,dataTable) {
     }  
 
   } else {
-    window.open("showiframe?V1Zaa1VsQlJQVDA9="+id+"&datatable="+dataTable, '_blank');  
+    if (prodId && subprodId) {
+      window.open("showiframe?V1Zaa1VsQlJQVDA9=" + id + "&datatable=" + dataTable + "&prod_id=" + prodId + "&sub_prod_id=" + subprodId, '_blank');
+    } else {
+      window.open("showiframe?V1Zaa1VsQlJQVDA9=" + id + "&datatable=" + dataTable, '_blank');
+    }
   }  
 
 }

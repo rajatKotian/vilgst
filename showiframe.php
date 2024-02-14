@@ -70,7 +70,6 @@ include('SocialMedia.php');
     body {
         overflow: auto !important;
     }
-
     .data-summary {
         background: #fafafa;
         border: 1px solid #eee;
@@ -265,6 +264,33 @@ include('SocialMedia.php');
         border-width: thin;
         font-size: 14px;
         width: 90%;
+    }
+</style>
+<style>
+    .accordion {
+        display: flex;
+        justify-content: space-between;
+        border: black solid 2px;
+        background-color: #eee;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        text-align: left;
+        font-size: 15px;
+        transition: 0.4s;   
+        margin-bottom: 2px;    
+    }
+
+    .active,
+    .accordion:hover {
+        background-color: #ccc;
+    }
+
+    .panel {
+        padding: 0 18px;
+        display: none;
+        background-color: white;
+        overflow: hidden;
     }
 </style>
 <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
@@ -694,6 +720,8 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                     }
                                     ?>
 
+                    <li><a href="#add-notes" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
+                            title="Email this page">Add Notes</a></li>
                     <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
                             title="Email this page">Email this page</a></li>
 
@@ -763,6 +791,8 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                     }
                                     ?>
 
+                    <li><a href="#add-notes" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
+                            title="Email this page">Add Notes</a></li>
                     <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
                             title="Email this page">Email this page</a></li>
 
@@ -901,6 +931,8 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
 
                 <ul class="list-inline">
 
+                    <li><a href="#add-notes" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
+                            title="Email this page">Add Notes</a></li>
                     <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
                             title="Email this page">Email this page</a></li>
 
@@ -1067,7 +1099,7 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                                     echo "</ul>";
                                                 }
                                                 ?>
-                
+
                 <div class='cited-in-block'>
                     <div class="expanding-blocks-header" data-block='citedin'>CITED IN</div>
                     <?php
@@ -1208,10 +1240,12 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
 
                     <?php } ?>
                 </div>
-                <!--<div class="expanding-blocks">SIMILAR CASES <span class="expand">+</span></div>-->
-                <?php
-                                            if (count($similar_cases['bySection']) > 0) {
-                                                ?>
+                <div class="expanding-blocks-header" data-block='citedin'>ADDED NOTES</div>
+               
+                <ul id="myList" style="list-style: none">
+                    <!-- List items will be populated here -->
+                </ul>
+                <?php if (count($similar_cases['bySection']) > 0) { ?>
                 <div class='similar-cases-block'>
                     <div class="expanding-blocks-header" data-block='similar-cases'>
                         <?php echo $similar_cases['headerSectionName']; ?>
@@ -1247,9 +1281,7 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                 }
                                 ?>
                 </div>
-                <?php
-                                                }
-                                                ?>
+                <?php } ?>
 
             </div>
             <?php
@@ -1257,9 +1289,9 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                         //end of left navigation panel
                         ?>
             <div id='rightDisplayBordered' class="bordered" style="width:<?php echo $bordered_width; ?>;float:right">
-                <div id="editor">
-                    <!-- <p>This is some sample content.</p> -->
-                </div>
+                <!-- <div id="editor">
+                 <p>This is some sample content.</p> 
+                </div> -->
                 <div class="col-md-8">
                     <?php if ($PrevPageUrl != '') { ?>
                     <a href="<?php echo $PrevPageUrl; ?>" class="coi-article-nav-btn-prev">
@@ -1313,6 +1345,8 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
 
                 <ul class="list-inline">
 
+                    <li><a href="#add-notes" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
+                            title="Add Notes">Add Notes</a></li>
                     <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
                             title="Email this page">Email this page</a></li>
 
@@ -1671,64 +1705,107 @@ include('footer.php');
     }
 </script>
 
- <script>
-    const prodId = "<?php echo $prod_id; ?>";
-    const subProdId = "<?php echo $sub_prod_id; ?>";
-     // Asynchronous function to save content
-    async function fetchContentAsync(content) {
+<script>    
+    async function deleteContentById(id) {
+            try {
+            const body= 'notes_id=' + encodeURIComponent(id) + '&delete=true' 
+            const response = await fetch('fetchUserNotes.php', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body
+            });
+            const responseData = await response.json();
+            console.log('responseData:::',responseData)
+            return responseData
+            } catch (error) {
+            console.error('Error:', error);
+            }
+        }
+
+    async function fetchContentById(id) {
         try {
+          const body= 'notes_id=' + encodeURIComponent(id) 
           const response = await fetch('fetchUserNotes.php', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: 'prod_id=' + encodeURIComponent(prodId) + '&sub_prod_id=' + encodeURIComponent(subProdId)
+            body
           });
           const responseData = await response.json();
+        
+        // Set the content of the editor with the response data
+          console.log('responseData:::',responseData)
           return responseData
         } catch (error) {
           console.error('Error:', error);
         }
     }
-    async function updateContentAsync(content) {
-        try {
-        const body ='prod_id=' + encodeURIComponent(prodId) + '&sub_prod_id=' + encodeURIComponent(subProdId) + '&data=' + encodeURIComponent(content)
-        
-        const response = await fetch('fetchUserNotes.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body,
-          });
-         
-          return await response.json();
-        } catch (error) {
-          console.error('Error:', error);
-        }
-    }
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .then(editor => {
-            // Attach event listeners
-            editor.model.document.on('change:data', () => {
-                console.log('editor.getData():::',editor.getData())
-                if(editor.getData()){
-                    updateContentAsync(editor.getData()).then(res=>{
-                        console.log('res:::',res?.message)
-                    })                    
-                }
+
+   fetchContentAsync().then((res=>{
+          if (res.message.length) {
+            var myList = document.getElementById('myList');
+
+            res.message.forEach(function (item) {
                 
+                var li = document.createElement('li'); 
+                li.className = "accordion"
+                li.id = item.id
                
+                
+                var anchor = document.createElement('a'); 
+                anchor.className = "open-popup-link";
+                anchor.href = "#add-notes";
+                anchor.style = "color: black;text-transform: uppercase;"
+                anchor.setAttribute('data-effect', 'mfp-zoom-in');
+                anchor.setAttribute('title', item?.title);
+                anchor.textContent = item?.title;
+
+                var deleteIcon = document.createElement('span');
+                deleteIcon.className = "delete-icon";
+                deleteIcon.textContent = "❌";
+
+                // Add click event listener to delete icon
+                deleteIcon.addEventListener('click', function(event) {
+                    var id = event.target.closest('li').id; 
+                    deleteContentById(id).then(()=>{
+                        li.remove();
+                    })
+                });
+               
+                li.addEventListener('click', function(event) {
+                    fetchContentById(li.id).then((res)=>{
+                        console.log(res);
+                        editorInstance.setData(res[0]?.input_data)
+                    });
+                    
+                });
+
+               
+                li.appendChild(anchor);
+                li.appendChild(deleteIcon);
+
+                myList.appendChild(li);
             });
-            fetchContentAsync().then((res=>{
-                editor.setData(res?.message?.input_data);
-            }))
-            editor.ui.view.document.on('click', (event, data) => {
-                console.log('Clicked on:', data.domTarget);
+
+            $('.open-popup-link').magnificPopup({
+            removalDelay: 500, //delay removal by X to allow out-animation
+            callbacks: {
+                beforeOpen: function () {
+                    this.st.mainClass = this.st.el.attr('data-effect');
+                },
+                beforeClose: function () {
+                    $('.mfp-container').find('.alert').hide();
+                    $('.mfp-container').find('.form-group').removeClass('has-error');
+                }
+            },
+            midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
             });
-        })
-        .catch(error => {
-            console.error(error)
-        });
+
+            listAlreadyPopulated = true;
+         }
+        }
+        )) ;
 </script>

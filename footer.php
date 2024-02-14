@@ -274,6 +274,26 @@
   </form>     
 </div>
 
+<div id="add-notes" class="white-popup mfp-with-anim mfp-hide">
+  <form role="form" name="addNotes" id="addNotes" method="post" action="./" autocomplete="off">
+    <h3>Add Notes</h3>
+    <hr>
+    <div id="editor">
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-16">
+        <button type="button" id="saveButton" class="btn btn-block btn-lg">Save notes</button>
+      </div>
+    </div>
+  </form>  
+</div>
+
+</script>
+</div>
+    
+</div>
+
 <div id="taxvistafeedback" class="white-popup mfp-with-anim mfp-hide">
         <form role="form" name="taxvistafeedbackForm" id="taxvistafeedbackForm" method="post" action="./"  autocomplete="off">
             <h3>Feedback this page</h3>
@@ -421,6 +441,7 @@
 
 </div>
 <!-- wrapper end --> 
+<script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
 
 <!-- jQuery --> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
@@ -451,50 +472,110 @@
 <script src="<?php echo $getBaseUrl; ?>js/custom.js?ver=160720200100"></script>
 <script src="<?php echo $getBaseUrl; ?>js/vilgst.explorer.js?ver=08092020_01"></script>
 
+<script>
+    let editorInstance; 
+    const prodId = "<?php echo $prod_id; ?>";
+    const subProdId = "<?php echo $sub_prod_id; ?>";
+    const notesId = "<?php echo $notes_id; ?>";
+    let data = ''
+    let setData = ''
+     // Asynchronous function to save content
+    async function deleteContentById(id) {
+        try {
+          const body= 'notes_id=' + encodeURIComponent(id) + '&delete=true' 
+          const response = await fetch('fetchUserNotes.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body
+          });
+          const responseData = await response.json();
+          console.log('responseData:::',responseData)
+          return responseData
+        } catch (error) {
+          console.error('Error:', error);
+        }
+    }
+
+    async function fetchContentAsync(content) {
+        try {
+          const body= 'prod_id=' + encodeURIComponent(prodId) + '&sub_prod_id=' + encodeURIComponent(subProdId) + '&get_notes=true'
+          const response = await fetch('fetchUserNotes.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body
+          });
+          const responseData = await response.json();
+          return responseData
+        } catch (error) {
+          console.error('Error:', error);
+        }
+    }
+
+    async function updateContentAsync(content,notes_id) {
+        try {
+        const body ='prod_id=' + encodeURIComponent(prodId) + '&notes_id=' + encodeURIComponent(notes_id) + '&sub_prod_id=' + encodeURIComponent(subProdId) + '&data=' + encodeURIComponent(content)
+        
+        const response = await fetch('fetchUserNotes.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body,
+          });
+         
+          return await response.json();
+        } catch (error) {
+          console.error('Error:', error);
+        }
+    }
+
+    async function addNotes(content) {
+        try {
+        const body ='prod_id=' + encodeURIComponent(prodId) + '&sub_prod_id=' + encodeURIComponent(subProdId) + '&data=' + encodeURIComponent(content)
+        const response = await fetch('fetchUserNotes.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body,
+          });
+         
+          return await response.json();
+        } catch (error) {
+          console.error('Error:', error);
+        }
+    }
+
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .then(editor => {
+            editorInstance = editor;
+        })
+        .catch(error => {
+            console.error(error)
+        });
+        document.getElementById('saveButton').onclick = function() {
+           if(data){
+              addNotes(data).then(res=>{
+                console.log(res)
+              })                    
+            }
+        };    
+        // document.getElementById('updateButton').onclick = function() {
+        //    if(data){
+        //     updateContentAsync(data,notesId).then(res=>{
+        //         console.log(res)
+        //       })                    
+        //     }
+        // };     
+</script>
+
 </body>
 </html>
-<!--<script type="text/javascript">-->
-<!--  $(document).ready(function(){-->
-<!--    $("#gst_rate").click(function(){-->
-<!--      debugger;-->
-      
-<!--      $.ajax({-->
-      
-<!--          type :'POST',-->
-<!--          dataType: 'html', -->
-<!--          success: function(data){-->
-<!--            debugger;-->
-<!--            $("#show_gst_rate").css('display','block');-->
-<!--            $("#show_gst_rate").html(data);-->
-<!--            $(".main_div").css('display','none');-->
-
-<!--          }-->
-
-<!--      });-->
-<!--      return false;-->
-
-<!--    });-->
-
-<!--    $("#ratebtn").click(function(){-->
-<!--      debugger;-->
-<!--      alert();-->
-<!--      return false;-->
-<!--      $.ajax({-->
-      
-<!--          type :'POST',-->
-<!--          dataType: 'html', -->
-<!--          success: function(data){-->
-<!--            debugger;-->
-<!--            $("#show_gst_rate").css('display','block');-->
-<!--            $("#show_gst_rate").html(data);-->
-<!--            $("#home_view").css('display','none');-->
-<!--          }-->
-
-<!--      });-->
-
-<!--    });-->
-<!--  });-->
-<!--</script>-->
 <script type="text/javascript">
 /* Remove this once in production */ 
 /* 
