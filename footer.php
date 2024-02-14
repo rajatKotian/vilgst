@@ -284,7 +284,6 @@
     <div class="row">
       <div class="col-sm-16">
         <button type="button" id="saveButton" class="btn btn-block btn-lg">Save notes</button>
-        <button type="button" id="updateButton" class="btn btn-block btn-lg" style="display:none;">Update notes</button>
       </div>
     </div>
   </form>  
@@ -475,6 +474,7 @@
 
 <script>
     let editorInstance; 
+    let notedId;
     let loader = false; 
     const prodId = "<?php echo $prod_id; ?>";
     const subProdId = "<?php echo $sub_prod_id; ?>";
@@ -519,7 +519,7 @@
 
     async function updateContentAsync(content,notes_id) {
         try {
-        const body ='prod_id=' + encodeURIComponent(prodId) + '&notes_id=' + encodeURIComponent(notes_id) + '&sub_prod_id=' + encodeURIComponent(subProdId) + '&data=' + encodeURIComponent(content)
+        const body ='notes_id=' + encodeURIComponent(notes_id) + '&data=' + encodeURIComponent(content)
         
         const response = await fetch('fetchUserNotes.php', {
             method: 'POST',
@@ -572,40 +572,41 @@
             document.getElementById('saveButton').onclick = function() {
               loader =true;
               updateButtonState();
-              
-              if(data){
-                addNotes(data).then(res=>{
-                  loader =false;
-                  editor.setData('')
-                  updateButtonState();
-
-                  console.log(res)
-                 
-                }).catch(()=>{
-                  loader = false;
-                  updateButtonState();
-                })   
-
+              let parser = new DOMParser();
+              let doc = parser.parseFromString(data, 'text/html');
+              const id  = sessionStorage.getItem('notedId');
+              console.log('notedId:::',id)
+              if (data) {
+                if (id) {
+                  updateContentAsync(data, id).then(res => {
+                    console.log('UPDATED NOTES');
+                  }).catch((error) => {
+                    console.log('UPDATED NOTES ERROR::', error);
+                  }).finally(() => {
+                    loader = false;
+                    updateButtonState();
+                    editor.setData('');
+                    location.reload();
+                  });
+                } else {
+                  addNotes(data).then(res => {
+                    console.log('ADDED NOTES');
+                  }).catch((error) => {
+                    console.log('ADDED NOTES ERROR::', error);
+                  }).finally(() => {
+                    loader = false;
+                    updateButtonState();
+                    editor.setData('');
+                    location.reload();
+                  });
+                }
               }
             };
         }).catch(error => {
             console.error(error)
         });
 
-          
-        document.getElementById('updateButton').onclick = function() {
-           if(data&&notesId){
-            updateContentAsync(data,notesId).then(res=>{
-                loader =false;
-                updateButtonState();
-                console.log(res)
-              }) .catch(()=>{
-                loader = false;
-                updateButtonState();
-
-            })           
-            }
-        };     
+            
 </script>
 
 </body>

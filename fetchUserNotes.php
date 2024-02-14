@@ -11,25 +11,22 @@ if(isset($_POST['notes_id'])){
     );
     echo json_encode($response_data);
   }
-  else if (!isset($_POST['data']) && !isset($_POST['prod_id']) && !isset($_POST['sub_prod_id'])){
-    $response_data = getUserNotesById(
-      $notes_id
-    );
-    echo json_encode($response_data);
-  }
-  else if(isset($_POST['data']) && isset($_POST['prod_id']) && isset($_POST['sub_prod_id'])){
+  else if(isset($_POST['data']) ){
     $data = $_POST['data'];
-    
     $response_data = updateUserNotes(
-      $prod_id,
-      $sub_prod_id,
-      $_SESSION["id"],
       $data,
       $notes_id
     );
   
     echo json_encode($response_data);
   }
+  else if (!isset($_POST['data']) && !isset($_POST['prod_id']) && !isset($_POST['sub_prod_id'])){
+    $response_data = getUserNotesById(
+      $notes_id
+    );
+    echo json_encode($response_data);
+  }
+  
 }else if(isset($_POST['get_notes'])){
   $prod_id = filter_var($_POST['prod_id'], FILTER_SANITIZE_STRING);
   $sub_prod_id = filter_var($_POST['sub_prod_id'], FILTER_SANITIZE_STRING);
@@ -131,7 +128,7 @@ function getUserNotes($prod_id,$sub_prod_id,$user_id) {
     return $subProdCollection;
 };
 
-function updateUserNotes($prod_id, $sub_prod_id, $user_id, $data,$notes_id) {
+function updateUserNotes($data,$notes_id) {
   $subProdCollection = [];
   $query= '';
   $response= array();
@@ -146,7 +143,7 @@ function updateUserNotes($prod_id, $sub_prod_id, $user_id, $data,$notes_id) {
   $timestamp = date("Y-m-d H:i:s");
   $timestamp = date("Y-m-d H:i:s");
   // Check if user note exists
-  $checkQuery = "SELECT COUNT(*) AS count FROM user_notes WHERE id = '$notes_id' AND prod_id = '$prod_id' AND sub_prod_id = '$sub_prod_id' AND user_id = '$user_id' AND status = 'active' ";
+  $checkQuery = "SELECT COUNT(*) AS count FROM user_notes WHERE id = '$notes_id' AND status = 'active' ";
   $checkResult = mysqli_query($GLOBALS['con'], $checkQuery);
   
   if ($checkResult) {
@@ -155,7 +152,7 @@ function updateUserNotes($prod_id, $sub_prod_id, $user_id, $data,$notes_id) {
       
       $query = "UPDATE user_notes 
       SET input_data = '$data', updated_at = '$timestamp', title = '$title'
-      WHERE prod_id = '$prod_id' AND sub_prod_id = '$sub_prod_id' AND user_id = '$user_id'";
+      WHERE id = '$notes_id'";
       mysqli_query($GLOBALS['con'], $query);
       $myObject->data = "Record updated successfully";
       

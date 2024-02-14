@@ -270,10 +270,10 @@ include('SocialMedia.php');
     .accordion {
         display: flex;
         justify-content: space-between;
-        border: black solid 2px;
+        border: black solid 1px;
         background-color: #eee;
         cursor: pointer;
-        padding: 18px;
+        padding: 10px;
         width: 100%;
         text-align: left;
         font-size: 15px;
@@ -1743,7 +1743,9 @@ include('footer.php');
           console.error('Error:', error);
         }
     }
-
+    window.addEventListener("DOMContentLoaded", function() {
+        sessionStorage.removeItem('notedId')
+    }, false);
    fetchContentAsync().then((res=>{
           if (res.message.length) {
             var myList = document.getElementById('myList');
@@ -1776,11 +1778,13 @@ include('footer.php');
                 });
                
                 li.addEventListener('click', function(event) {
-                    fetchContentById(li.id).then((res)=>{
+                    fetchContentById(li.id).then((res) => {
                         console.log(res);
-                        editorInstance.setData(res[0]?.input_data)
+                        if (res[0]?.id) {
+                            sessionStorage.setItem('notedId', res[0]?.id);
+                            editorInstance.setData(res[0]?.input_data);
+                        }
                     });
-                    
                 });
 
                
@@ -1797,6 +1801,8 @@ include('footer.php');
                     this.st.mainClass = this.st.el.attr('data-effect');
                 },
                 beforeClose: function () {
+                    editorInstance.setData('');
+                    sessionStorage.removeItem('notedId')
                     $('.mfp-container').find('.alert').hide();
                     $('.mfp-container').find('.form-group').removeClass('has-error');
                 }
