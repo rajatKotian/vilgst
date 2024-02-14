@@ -284,6 +284,7 @@
     <div class="row">
       <div class="col-sm-16">
         <button type="button" id="saveButton" class="btn btn-block btn-lg">Save notes</button>
+        <button type="button" id="updateButton" class="btn btn-block btn-lg" style="display:none;">Update notes</button>
       </div>
     </div>
   </form>  
@@ -474,6 +475,7 @@
 
 <script>
     let editorInstance; 
+    let loader = false; 
     const prodId = "<?php echo $prod_id; ?>";
     const subProdId = "<?php echo $sub_prod_id; ?>";
     const notesId = "<?php echo $notes_id; ?>";
@@ -542,11 +544,18 @@
               'Content-Type': 'application/x-www-form-urlencoded',
             },
             body,
-          });
-         
+          });         
           return await response.json();
         } catch (error) {
           console.error('Error:', error);
+        }
+    }
+    const saveButton = document.getElementById('saveButton');
+    function updateButtonState() {
+        if (loader) {
+            saveButton.disabled = true; // Disable the button
+        } else {
+            saveButton.disabled = false; // Enable the button
         }
     }
 
@@ -554,24 +563,49 @@
         .create(document.querySelector('#editor'))
         .then(editor => {
             editorInstance = editor;
-        })
-        .catch(error => {
+            editor.model.document.on('change:data', () => {
+                if(editor.getData()){
+                  data = editor.getData()
+                }
+              });
+
+            document.getElementById('saveButton').onclick = function() {
+              loader =true;
+              updateButtonState();
+              
+              if(data){
+                addNotes(data).then(res=>{
+                  loader =false;
+                  editor.setData('')
+                  updateButtonState();
+
+                  console.log(res)
+                 
+                }).catch(()=>{
+                  loader = false;
+                  updateButtonState();
+                })   
+
+              }
+            };
+        }).catch(error => {
             console.error(error)
         });
-        document.getElementById('saveButton').onclick = function() {
-           if(data){
-              addNotes(data).then(res=>{
+
+          
+        document.getElementById('updateButton').onclick = function() {
+           if(data&&notesId){
+            updateContentAsync(data,notesId).then(res=>{
+                loader =false;
+                updateButtonState();
                 console.log(res)
-              })                    
+              }) .catch(()=>{
+                loader = false;
+                updateButtonState();
+
+            })           
             }
-        };    
-        // document.getElementById('updateButton').onclick = function() {
-        //    if(data){
-        //     updateContentAsync(data,notesId).then(res=>{
-        //         console.log(res)
-        //       })                    
-        //     }
-        // };     
+        };     
 </script>
 
 </body>

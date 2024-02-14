@@ -1706,6 +1706,7 @@ include('footer.php');
 </script>
 
 <script>    
+    let isUpdate; 
     async function deleteContentById(id) {
             try {
             const body= 'notes_id=' + encodeURIComponent(id) + '&delete=true' 
@@ -1735,9 +1736,8 @@ include('footer.php');
             body
           });
           const responseData = await response.json();
-        
-        // Set the content of the editor with the response data
-          console.log('responseData:::',responseData)
+          isUpdate = id ? true: false
+          console.log('responseData:::',isUpdate)
           return responseData
         } catch (error) {
           console.error('Error:', error);
