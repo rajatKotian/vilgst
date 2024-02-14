@@ -721,7 +721,7 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                     ?>
 
                     <li><a href="#add-notes" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
-                            title="Email this page">Add Notes</a></li>
+                            title="Add Notes">Add Notes</a></li>
                     <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
                             title="Email this page">Email this page</a></li>
 
@@ -792,7 +792,7 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                                     ?>
 
                     <li><a href="#add-notes" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
-                            title="Email this page">Add Notes</a></li>
+                            title="Add Notes">Add Notes</a></li>
                     <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
                             title="Email this page">Email this page</a></li>
 
@@ -932,7 +932,7 @@ function getPrevArticleURL($c_article_seq_no, $c_chapter_id, $c_chapter_seq_no) 
                 <ul class="list-inline">
 
                     <li><a href="#add-notes" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
-                            title="Email this page">Add Notes</a></li>
+                            title="Add Notes">Add Notes</a></li>
                     <li><a href="#email-this-page" class="ion-email  btn open-popup-link" data-effect="mfp-zoom-in"
                             title="Email this page">Email this page</a></li>
 

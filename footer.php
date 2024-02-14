@@ -553,8 +553,11 @@
     const saveButton = document.getElementById('saveButton');
     function updateButtonState() {
         if (loader) {
+            saveButton.innerText = 'Saving ';
+            saveButton.innerHTML = '<span ><i class="fas fa-spinner fa-spin"></i></span>';
             saveButton.disabled = true; // Disable the button
         } else {
+            saveButton.innerText = 'Save Notes'
             saveButton.disabled = false; // Enable the button
         }
     }
