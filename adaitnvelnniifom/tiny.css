@@ -1,0 +1,22 @@
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: 0 0;
+    color: inherit;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    font-weight: 400;
+  }
+
+  link {
+    display: none;
+}
+p{
+    margin-top:0in;
+    margin-right:0in;
+    margin-bottom:10.0pt;
+    margin-left:0in;
+    line-height: 115%;
+}
